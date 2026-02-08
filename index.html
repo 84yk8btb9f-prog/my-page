@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nikolas Sapalidis - 16-year-old Web Developer & Designer from Greece. Building modern, responsive websites.">
-    <title>Nikolas Sapalidis | Web Developer & Designer</title>
+    <meta name="description" content="Nikolas Sapalidis - Web Developer in Athens. Modern websites in 5 days. From €150. Bilingual EN/GR.">
+    <title>Nikolas Sapalidis | Web Developer Athens</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,12 +21,12 @@
         <div class="nav-container">
             <div class="logo">NS</div>
             <ul class="nav-menu">
-                <li><a href="#home" data-en="Home" data-gr="Αρχική">Home</a></li>
-                <li><a href="#about" data-en="About" data-gr="Σχετικά">About</a></li>
-                <li><a href="#projects" data-en="Projects" data-gr="Έργα">Projects</a></li>
-                <li><a href="#skills" data-en="Skills" data-gr="Δεξιότητες">Skills</a></li>
-                <li><a href="#contact" data-en="Contact" data-gr="Επικοινωνία">Contact</a></li>
+                <li><a href="#home" data-translate="nav-home">Home</a></li>
+                <li><a href="#work" data-translate="nav-work">Work</a></li>
+                <li><a href="#pricing" data-translate="nav-pricing">Pricing</a></li>
+                <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
             </ul>
+            <a href="#pricing" class="btn-nav" data-translate="nav-btn">Get Started</a>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -36,206 +36,235 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge" data-en="BUILDING IN PUBLIC" data-gr="ΧΤΙΖΟΝΤΑΣ ΔΗΜΟΣΙΑ">BUILDING IN PUBLIC</div>
-            <h1>
-                <span data-en="Hi, I'm" data-gr="Γεια, είμαι ο">Hi, I'm</span>
-                <span class="gradient-text">Nikolas Sapalidis</span>
-            </h1>
-            <div class="hero-subtitle">
-                <span class="typing-text" data-en="Web Developer & Designer" data-gr="Web Developer & Designer">Web Developer & Designer</span>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-translate="hero-badge">Building in Public</div>
+                <h1>
+                    <span data-translate="hero-title-1">Modern Websites</span><br>
+                    <span class="gradient-text typing-text" data-en="Delivered in 5 Days" data-gr="Σε 5 Ημέρες">Delivered in 5 Days</span>
+                </h1>
+                <p class="hero-description" data-translate="hero-desc">
+                    Professional, mobile-responsive websites for Greek businesses. Bilingual support (EN/GR), clean code, and fast delivery. No agencies, no overhead — just quality work.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary">
+                        <span data-translate="hero-btn-1">View Pricing</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#work" class="btn btn-secondary" data-translate="hero-btn-2">See Examples</a>
+                </div>
             </div>
-            <p class="hero-description" data-en="16-year-old entrepreneur documenting my journey of building modern, responsive websites. Specializing in bilingual (EN/GR) sites with clean design and smooth functionality." data-gr="16χρονος επιχειρηματίας που καταγράφει το ταξίδι μου στη δημιουργία σύγχρονων, responsive ιστοσελίδων. Ειδίκευση σε δίγλωσσες (EN/GR) ιστοσελίδες με καθαρό design και ομαλή λειτουργικότητα.">
-                16-year-old entrepreneur documenting my journey of building modern, responsive websites. Specializing in bilingual (EN/GR) sites with clean design and smooth functionality.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <span data-en="View Projects" data-gr="Δες τα Έργα">View Projects</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#contact" class="btn btn-secondary" data-en="Get in Touch" data-gr="Επικοινωνία">Get in Touch</a>
-            </div>
-            <div class="hero-stats">
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-number">4</div>
-                    <div class="stat-label" data-en="Live Projects" data-gr="Ζωντανά Έργα">Live Projects</div>
+                    <div class="stat-label" data-translate="stat-1-label">Live Projects</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label" data-en="Responsive" data-gr="Responsive">Responsive</div>
+                    <div class="stat-label" data-translate="stat-2-label">Responsive</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label" data-translate="stat-3-label">Days Delivery</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">2</div>
-                    <div class="stat-label" data-en="Languages" data-gr="Γλώσσες">Languages</div>
+                    <div class="stat-label" data-translate="stat-4-label">Languages</div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
     </section>
 
-    <section id="about" class="about-section">
+    <section id="work" class="work-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-label" data-en="WHO I AM" data-gr="ΠΟΙΟΣ ΕΙΜΑΙ">WHO I AM</span>
-                <h2 data-en="About Me" data-gr="Σχετικά με Εμένα">About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-en="I'm a 16-year-old student, founder, and content creator from Greece, documenting my journey of discipline, entrepreneurship, and self-improvement. I build projects from the ground up while sharing everything I learn about web development, design, and business." data-gr="Είμαι ένας 16χρονος μαθητής, ιδρυτής και content creator από την Ελλάδα, που καταγράφει το ταξίδι μου σε πειθαρχία, επιχειρηματικότητα και προσωπική ανάπτυξη. Χτίζω έργα από το μηδέν ενώ μοιράζομαι όλα όσα μαθαίνω για web development, σχεδιασμό και επιχειρηματικότητα.">
-                        I'm a 16-year-old student, founder, and content creator from Greece, documenting my journey of discipline, entrepreneurship, and self-improvement. I build projects from the ground up while sharing everything I learn about web development, design, and business.
-                    </p>
-                    <p data-en="My focus is on creating clean, functional websites that work seamlessly in both English and Greek. Every project is an opportunity to learn, iterate, and deliver value. I operate with a zero-budget setup using free tools and practical strategies—proving that skill and execution matter more than resources." data-gr="Η εστίασή μου είναι στη δημιουργία καθαρών, λειτουργικών ιστοσελίδων που λειτουργούν άψογα τόσο στα Αγγλικά όσο και στα Ελληνικά. Κάθε έργο είναι μια ευκαιρία να μάθω, να βελτιώσω και να προσφέρω αξία. Λειτουργώ με μηδενικό προϋπολογισμό χρησιμοποιώντας δωρεάν εργαλεία και πρακτικές στρατηγικές—αποδεικνύοντας ότι η δεξιότητα και η εκτέλεση μετράνε περισσότερο από τους πόρους.">
-                        My focus is on creating clean, functional websites that work seamlessly in both English and Greek. Every project is an opportunity to learn, iterate, and deliver value. I operate with a zero-budget setup using free tools and practical strategies—proving that skill and execution matter more than resources.
-                    </p>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-rocket"></i>
-                            <div>
-                                <h4 data-en="Building in Public" data-gr="Χτίζοντας Δημόσια">Building in Public</h4>
-                                <p data-en="Documenting every step of the journey" data-gr="Καταγράφοντας κάθε βήμα του ταξιδιού">Documenting every step of the journey</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-globe"></i>
-                            <div>
-                                <h4 data-en="Bilingual Sites" data-gr="Δίγλωσσες Ιστοσελίδες">Bilingual Sites</h4>
-                                <p data-en="English & Greek language support" data-gr="Υποστήριξη Αγγλικών & Ελληνικών">English & Greek language support</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-code"></i>
-                            <div>
-                                <h4 data-en="Clean Code" data-gr="Καθαρός Κώδικας">Clean Code</h4>
-                                <p data-en="Production-ready, maintainable" data-gr="Έτοιμος για παραγωγή, συντηρήσιμος">Production-ready, maintainable</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="section-label" data-en="MY WORK" data-gr="Η ΔΟΥΛΕΙΑ ΜΟΥ">MY WORK</span>
-                <h2 data-en="Featured Projects" data-gr="Επιλεγμένα Έργα">Featured Projects</h2>
-                <p data-en="Live websites showcasing different industries and design styles" data-gr="Ζωντανές ιστοσελίδες που παρουσιάζουν διαφορετικές βιομηχανίες και στυλ σχεδιασμού">
-                    Live websites showcasing different industries and design styles
-                </p>
+                <span class="section-label" data-translate="work-label">My Work</span>
+                <h2 data-translate="work-title">Live Project Examples</h2>
+                <p data-translate="work-desc">Real websites, live and functional. Click to explore.</p>
             </div>
 
             <div class="projects-grid">
-                <div class="project-card" data-category="restaurant">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Restaurant Demo">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Restaurant">
                         <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://demo-1-bice.vercel.app" class="project-link" target="_blank" rel="noopener" data-en="View Live" data-gr="Ζωντανή Προβολή">
-                                    <i class="fas fa-external-link-alt"></i> <span data-en="View Live" data-gr="Ζωντανή Προβολή">View Live</span>
-                                </a>
-                                <a href="https://github.com/84yk8btb9f-prog/demo-1.git" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i> <span>GitHub</span>
-                                </a>
-                            </div>
+                            <a href="https://demo-1-bice.vercel.app" class="btn-view" target="_blank" rel="noopener">
+                                <span data-translate="btn-view">View Live</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <div class="project-category" data-en="Restaurant" data-gr="Εστιατόριο">Restaurant</div>
-                        <h3>Olive & Thyme</h3>
-                        <p data-en="Mediterranean restaurant website with warm, inviting design. Features menu showcase, reservation system, and bilingual support." data-gr="Ιστοσελίδα μεσογειακού εστιατορίου με ζεστό, φιλόξενο design. Περιλαμβάνει παρουσίαση μενού, σύστημα κρατήσεων και δίγλωσση υποστήριξη.">
-                            Mediterranean restaurant website with warm, inviting design. Features menu showcase, reservation system, and bilingual support.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
+                        <div class="project-tag" data-translate="project-1-tag">Restaurant</div>
+                        <h3 data-translate="project-1-title">Olive & Thyme</h3>
+                        <p data-translate="project-1-desc">Mediterranean restaurant with menu showcase, reservations, and bilingual support.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="business">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="Consulting Demo">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="Business">
                         <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://demo-2-coral.vercel.app" class="project-link" target="_blank" rel="noopener" data-en="View Live" data-gr="Ζωντανή Προβολή">
-                                    <i class="fas fa-external-link-alt"></i> <span data-en="View Live" data-gr="Ζωντανή Προβολή">View Live</span>
-                                </a>
-                                <a href="https://github.com/84yk8btb9f-prog/demo-2.git" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i> <span>GitHub</span>
-                                </a>
-                            </div>
+                            <a href="https://demo-2-coral.vercel.app" class="btn-view" target="_blank" rel="noopener">
+                                <span data-translate="btn-view">View Live</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <div class="project-category" data-en="Business" data-gr="Επιχείρηση">Business</div>
-                        <h3>Apex Consulting</h3>
-                        <p data-en="Professional business consulting website with corporate design. Includes service pages, team profiles, and consultation request forms." data-gr="Επαγγελματική ιστοσελίδα συμβουλευτικής με εταιρικό design. Περιλαμβάνει σελίδες υπηρεσιών, προφίλ ομάδας και φόρμες αιτήματος συνάντησης.">
-                            Professional business consulting website with corporate design. Includes service pages, team profiles, and consultation request forms.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
+                        <div class="project-tag" data-translate="project-2-tag">Business</div>
+                        <h3 data-translate="project-2-title">Apex Consulting</h3>
+                        <p data-translate="project-2-desc">Professional consulting firm with service pages, team profiles, and contact forms.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="web3">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" alt="NFT Demo">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" alt="Web3">
                         <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://demo-3-three.vercel.app" class="project-link" target="_blank" rel="noopener" data-en="View Live" data-gr="Ζωντανή Προβολή">
-                                    <i class="fas fa-external-link-alt"></i> <span data-en="View Live" data-gr="Ζωντανή Προβολή">View Live</span>
-                                </a>
-                                <a href="https://github.com/84yk8btb9f-prog/demo-3.git" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i> <span>GitHub</span>
-                                </a>
-                            </div>
+                            <a href="https://demo-3-three.vercel.app" class="btn-view" target="_blank" rel="noopener">
+                                <span data-translate="btn-view">View Live</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <div class="project-category">Web3/NFT</div>
-                        <h3>CryptoVerse</h3>
-                        <p data-en="Futuristic NFT marketplace with dark cyber aesthetic. Features marketplace grid, wallet connection, and roadmap visualization." data-gr="Φουτουριστική αγορά NFT με σκούρο cyber αισθητική. Περιλαμβάνει marketplace grid, σύνδεση πορτοφολιού και οπτικοποίηση roadmap.">
-                            Futuristic NFT marketplace with dark cyber aesthetic. Features marketplace grid, wallet connection, and roadmap visualization.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
+                        <div class="project-tag" data-translate="project-3-tag">Web3/NFT</div>
+                        <h3 data-translate="project-3-title">CryptoVerse</h3>
+                        <p data-translate="project-3-desc">Futuristic NFT marketplace with dark cyber aesthetic and wallet connection features.</p>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="fitness">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="Gym Demo">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="Gym">
                         <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://demo-4-mu.vercel.app" class="project-link" target="_blank" rel="noopener" data-en="View Live" data-gr="Ζωντανή Προβολή">
-                                    <i class="fas fa-external-link-alt"></i> <span data-en="View Live" data-gr="Ζωντανή Προβολή">View Live</span>
-                                </a>
-                                <a href="https://github.com/84yk8btb9f-prog/demo-4.git" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i> <span>GitHub</span>
-                                </a>
-                            </div>
+                            <a href="https://demo-4-mu.vercel.app" class="btn-view" target="_blank" rel="noopener">
+                                <span data-translate="btn-view">View Live</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <div class="project-category" data-en="Fitness" data-gr="Γυμναστήριο">Fitness</div>
-                        <h3>FitZone Gym</h3>
-                        <p data-en="Bold gym website with high-energy design. Includes class schedules, trainer profiles, and membership pricing tiers." data-gr="Τολμηρή ιστοσελίδα γυμναστηρίου με υψηλής ενέργειας σχεδιασμό. Περιλαμβάνει προγράμματα μαθημάτων, προφίλ προπονητών και επίπεδα τιμολόγησης.">
-                            Bold gym website with high-energy design. Includes class schedules, trainer profiles, and membership pricing tiers.
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                        <div class="project-tag" data-translate="project-4-tag">Fitness</div>
+                        <h3 data-translate="project-4-title">FitZone Gym</h3>
+                        <p data-translate="project-4-desc">High-energy gym site with class schedules, trainer profiles, and membership pricing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label" data-translate="pricing-label">Pricing</span>
+                <h2 data-translate="pricing-title">Simple, Transparent Pricing</h2>
+                <p data-translate="pricing-desc">No hidden fees. No hourly rates. Just clear packages.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="price-header">
+                        <h3 data-translate="pricing-1-name">Landing Page</h3>
+                        <div class="price">
+                            <span class="amount">€150</span>
+                        </div>
+                        <p class="delivery"><span data-translate="pricing-delivery">5 days delivery</span></p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-1-1">1 page, 3-5 sections</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-1-2">Mobile responsive</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-1-3">Contact form</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-1-4">1 revision round</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" data-translate="btn-get-started">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="price-header">
+                        <h3 data-translate="pricing-2-name">Basic Website</h3>
+                        <div class="price">
+                            <span class="amount">€300</span>
+                        </div>
+                        <p class="delivery"><span data-translate="pricing-delivery">5 days delivery</span></p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-2-1">3-5 pages</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-2-2">Mobile responsive</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-2-3">Contact form</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-2-4">Basic SEO</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-2-5">2 revision rounds</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" data-translate="btn-get-started">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge" data-translate="popular-badge">Most Popular</div>
+                    <div class="price-header">
+                        <h3 data-translate="pricing-3-name">Business Website</h3>
+                        <div class="price">
+                            <span class="amount">€500</span>
+                        </div>
+                        <p class="delivery"><span data-translate="pricing-delivery">5 days delivery</span></p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-3-1">5-8 pages</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-3-2">Gallery/Portfolio</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-3-3">Google Maps</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-3-4">Social media links</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-3-5">Email setup help</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-3-6">3 revision rounds</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" data-translate="btn-get-started">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="price-header">
+                        <h3 data-translate="pricing-4-name">E-commerce Ready</h3>
+                        <div class="price">
+                            <span class="amount">€700</span>
+                        </div>
+                        <p class="delivery"><span data-translate="pricing-4-delivery">7-10 days delivery</span></p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-4-1">Full business site +</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-4-2">Product catalog</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-4-3">WhatsApp orders</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-4-4">Payment setup</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-4-5">Admin training</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" data-translate="btn-get-started">Get Started</a>
+                </div>
+            </div>
+
+            <div class="addons-section">
+                <h3 data-translate="addons-title">Add-Ons</h3>
+                <div class="addons-grid">
+                    <div class="addon-item">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <strong data-translate="addon-1-name">Bilingual (EN/GR)</strong>
+                            <span data-translate="addon-1-price">+€100</span>
+                        </div>
+                    </div>
+                    <div class="addon-item">
+                        <i class="fas fa-search"></i>
+                        <div>
+                            <strong data-translate="addon-2-name">Advanced SEO</strong>
+                            <span data-translate="addon-2-price">+€75</span>
+                        </div>
+                    </div>
+                    <div class="addon-item">
+                        <i class="fas fa-edit"></i>
+                        <div>
+                            <strong data-translate="addon-3-name">Extra Revisions</strong>
+                            <span data-translate="addon-3-price">+€50</span>
                         </div>
                     </div>
                 </div>
@@ -243,93 +272,44 @@
         </div>
     </section>
 
-    <section id="skills" class="skills-section">
+    <section class="benefits-section">
         <div class="container">
             <div class="section-header centered">
-                <span class="section-label" data-en="WHAT I DO" data-gr="ΤΙ ΚΑΝΩ">WHAT I DO</span>
-                <h2 data-en="Skills & Technologies" data-gr="Δεξιότητες & Τεχνολογίες">Skills & Technologies</h2>
+                <span class="section-label" data-translate="benefits-label">Why Me</span>
+                <h2 data-translate="benefits-title">Why Work With Me?</h2>
             </div>
 
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-palette"></i>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 data-en="Design" data-gr="Σχεδιασμός">Design</h3>
-                    <ul>
-                        <li>UI/UX Design</li>
-                        <li>Responsive Layouts</li>
-                        <li>Color Theory</li>
-                        <li>Typography</li>
-                    </ul>
+                    <h3 data-translate="benefit-1-title">Fast Delivery</h3>
+                    <p data-translate="benefit-1-desc">Most projects done in 5 days. No weeks of waiting. Quick turnaround without sacrificing quality.</p>
                 </div>
 
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <h3 data-en="Development" data-gr="Ανάπτυξη">Development</h3>
-                    <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>Git & GitHub</li>
-                        <li>Vercel Deployment</li>
-                    </ul>
+                    <h3 data-translate="benefit-2-title">Bilingual Expert</h3>
+                    <p data-translate="benefit-2-desc">Native Greek, fluent English. Build sites that work for both local and international audiences.</p>
                 </div>
 
-                <div class="skill-category">
-                    <div class="skill-icon">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 data-en="Optimization" data-gr="Βελτιστοποίηση">Optimization</h3>
-                    <ul>
-                        <li data-en="Mobile-First Design" data-gr="Mobile-First Σχεδιασμός">Mobile-First Design</li>
-                        <li data-en="Performance" data-gr="Απόδοση">Performance</li>
-                        <li data-en="SEO Basics" data-gr="Βασικά SEO">SEO Basics</li>
-                        <li data-en="Cross-Browser" data-gr="Cross-Browser">Cross-Browser</li>
-                    </ul>
+                    <h3 data-translate="benefit-3-title">Mobile-First</h3>
+                    <p data-translate="benefit-3-desc">Every site works perfectly on phones, tablets, and desktops. 70% of users browse on mobile.</p>
                 </div>
 
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-language"></i>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
                     </div>
-                    <h3 data-en="Languages" data-gr="Γλώσσες">Languages</h3>
-                    <ul>
-                        <li data-en="English (Fluent)" data-gr="Αγγλικά (Άπταιστα)">English (Fluent)</li>
-                        <li data-en="Greek (Native)" data-gr="Ελληνικά (Μητρική)">Greek (Native)</li>
-                        <li data-en="Bilingual Sites" data-gr="Δίγλωσσες Ιστοσελίδες">Bilingual Sites</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tools-section">
-                <h3 data-en="Tools & Platforms" data-gr="Εργαλεία & Πλατφόρμες">Tools & Platforms</h3>
-                <div class="tools-grid">
-                    <div class="tool-item">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-js"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-rocket"></i>
-                        <span>Vercel</span>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-figma"></i>
-                        <span>Figma</span>
-                    </div>
+                    <h3 data-translate="benefit-4-title">No Agency Markup</h3>
+                    <p data-translate="benefit-4-desc">Work directly with me. No middlemen, no inflated prices. Just honest pricing for quality work.</p>
                 </div>
             </div>
         </div>
@@ -338,75 +318,82 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header centered">
-                <span class="section-label" data-en="GET IN TOUCH" data-gr="ΕΠΙΚΟΙΝΩΝΙΑ">GET IN TOUCH</span>
-                <h2 data-en="Let's Work Together" data-gr="Ας Συνεργαστούμε">Let's Work Together</h2>
-                <p data-en="Available for freelance projects and collaborations" data-gr="Διαθέσιμος για freelance projects και συνεργασίες">
-                    Available for freelance projects and collaborations
-                </p>
+                <span class="section-label" data-translate="contact-label">Get in Touch</span>
+                <h2 data-translate="contact-title">Let's Build Your Website</h2>
+                <p data-translate="contact-desc">Fill out the form and I'll get back to you within 24 hours.</p>
             </div>
 
             <div class="contact-content">
+                <form class="contact-form" action="https://formspree.io/f/xpqjzbkj" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" required>
+                            <label for="name" data-translate="form-name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" required>
+                            <label for="email" data-translate="form-email">Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select name="package" id="package" required>
+                            <option value="" data-translate="form-package-select">Select a package...</option>
+                            <option value="Landing Page - €150" data-translate="form-package-1">Landing Page - €150</option>
+                            <option value="Basic Website - €300" data-translate="form-package-2">Basic Website - €300</option>
+                            <option value="Business Website - €500" data-translate="form-package-3">Business Website - €500</option>
+                            <option value="E-commerce Ready - €700" data-translate="form-package-4">E-commerce Ready - €700</option>
+                            <option value="Custom Quote" data-translate="form-package-5">Custom Quote</option>
+                        </select>
+                        <label for="package" data-translate="form-package-label">Package</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" rows="5" required data-translate="form-message-placeholder"></textarea>
+                        <label for="message" data-translate="form-message">Project Details</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span data-translate="form-btn">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <h4>Email</h4>
-                            <a href="mailto:contact@nikolassapalidis.com">contact@nikolassapalidis.com</a>
+                            <h4 data-translate="contact-email-label">Email</h4>
+                            <a href="mailto:nik@sapavault.com">nik@sapavault.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4 data-en="Location" data-gr="Τοποθεσία">Location</h4>
-                            <p>Athens, Greece</p>
+                            <h4 data-translate="contact-location-label">Location</h4>
+                            <p data-translate="contact-location">Athens, Greece</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <h4 data-en="Response Time" data-gr="Χρόνος Απόκρισης">Response Time</h4>
-                            <p data-en="Within 24 hours" data-gr="Εντός 24 ωρών">Within 24 hours</p>
+                            <h4 data-translate="contact-response-label">Response Time</h4>
+                            <p data-translate="contact-response-time">Within 24 hours</p>
                         </div>
                     </div>
 
-                    <div class="social-links-large">
-                        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://github.com/84yk8btb9f-prog" target="_blank" rel="noopener" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>
+                    <div class="social-links">
+    <a href="https://www.instagram.com/nikolas.sapa/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://github.com/84yk8btb9f-prog" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/nik-sapa-0b8346353/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://x.com/NikolasSapa" target="_blank" aria-label="X">
+        <i class="fab fa-x-twitter"></i>
+    </a>
+</div>
                 </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required data-en="Your Name" data-gr="Το Όνομά σου">
-                        <label for="name" data-en="Your Name" data-gr="Το Όνομά σου">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" required data-en="Subject" data-gr="Θέμα">
-                        <label for="subject" data-en="Subject" data-gr="Θέμα">Subject</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required data-en="Your message..." data-gr="Το μήνυμά σου..."></textarea>
-                        <label for="message" data-en="Message" data-gr="Μήνυμα">Message</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <span data-en="Send Message" data-gr="Αποστολή Μηνύματος">Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
             </div>
         </div>
     </section>
@@ -416,21 +403,19 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <div class="footer-logo">NS</div>
-                    <p data-en="Building modern, responsive websites. One project at a time." data-gr="Χτίζοντας σύγχρονες, responsive ιστοσελίδες. Ένα έργο τη φορά.">
-                        Building modern, responsive websites. One project at a time.
-                    </p>
+                    <p data-translate="footer-text">Building modern websites for Greek businesses. One project at a time.</p>
                 </div>
                 <div class="footer-right">
                     <div class="footer-links">
-                        <a href="#home" data-en="Home" data-gr="Αρχική">Home</a>
-                        <a href="#about" data-en="About" data-gr="Σχετικά">About</a>
-                        <a href="#projects" data-en="Projects" data-gr="Έργα">Projects</a>
-                        <a href="#contact" data-en="Contact" data-gr="Επικοινωνία">Contact</a>
+                        <a href="#home" data-translate="nav-home">Home</a>
+                        <a href="#work" data-translate="nav-work">Work</a>
+                        <a href="#pricing" data-translate="nav-pricing">Pricing</a>
+                        <a href="#contact" data-translate="nav-contact">Contact</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Nikolas Sapalidis. <span data-en="Built with passion and discipline." data-gr="Χτισμένο με πάθος και πειθαρχία.">Built with passion and discipline.</span></p>
+                <p>&copy; 2026 Nikolas Sapalidis. <span data-translate="footer-location">Athens, Greece</span></p>
             </div>
         </div>
     </footer>
