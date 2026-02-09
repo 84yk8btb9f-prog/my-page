@@ -598,7 +598,8 @@ section {
 
 .discount-badge-featured {
     top: -15px;
-    right: 20px;
+    left: 20px;
+    right: auto;
 }
 
 .old-price {
@@ -996,7 +997,8 @@ section {
 
     .discount-badge-featured {
         top: -12px;
-        right: 15px;
+        left: 15px;
+        right: auto;
     }
 
     .old-price {
