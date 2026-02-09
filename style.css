@@ -574,7 +574,7 @@ section {
 .discount-badge {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     padding: 8px 16px;
     background: linear-gradient(135deg, #FF6B6B, #FF8E53);
     color: var(--text-primary);
@@ -597,7 +597,8 @@ section {
 }
 
 .discount-badge-featured {
-    top: 35px;
+    top: 20px;
+    left: 20px;
 }
 
 .old-price {
@@ -988,13 +989,14 @@ section {
 
     .discount-badge {
         top: 15px;
-        right: 15px;
+        left: 15px;
         padding: 6px 12px;
         font-size: 0.75rem;
     }
 
     .discount-badge-featured {
-        top: 30px;
+        top: 15px;
+        left: 15px;
     }
 
     .old-price {
