@@ -1070,3 +1070,7 @@ section {
         font-size: 2.5rem;
     }
 }
+.pricing-card.featured .discount-badge {
+    right: auto;
+    left: 20px;
+}
