@@ -597,9 +597,7 @@ section {
 }
 
 .discount-badge-featured {
-    top: -15px;
-    left: 20px;
-    right: auto;
+    display: none;
 }
 
 .old-price {
@@ -996,9 +994,7 @@ section {
     }
 
     .discount-badge-featured {
-        top: -12px;
-        left: 15px;
-        right: auto;
+        display: none;
     }
 
     .old-price {
