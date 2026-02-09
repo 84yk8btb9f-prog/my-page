@@ -487,6 +487,49 @@ section {
    PRICING
    ========================================== */
 
+.launch-banner {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(127, 90, 240, 0.15));
+    border: 2px solid var(--accent-primary);
+    border-radius: 16px;
+    padding: 24px 32px;
+    margin-bottom: 48px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
+    }
+}
+
+.launch-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.launch-banner-content i {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+}
+
+.launch-banner-content strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.launch-banner-content p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1rem;
+}
+
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -526,6 +569,44 @@ section {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.discount-badge-featured {
+    top: 35px;
+}
+
+.old-price {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-right: 12px;
 }
 
 .price-header {
@@ -887,6 +968,39 @@ section {
 }
 
 @media (max-width: 768px) {
+    .launch-banner {
+        padding: 20px;
+    }
+
+    .launch-banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .launch-banner-content i {
+        font-size: 2rem;
+    }
+
+    .launch-banner-content strong {
+        font-size: 1.2rem;
+    }
+
+    .discount-badge {
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .discount-badge-featured {
+        top: 30px;
+    }
+
+    .old-price {
+        font-size: 1.2rem;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
