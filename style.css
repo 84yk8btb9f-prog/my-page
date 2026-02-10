@@ -974,9 +974,9 @@ section {
 
 @media (max-width: 768px) {
     .language-toggle {
-        top: 15px;
-        right: auto;
-        left: 15px;
+        top: 80px;
+        right: 15px;
+        left: auto;
     }
 
     .launch-banner {
@@ -1068,9 +1068,9 @@ section {
     }
 
     .language-toggle {
-        top: 10px;
-        right: auto;
-        left: 10px;
+        top: 80px;
+        right: 10px;
+        left: auto;
     }
 
     .hero h1 {
