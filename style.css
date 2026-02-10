@@ -596,6 +596,10 @@ section {
     }
 }
 
+.discount-badge-featured {
+    display: none;
+}
+
 .old-price {
     display: inline-block;
     font-size: 1.5rem;
@@ -938,6 +942,11 @@ section {
    RESPONSIVE
    ========================================== */
 
+/* IMPORTANT: Hide discount badge on featured card to avoid overlap with Most Popular badge */
+.pricing-card.featured .discount-badge {
+    display: none !important;
+}
+
 @media (max-width: 968px) {
     .hero h1 {
         font-size: 3rem;
@@ -1065,19 +1074,4 @@ section {
     .price .amount {
         font-size: 2.5rem;
     }
-}
-.pricing-card.featured .discount-badge {
-    right: auto;
-    left: 20px;
-}
-/* Fix for overlapping badges on the Business Website card */
-.pricing-card.featured .discount-badge {
-    top: 20px;    /* Moves it down from the top edge */
-    right: -10px; /* Optional: lets it 'hang' slightly off the side for a modern look */
-    animation: none; /* Optional: stops the bounce if it feels too cluttered */
-}
-
-/* Ensure the popular badge stays on top of everything */
-.popular-badge {
-    z-index: 10;
 }
