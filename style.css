@@ -1017,6 +1017,7 @@ section {
         border-top: 1px solid var(--border-color);
         transition: all 0.3s ease;
         gap: 20px;
+        z-index: 1002;
     }
 
     .nav-menu.active {
@@ -1025,6 +1026,8 @@ section {
 
     .menu-toggle {
         display: flex;
+        position: relative;
+        z-index: 1001;
     }
 
     .hero {
