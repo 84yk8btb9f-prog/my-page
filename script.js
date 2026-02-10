@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Portfolio loaded');
-
     let currentLang = 'en';
 
     // Initialize everything
@@ -98,8 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function applyTranslations(lang) {
-        console.log('Applying translations for:', lang);
-
         const translations = {
             en: {
                 // Navigation
@@ -398,6 +394,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    console.log('All features initialized - translations ready, typing animation active');
 });
