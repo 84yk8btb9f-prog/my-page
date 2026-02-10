@@ -973,6 +973,12 @@ section {
 }
 
 @media (max-width: 768px) {
+    .language-toggle {
+        top: 15px;
+        right: auto;
+        left: 15px;
+    }
+
     .launch-banner {
         padding: 20px;
     }
@@ -1063,7 +1069,8 @@ section {
 
     .language-toggle {
         top: 10px;
-        right: 10px;
+        right: auto;
+        left: 10px;
     }
 
     .hero h1 {
