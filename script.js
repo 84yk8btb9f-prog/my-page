@@ -103,54 +103,54 @@ document.addEventListener('DOMContentLoaded', function() {
                 'nav-work': 'Work',
                 'nav-pricing': 'Pricing',
                 'nav-contact': 'Contact',
-                'nav-btn': 'Get Started',
+                'nav-btn': 'See Pricing',
                 
                 // Hero
-                'hero-badge': 'Building in Public',
-                'hero-title-1': 'Modern Websites',
-                'hero-desc': 'Professional, mobile-responsive websites for Greek businesses. Bilingual support (EN/GR), clean code, and fast delivery. No agencies, no overhead — just quality work.',
-                'hero-btn-1': 'View Pricing',
-                'hero-btn-2': 'See Examples',
+                'hero-badge': '16-Year-Old Developer',
+                'hero-title-1': 'From Invisible to Unforgettable',
+                'hero-desc': 'Your competitors are launching. Your customers are searching. Don\'t wait weeks for an agency — get a professional, mobile-responsive website built in 5 days. Bilingual (EN/GR), fast, and honest. No bureaucracy. Just results.',
+                'hero-btn-1': 'Lock In Launch Price',
+                'hero-btn-2': 'View Live Examples',
                 
                 // Stats
-                'stat-1-label': 'Live Projects',
-                'stat-2-label': 'Responsive',
-                'stat-3-label': 'Days Delivery',
+                'stat-1-label': 'Live Sites Built',
+                'stat-2-label': 'Mobile-Perfect',
+                'stat-3-label': 'Day Turnaround',
                 'stat-4-label': 'Languages',
                 
                 // Work Section
-                'work-label': 'My Work',
-                'work-title': 'Live Project Examples',
-                'work-desc': 'Real websites, live and functional. Click to explore.',
-                'btn-view': 'View Live',
+                'work-label': 'Portfolio',
+                'work-title': 'Real Sites. Live. Functional.',
+                'work-desc': 'These aren\'t mockups. They\'re websites businesses actually use to get customers.',
+                'btn-view': 'View Live Site',
                 
                 // Projects
                 'project-1-tag': 'Restaurant',
                 'project-1-title': 'Olive & Thyme',
-                'project-1-desc': 'Mediterranean restaurant with menu showcase, reservations, and bilingual support.',
+                'project-1-desc': 'Mediterranean restaurant with instant online reservations and menu showcase. Built to convert browsers into bookings.',
                 
                 'project-2-tag': 'Business',
                 'project-2-title': 'Apex Consulting',
-                'project-2-desc': 'Professional consulting firm with service pages, team profiles, and contact forms.',
+                'project-2-desc': 'Consulting firm that needed credibility fast. Professional design that positions them as industry leaders.',
                 
                 'project-3-tag': 'Web3/NFT',
                 'project-3-title': 'CryptoVerse',
-                'project-3-desc': 'Futuristic NFT marketplace with dark cyber aesthetic and wallet connection features.',
+                'project-3-desc': 'NFT marketplace with cutting-edge design. Built to stand out in a crowded crypto space.',
                 
                 'project-4-tag': 'Fitness',
                 'project-4-title': 'FitZone Gym',
-                'project-4-desc': 'High-energy gym site with class schedules, trainer profiles, and membership pricing.',
+                'project-4-desc': 'High-energy gym site that drives sign-ups. Schedules, trainers, and pricing designed for conversions.',
                 
                 // Pricing
                 'pricing-label': 'Pricing',
-                'pricing-title': 'Simple, Transparent Pricing',
-                'pricing-desc': 'No hidden fees. No hourly rates. Just clear packages.',
-                'launch-banner-title': '🎉 Launch Pricing - Limited Time!',
-                'launch-banner-desc': 'Get 30% off for being one of my first 5 clients. Prices increase after that.',
-                'popular-badge': 'Most Popular',
+                'pricing-title': 'One Price. No Surprises. No Haggling.',
+                'pricing-desc': 'Pick a package. Pay once. Get your site in 5 days. Simple.',
+                'launch-banner-title': '🔥 Early-Bird Pricing Ends Soon',
+                'launch-banner-desc': 'I\'m locking in 30% off for my first 5 clients. After that, prices go up permanently. 3 slots left.',
+                'popular-badge': 'Best Value',
                 'pricing-delivery': '5 days delivery',
                 'pricing-4-delivery': '7-10 days delivery',
-                'btn-get-started': 'Get Started',
+                'btn-get-started': 'Claim This Price',
                 
                 // Pricing Names
                 'pricing-1-name': 'Landing Page',
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Pricing Features - Package 3
                 'feature-3-1': '5-8 pages',
                 'feature-3-2': 'Gallery/Portfolio',
-                'feature-3-3': 'Google Maps',
+                'feature-3-3': 'Google Maps integration',
                 'feature-3-4': 'Social media links',
                 'feature-3-5': 'Email setup help',
                 'feature-3-6': '3 revision rounds',
@@ -182,9 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Pricing Features - Package 4
                 'feature-4-1': 'Full business site +',
                 'feature-4-2': 'Product catalog',
-                'feature-4-3': 'WhatsApp orders',
-                'feature-4-4': 'Payment setup',
-                'feature-4-5': 'Admin training',
+                'feature-4-3': 'WhatsApp order system',
+                'feature-4-4': 'Payment integration',
+                'feature-4-5': 'Admin training included',
                 
                 // Add-ons
                 'addons-title': 'Add-Ons',
@@ -196,21 +196,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 'addon-3-price': '+€30',
                 
                 // Benefits
-                'benefits-label': 'Why Me',
-                'benefits-title': 'Why Work With Me?',
-                'benefit-1-title': 'Fast Delivery',
-                'benefit-1-desc': 'Most projects done in 5 days. No weeks of waiting. Quick turnaround without sacrificing quality.',
-                'benefit-2-title': 'Bilingual Expert',
-                'benefit-2-desc': 'Native Greek, fluent English. Build sites that work for both local and international audiences.',
-                'benefit-3-title': 'Mobile-First',
-                'benefit-3-desc': 'Every site works perfectly on phones, tablets, and desktops. 70% of users browse on mobile.',
-                'benefit-4-title': 'No Agency Markup',
-                'benefit-4-desc': 'Work directly with me. No middlemen, no inflated prices. Just honest pricing for quality work.',
+                'benefits-label': 'Why Choose Me',
+                'benefits-title': 'No Agency Red Tape. Just Speed & Honesty.',
+                'benefit-1-title': 'Launch Before Your Competitor',
+                'benefit-1-desc': '5-day delivery means you\'re live while agencies are still scheduling discovery calls. Speed is your advantage.',
+                'benefit-2-title': 'Speak to Greek & Global Markets',
+                'benefit-2-desc': 'Native Greek, fluent English. Your site works for local customers and international clients — no translation guesswork.',
+                'benefit-3-title': 'Mobile = 70% of Your Traffic',
+                'benefit-3-desc': 'Every site I build is mobile-first. Your customers browse on phones — your site needs to work flawlessly there.',
+                'benefit-4-title': 'No Middlemen = Fair Pricing',
+                'benefit-4-desc': 'You work directly with me. No project managers, no account reps. Just one person who builds your site and answers your questions.',
                 
                 // Contact
-                'contact-label': 'Get in Touch',
-                'contact-title': "Let's Build Your Website",
-                'contact-desc': "Fill out the form and I'll get back to you within 24 hours.",
+                'contact-label': 'Get Started',
+                'contact-title': 'Ready to Go Live?',
+                'contact-desc': 'Tell me about your project. I\'ll reply within 24 hours with next steps.',
                 'form-name': 'Your Name',
                 'form-email': 'Email',
                 'form-package-label': 'Package',
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'form-package-5': 'Custom Quote',
                 'form-message': 'Project Details',
                 'form-message-placeholder': 'Tell me about your project...',
-                'form-btn': 'Send Message',
+                'form-btn': 'Send Project Brief',
                 'contact-email-label': 'Email',
                 'contact-location-label': 'Location',
                 'contact-location': 'Athens, Greece',
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'contact-response-time': 'Within 24 hours',
                 
                 // Footer
-                'footer-text': 'Building modern websites for Greek businesses. One project at a time.',
+                'footer-text': 'Helping Greek businesses go from invisible to unforgettable. One fast website at a time.',
                 'footer-location': 'Athens, Greece',
             },
             gr: {
@@ -239,54 +239,54 @@ document.addEventListener('DOMContentLoaded', function() {
                 'nav-work': 'Έργα',
                 'nav-pricing': 'Τιμές',
                 'nav-contact': 'Επικοινωνία',
-                'nav-btn': 'Ξεκινήστε',
+                'nav-btn': 'Δείτε Τιμές',
                 
                 // Hero
-                'hero-badge': 'Χτίζοντας Δημόσια',
-                'hero-title-1': 'Σύγχρονες Ιστοσελίδες',
-                'hero-desc': 'Επαγγελματικές, mobile-responsive ιστοσελίδες για ελληνικές επιχειρήσεις. Δίγλωσση υποστήριξη (EN/GR), καθαρός κώδικας και γρήγορη παράδοση. Χωρίς πρακτορεία, χωρίς επιπλέον κόστη — απλά ποιοτική δουλειά.',
-                'hero-btn-1': 'Δείτε Τιμές',
-                'hero-btn-2': 'Δείτε Παραδείγματα',
+                'hero-badge': 'Developer 16 Ετών',
+                'hero-title-1': 'Από Αόρατος σε Αξέχαστος',
+                'hero-desc': 'Οι ανταγωνιστές σας ξεκινούν. Οι πελάτες σας αναζητούν. Μην περιμένετε εβδομάδες για πρακτορείο — αποκτήστε επαγγελματική, mobile-responsive ιστοσελίδα σε 5 ημέρες. Δίγλωσση (EN/GR), γρήγορη και ειλικρινής. Χωρίς γραφειοκρατία. Μόνο αποτελέσματα.',
+                'hero-btn-1': 'Κλειδώστε την Τιμή Έναρξης',
+                'hero-btn-2': 'Δείτε Ζωντανά Παραδείγματα',
                 
                 // Stats
-                'stat-1-label': 'Ζωντανά Έργα',
-                'stat-2-label': 'Responsive',
+                'stat-1-label': 'Ζωντανές Ιστοσελίδες',
+                'stat-2-label': 'Τέλειο Mobile',
                 'stat-3-label': 'Ημέρες Παράδοσης',
                 'stat-4-label': 'Γλώσσες',
                 
                 // Work Section
-                'work-label': 'Η Δουλειά Μου',
-                'work-title': 'Ζωντανά Παραδείγματα Έργων',
-                'work-desc': 'Πραγματικές ιστοσελίδες, ζωντανές και λειτουργικές. Κλικ για εξερεύνηση.',
-                'btn-view': 'Δείτε Ζωντανή',
+                'work-label': 'Portfolio',
+                'work-title': 'Πραγματικές Ιστοσελίδες. Ζωντανές. Λειτουργικές.',
+                'work-desc': 'Αυτά δεν είναι mockups. Είναι ιστοσελίδες που επιχειρήσεις χρησιμοποιούν για να αποκτήσουν πελάτες.',
+                'btn-view': 'Δείτε Ζωντανή Ιστοσελίδα',
                 
                 // Projects
                 'project-1-tag': 'Εστιατόριο',
                 'project-1-title': 'Olive & Thyme',
-                'project-1-desc': 'Μεσογειακό εστιατόριο με μενού, κρατήσεις και δίγλωσση υποστήριξη.',
+                'project-1-desc': 'Μεσογειακό εστιατόριο με άμεσες online κρατήσεις και παρουσίαση μενού. Φτιαγμένο για να μετατρέπει επισκέπτες σε κρατήσεις.',
                 
                 'project-2-tag': 'Επιχείρηση',
                 'project-2-title': 'Apex Consulting',
-                'project-2-desc': 'Επαγγελματική συμβουλευτική με σελίδες υπηρεσιών, προφίλ ομάδας και φόρμες επικοινωνίας.',
+                'project-2-desc': 'Συμβουλευτική εταιρεία που χρειαζόταν αξιοπιστία γρήγορα. Επαγγελματικό design που τους τοποθετεί ως ηγέτες της βιομηχανίας.',
                 
                 'project-3-tag': 'Web3/NFT',
                 'project-3-title': 'CryptoVerse',
-                'project-3-desc': 'Φουτουριστική αγορά NFT με σκούρο cyber αισθητική και σύνδεση πορτοφολιού.',
+                'project-3-desc': 'Αγορά NFT με cutting-edge design. Φτιαγμένη για να ξεχωρίζει σε έναν πολύ ανταγωνιστικό χώρο crypto.',
                 
                 'project-4-tag': 'Γυμναστήριο',
                 'project-4-title': 'FitZone Gym',
-                'project-4-desc': 'Δυναμική ιστοσελίδα γυμναστηρίου με προγράμματα, προφίλ προπονητών και τιμολόγηση.',
+                'project-4-desc': 'Δυναμική ιστοσελίδα γυμναστηρίου που οδηγεί σε εγγραφές. Προγράμματα, προπονητές και τιμολόγηση σχεδιασμένα για conversions.',
                 
                 // Pricing
                 'pricing-label': 'Τιμολόγηση',
-                'pricing-title': 'Απλή, Διαφανής Τιμολόγηση',
-                'pricing-desc': 'Χωρίς κρυφές χρεώσεις. Χωρίς ωριαία τιμολόγηση. Μόνο ξεκάθαρα πακέτα.',
-                'launch-banner-title': '🎉 Τιμές Έναρξης - Περιορισμένος Χρόνος!',
-                'launch-banner-desc': 'Κερδίστε 30% έκπτωση ως ένας από τους πρώτους 5 πελάτες μου. Οι τιμές αυξάνονται μετά.',
-                'popular-badge': 'Πιο Δημοφιλές',
+                'pricing-title': 'Μία Τιμή. Χωρίς Εκπλήξεις. Χωρίς Διαπραγματεύσεις.',
+                'pricing-desc': 'Διαλέξτε πακέτο. Πληρώστε μία φορά. Πάρτε την ιστοσελίδα σας σε 5 ημέρες. Απλό.',
+                'launch-banner-title': '🔥 Οι Τιμές Πρώιμης Εγγραφής Τελειώνουν Σύντομα',
+                'launch-banner-desc': 'Κλειδώνω 30% έκπτωση για τους πρώτους 5 πελάτες μου. Μετά, οι τιμές ανεβαίνουν μόνιμα. Απομένουν 3 θέσεις.',
+                'popular-badge': 'Καλύτερη Αξία',
                 'pricing-delivery': '5 ημέρες παράδοση',
                 'pricing-4-delivery': '7-10 ημέρες παράδοση',
-                'btn-get-started': 'Ξεκινήστε',
+                'btn-get-started': 'Διεκδικήστε Αυτή την Τιμή',
                 
                 // Pricing Names
                 'pricing-1-name': 'Landing Page',
@@ -310,17 +310,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Pricing Features - Package 3
                 'feature-3-1': '5-8 σελίδες',
                 'feature-3-2': 'Γκαλερί/Portfolio',
-                'feature-3-3': 'Google Maps',
+                'feature-3-3': 'Ενσωμάτωση Google Maps',
                 'feature-3-4': 'Social media links',
-                'feature-3-5': 'Email setup',
+                'feature-3-5': 'Βοήθεια email setup',
                 'feature-3-6': '3 γύροι αλλαγών',
                 
                 // Pricing Features - Package 4
                 'feature-4-1': 'Πλήρης ιστοσελίδα +',
                 'feature-4-2': 'Κατάλογος προϊόντων',
-                'feature-4-3': 'WhatsApp παραγγελίες',
-                'feature-4-4': 'Payment setup',
-                'feature-4-5': 'Admin training',
+                'feature-4-3': 'Σύστημα παραγγελιών WhatsApp',
+                'feature-4-4': 'Ενσωμάτωση πληρωμών',
+                'feature-4-5': 'Admin training συμπεριλαμβάνεται',
                 
                 // Add-ons
                 'addons-title': 'Πρόσθετα',
@@ -332,21 +332,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 'addon-3-price': '+€30',
                 
                 // Benefits
-                'benefits-label': 'Γιατί Εμένα',
-                'benefits-title': 'Γιατί να Συνεργαστείτε Μαζί Μου;',
-                'benefit-1-title': 'Γρήγορη Παράδοση',
-                'benefit-1-desc': 'Τα περισσότερα έργα ολοκληρώνονται σε 5 ημέρες. Χωρίς εβδομάδες αναμονής. Γρήγορη παράδοση χωρίς θυσία ποιότητας.',
-                'benefit-2-title': 'Δίγλωσσος Ειδικός',
-                'benefit-2-desc': 'Μητρική Ελληνικά, άπταιστα Αγγλικά. Ιστοσελίδες που λειτουργούν για τοπικό και διεθνές κοινό.',
-                'benefit-3-title': 'Mobile-First',
-                'benefit-3-desc': 'Κάθε ιστοσελίδα λειτουργεί τέλεια σε κινητά, tablets και υπολογιστές. 70% των χρηστών περιηγούνται σε mobile.',
-                'benefit-4-title': 'Χωρίς Προσαύξηση',
-                'benefit-4-desc': 'Συνεργαστείτε απευθείας μαζί μου. Χωρίς μεσάζοντες, χωρίς φουσκωμένες τιμές. Απλά ειλικρινής τιμολόγηση για ποιοτική δουλειά.',
+                'benefits-label': 'Γιατί να με Επιλέξετε',
+                'benefits-title': 'Χωρίς Γραφειοκρατία Πρακτορείων. Μόνο Ταχύτητα & Ειλικρίνεια.',
+                'benefit-1-title': 'Κάντε Launch Πριν τον Ανταγωνιστή σας',
+                'benefit-1-desc': 'Παράδοση σε 5 ημέρες σημαίνει είστε live ενώ τα πρακτορεία ακόμα προγραμματίζουν συναντήσεις. Η ταχύτητα είναι το πλεονέκτημά σας.',
+                'benefit-2-title': 'Μιλήστε σε Ελληνικές & Παγκόσμιες Αγορές',
+                'benefit-2-desc': 'Μητρική Ελληνικά, άπταιστα Αγγλικά. Η ιστοσελίδα σας λειτουργεί για τοπικούς πελάτες και διεθνείς — χωρίς μαντέματα στη μετάφραση.',
+                'benefit-3-title': 'Mobile = 70% της Κίνησής σας',
+                'benefit-3-desc': 'Κάθε ιστοσελίδα που φτιάχνω είναι mobile-first. Οι πελάτες σας περιηγούνται από κινητά — η ιστοσελίδα σας πρέπει να λειτουργεί άψογα εκεί.',
+                'benefit-4-title': 'Χωρίς Μεσάζοντες = Δίκαιη Τιμολόγηση',
+                'benefit-4-desc': 'Συνεργάζεστε απευθείας μαζί μου. Χωρίς project managers, χωρίς εκπροσώπους. Μόνο ένα άτομο που φτιάχνει την ιστοσελίδα σας και απαντά στις ερωτήσεις σας.',
                 
                 // Contact
-                'contact-label': 'Επικοινωνία',
-                'contact-title': 'Ας Φτιάξουμε την Ιστοσελίδα Σας',
-                'contact-desc': 'Συμπληρώστε τη φόρμα και θα σας απαντήσω εντός 24 ωρών.',
+                'contact-label': 'Ξεκινήστε',
+                'contact-title': 'Έτοιμοι να Πάτε Live;',
+                'contact-desc': 'Πείτε μου για το έργο σας. Θα απαντήσω εντός 24 ωρών με τα επόμενα βήματα.',
                 'form-name': 'Το Όνομά σας',
                 'form-email': 'Email',
                 'form-package-label': 'Πακέτο',
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'form-package-5': 'Προσαρμοσμένη Προσφορά',
                 'form-message': 'Λεπτομέρειες Έργου',
                 'form-message-placeholder': 'Πες μου για το έργο σου...',
-                'form-btn': 'Αποστολή Μηνύματος',
+                'form-btn': 'Αποστολή Περιγραφής Έργου',
                 'contact-email-label': 'Email',
                 'contact-location-label': 'Τοποθεσία',
                 'contact-location': 'Αθήνα, Ελλάδα',
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'contact-response-time': 'Εντός 24 ωρών',
                 
                 // Footer
-                'footer-text': 'Χτίζοντας σύγχρονες ιστοσελίδες για ελληνικές επιχειρήσεις. Ένα έργο τη φορά.',
+                'footer-text': 'Βοηθώντας ελληνικές επιχειρήσεις να πάνε από αόρατες σε αξέχαστες. Μία γρήγορη ιστοσελίδα τη φορά.',
                 'footer-location': 'Αθήνα, Ελλάδα',
             }
         };
