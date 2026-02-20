@@ -375,15 +375,35 @@ h1, h2, h3, h4 {
     inset: 0;
     z-index: 0;
     background:
-        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0, 217, 255, 0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(127, 90, 240, 0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 50% 80%, rgba(0, 217, 255, 0.04) 0%, transparent 70%);
-    animation: gradientShift 8s ease-in-out infinite alternate;
+        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(0, 217, 255, 0.13) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 70% at 85% 25%, rgba(127, 90, 240, 0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 50% 85%, rgba(0, 217, 255, 0.08) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 70% 60%, rgba(127, 90, 240, 0.08) 0%, transparent 60%);
+    animation: gradientDrift 10s ease-in-out infinite alternate;
 }
 
-@keyframes gradientShift {
-    0%   { opacity: 0.6; transform: scale(1); }
-    100% { opacity: 1;   transform: scale(1.05); }
+@keyframes gradientDrift {
+    0%   { opacity: 0.7; transform: scale(1) translate(0, 0); }
+    33%  { opacity: 1;   transform: scale(1.06) translate(2%, -1%); }
+    66%  { opacity: 0.85; transform: scale(1.03) translate(-1%, 2%); }
+    100% { opacity: 1;   transform: scale(1.08) translate(1%, -2%); }
+}
+
+/* Second moving gradient layer for depth */
+.hero-bg-gradient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 35% 35% at 30% 20%, rgba(0, 217, 255, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 65% 75%, rgba(127, 90, 240, 0.09) 0%, transparent 70%);
+    animation: gradientDriftAlt 13s ease-in-out infinite alternate;
+}
+
+@keyframes gradientDriftAlt {
+    0%   { opacity: 0.5; transform: translate(0, 0) scale(1); }
+    50%  { opacity: 1;   transform: translate(-3%, 3%) scale(1.1); }
+    100% { opacity: 0.7; transform: translate(3%, -2%) scale(1.05); }
 }
 
 /* Grid overlay */
