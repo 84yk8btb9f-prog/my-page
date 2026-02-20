@@ -1,21 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ==========================================
-    // LOADING SCREEN
-    // ==========================================
-    const loadingScreen = document.getElementById('loading-screen');
-    
-    setTimeout(() => {
-        if (loadingScreen) {
-            loadingScreen.classList.add('hidden');
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }
-    }, 1000);
-
-
-    // ==========================================
     // CUSTOM CURSOR
     // ==========================================
     const cursorRing = document.querySelector('.cursor-ring');
@@ -23,11 +8,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (cursorRing && window.innerWidth > 968) {
         let mouseX = 0, mouseY = 0;
         let ringX  = 0, ringY  = 0;
-        let rafId;
+        let started = false;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+            if (!started) {
+                // Snap ring to position before making it visible
+                ringX = mouseX;
+                ringY = mouseY;
+                cursorRing.style.left = ringX + 'px';
+                cursorRing.style.top  = ringY + 'px';
+                cursorRing.style.opacity = '1';
+                started = true;
+            }
         });
 
         // Ring follows with smooth lag
