@@ -63,7 +63,6 @@
       "name": "Nikolas Sapalidis — Web Development",
       "description": "Professional website development for Greek businesses. Bilingual EN/GR sites delivered in 5 days.",
       "url": "https://nikolassapa.vercel.app/",
-      "telephone": "",
       "email": "nik@sapavault.com",
       "address": {
         "@type": "PostalAddress",
@@ -76,12 +75,13 @@
       "serviceType": "Web Development"
     }
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Vercel Web Analytics -->
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -89,14 +89,29 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loading-screen">
+        <div class="loader-logo">NS</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- ===== LANGUAGE TOGGLE ===== -->
     <div class="language-toggle">
         <button class="lang-btn active" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="gr">ΕΛ</button>
     </div>
 
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">NS</div>
+            <a href="#home" class="logo">NS</a>
             <ul class="nav-menu">
                 <li><a href="#home" data-translate="nav-home">Home</a></li>
                 <li><a href="#work" data-translate="nav-work">Work</a></li>
@@ -112,17 +127,31 @@
         </div>
     </nav>
 
+    <!-- ===== HERO ===== -->
     <section id="home" class="hero">
+        <!-- Animated background layers -->
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-float-1"></div>
+        <div class="hero-float-2"></div>
+        <div class="hero-float-3"></div>
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge" data-translate="hero-badge">16-Year-Old Developer</div>
+
                 <h1>
                     <span data-translate="hero-title-1">From Invisible to Unforgettable</span><br>
-                    <span class="gradient-text typing-text" data-en="In Just 5 Days" data-gr="Σε Μόλις 5 Ημέρες">In Just 5 Days</span>
+                    <span class="typing-wrapper">
+                        <span class="gradient-text typing-text" data-en="In Just 5 Days" data-gr="Σε Μόλις 5 Ημέρες"></span><span class="typing-cursor"></span>
+                    </span>
                 </h1>
+
                 <p class="hero-description" data-translate="hero-desc">
                     Your competitors are launching. Your customers are searching. Don't wait weeks for an agency — get a professional, mobile-responsive website built in 5 days. Bilingual (EN/GR), fast, and honest. No bureaucracy. Just results.
                 </p>
+
                 <div class="hero-buttons">
                     <a href="#pricing" class="btn btn-primary">
                         <span data-translate="hero-btn-1">Lock In Launch Price</span>
@@ -134,9 +163,10 @@
         </div>
     </section>
 
+    <!-- ===== STATS BAR ===== -->
     <section class="stats-bar">
         <div class="container">
-            <div class="stats-grid">
+            <div class="stats-grid" data-reveal-group>
                 <div class="stat-item">
                     <div class="stat-number">9</div>
                     <div class="stat-label" data-translate="stat-1-label">Live Sites Built</div>
@@ -157,20 +187,20 @@
         </div>
     </section>
 
+    <!-- ===== WORK ===== -->
     <section id="work" class="work-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-reveal>
                 <span class="section-label" data-translate="work-label">Portfolio</span>
                 <h2 data-translate="work-title">Real Sites. Live. Functional.</h2>
                 <p data-translate="work-desc">These aren't mockups. They're websites businesses actually use to get customers.</p>
             </div>
 
-            <div class="projects-grid">
+            <div class="projects-grid" data-reveal-group>
 
-                <!-- 1. Olive & Thyme -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Mediterranean restaurant website with online menu and bilingual reservation system">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Mediterranean restaurant website with online menu and bilingual reservation system" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://demo-1-bice.vercel.app" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -185,10 +215,9 @@
                     </div>
                 </div>
 
-                <!-- 2. Apex Consulting -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="Professional consulting firm website with service pages and contact forms">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="Professional consulting firm website with service pages and contact forms" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://demo-2-coral.vercel.app" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -203,10 +232,9 @@
                     </div>
                 </div>
 
-                <!-- 3. CryptoVerse -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" alt="Web3 NFT marketplace with dark cyber aesthetic and wallet integration">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" alt="Web3 NFT marketplace with dark cyber aesthetic and wallet integration" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://demo-3-three.vercel.app" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -221,10 +249,9 @@
                     </div>
                 </div>
 
-                <!-- 4. FitZone Gym -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="Fitness gym website with class schedules, trainer profiles, and pricing">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="Fitness gym website with class schedules, trainer profiles, and pricing" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://demo-4-mu.vercel.app" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -239,10 +266,9 @@
                     </div>
                 </div>
 
-                <!-- 5. LuxeWear E-commerce -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800" alt="Premium fashion e-commerce store with shopping cart and product catalog">
+                        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800" alt="Premium fashion e-commerce store with shopping cart and product catalog" loading="lazy">
                         <div class="project-overlay">
                             <a href="#" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -257,10 +283,9 @@
                     </div>
                 </div>
 
-                <!-- 6. FlowSpace SaaS -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800" alt="SaaS project management platform with pricing tiers and feature showcase">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800" alt="SaaS project management platform with pricing tiers and feature showcase" loading="lazy">
                         <div class="project-overlay">
                             <a href="#" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -275,10 +300,9 @@
                     </div>
                 </div>
 
-                <!-- 7. BarberHaus -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800" alt="Premium barbershop website with online booking and gallery">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800" alt="Premium barbershop website with online booking and gallery" loading="lazy">
                         <div class="project-overlay">
                             <a href="#" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -293,10 +317,9 @@
                     </div>
                 </div>
 
-                <!-- 8. Athens Car Rental -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" alt="Car rental platform with real-time fleet availability and booking system">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" alt="Car rental platform with real-time fleet availability and booking system" loading="lazy">
                         <div class="project-overlay">
                             <a href="#" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -311,10 +334,9 @@
                     </div>
                 </div>
 
-                <!-- 9. Helpmarq -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Review marketplace platform connecting creators with expert feedback">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Review marketplace platform connecting creators with expert feedback" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://helpmarq.vercel.app" class="btn-view" target="_blank" rel="noopener">
                                 <span data-translate="btn-view">View Live Site</span>
@@ -333,10 +355,10 @@
         </div>
     </section>
 
+    <!-- ===== PRICING ===== -->
     <section id="pricing" class="pricing-section">
         <div class="container">
-            <!-- Launch Pricing Banner -->
-            <div class="launch-banner">
+            <div class="launch-banner" data-reveal>
                 <div class="launch-banner-content">
                     <i class="fas fa-rocket"></i>
                     <div>
@@ -346,13 +368,13 @@
                 </div>
             </div>
 
-            <div class="section-header centered">
+            <div class="section-header centered" data-reveal>
                 <span class="section-label" data-translate="pricing-label">Pricing</span>
                 <h2 data-translate="pricing-title">One Price. No Surprises. No Haggling.</h2>
                 <p data-translate="pricing-desc">Pick a package. Pay once. Get your site in 5 days. Simple.</p>
             </div>
 
-            <div class="pricing-grid">
+            <div class="pricing-grid" data-reveal-group>
                 <div class="pricing-card">
                     <div class="discount-badge">33% OFF</div>
                     <div class="price-header">
@@ -435,9 +457,9 @@
                 </div>
             </div>
 
-            <div class="addons-section">
+            <div class="addons-section" data-reveal>
                 <h3 data-translate="addons-title">Add-Ons</h3>
-                <div class="addons-grid">
+                <div class="addons-grid" data-reveal-group>
                     <div class="addon-item">
                         <i class="fas fa-language"></i>
                         <div>
@@ -464,42 +486,32 @@
         </div>
     </section>
 
+    <!-- ===== BENEFITS ===== -->
     <section class="benefits-section">
         <div class="container">
-            <div class="section-header centered">
+            <div class="section-header centered" data-reveal>
                 <span class="section-label" data-translate="benefits-label">Why Choose Me</span>
                 <h2 data-translate="benefits-title">No Agency Red Tape. Just Speed & Honesty.</h2>
             </div>
 
-            <div class="benefits-grid">
+            <div class="benefits-grid" data-reveal-group>
                 <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
+                    <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
                     <h3 data-translate="benefit-1-title">Launch Before Your Competitor</h3>
                     <p data-translate="benefit-1-desc">5-day delivery means you're live while agencies are still scheduling discovery calls. Speed is your advantage.</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
+                    <div class="benefit-icon"><i class="fas fa-globe"></i></div>
                     <h3 data-translate="benefit-2-title">Speak to Greek & Global Markets</h3>
                     <p data-translate="benefit-2-desc">Native Greek, fluent English. Your site works for local customers and international clients — no translation guesswork.</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                    <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3 data-translate="benefit-3-title">Mobile = 70% of Your Traffic</h3>
                     <p data-translate="benefit-3-desc">Every site I build is mobile-first. Your customers browse on phones — your site needs to work flawlessly there.</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
+                    <div class="benefit-icon"><i class="fas fa-hand-holding-usd"></i></div>
                     <h3 data-translate="benefit-4-title">No Middlemen = Fair Pricing</h3>
                     <p data-translate="benefit-4-desc">You work directly with me. No project managers, no account reps. Just one person who builds your site and answers your questions.</p>
                 </div>
@@ -507,16 +519,17 @@
         </div>
     </section>
 
+    <!-- ===== CONTACT ===== -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="section-header centered">
+            <div class="section-header centered" data-reveal>
                 <span class="section-label" data-translate="contact-label">Get Started</span>
                 <h2 data-translate="contact-title">Ready to Go Live?</h2>
                 <p data-translate="contact-desc">Tell me about your project. I'll reply within 24 hours with next steps.</p>
             </div>
 
             <div class="contact-content">
-                <form class="contact-form" action="https://formspree.io/f/xpqjzbkj" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/xpqjzbkj" method="POST" data-reveal="left">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="name" id="name" required>
@@ -539,7 +552,7 @@
                         <label for="package" data-translate="form-package-label">Package</label>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" id="message" rows="5" required data-translate="form-message-placeholder"></textarea>
+                        <textarea name="message" id="message" rows="5" required></textarea>
                         <label for="message" data-translate="form-message">Project Details</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-large">
@@ -548,7 +561,7 @@
                     </button>
                 </form>
 
-                <div class="contact-info">
+                <div class="contact-info" data-reveal="right">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -572,24 +585,17 @@
                     </div>
 
                     <div class="social-links">
-                        <a href="https://www.instagram.com/nikolas.sapa/" target="_blank" rel="noopener" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://github.com/84yk8btb9f-prog" target="_blank" rel="noopener" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/nik-sapa-0b8346353/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://x.com/NikolasSapa" target="_blank" rel="noopener" aria-label="X">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
+                        <a href="https://www.instagram.com/nikolas.sapa/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/84yk8btb9f-prog" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/nik-sapa-0b8346353/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/NikolasSapa" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -613,5 +619,6 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
