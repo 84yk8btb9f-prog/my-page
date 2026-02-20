@@ -100,19 +100,24 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!el) return;
 
         const text = el.getAttribute('data-' + lang) || 'In Just 5 Days';
+
+        // Clear and hide cursor during wipe
         el.textContent = '';
         if (cursor) cursor.classList.add('typing');
 
         let i = 0;
         function type() {
             if (i < text.length) {
-                el.textContent += text.charAt(i++);
-                typingTimeouts.push(setTimeout(type, 80 + Math.random() * 60));
+                // Build full string so background-clip renders correctly each time
+                el.textContent = text.substring(0, i + 1);
+                i++;
+                const delay = 85 + Math.random() * 55;
+                typingTimeouts.push(setTimeout(type, delay));
             } else {
                 if (cursor) cursor.classList.remove('typing');
             }
         }
-        typingTimeouts.push(setTimeout(type, 600));
+        typingTimeouts.push(setTimeout(type, 400));
     }
 
     // ==========================================
