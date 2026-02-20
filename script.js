@@ -6,10 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
     // HERO CANVAS PARTICLES
     // ==========================================
+// ==========================================
+    // HERO CANVAS PARTICLES
+    // ==========================================
     const canvas = document.getElementById('hero-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
+        let mouseX = 0, mouseY = 0;
 
         function resizeCanvas() {
             canvas.width  = canvas.offsetWidth;
@@ -18,28 +22,67 @@ document.addEventListener('DOMContentLoaded', function () {
         resizeCanvas();
         window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
 
+        // Subtle mouse repulsion
+        canvas.parentElement.addEventListener('mousemove', e => {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+        });
+
         class Particle {
             constructor() { this.reset(true); }
             reset(initial) {
                 this.x      = Math.random() * canvas.width;
                 this.y      = initial ? Math.random() * canvas.height : canvas.height + 10;
-                this.vx     = (Math.random() - 0.5) * 0.3;
-                this.vy     = -(Math.random() * 0.4 + 0.1);
-                this.radius = Math.random() * 1.5 + 0.5;
-                this.maxAlpha = Math.random() * 0.45 + 0.1;
+                this.vx     = (Math.random() - 0.5) * 0.45;
+                this.vy     = -(Math.random() * 0.55 + 0.12);
+                this.radius = Math.random() * 2.2 + 0.8;
+                this.maxAlpha = Math.random() * 0.65 + 0.2;
                 this.alpha  = this.maxAlpha;
                 this.life   = 0;
-                this.maxLife = Math.random() * 300 + 200;
-                this.color  = Math.random() < 0.6 ? 'rgba(0, 217, 255,' : 'rgba(127, 90, 240,';
+                this.maxLife = Math.random() * 280 + 180;
+                // 3 color types: cyan, purple, white-ish
+                const r = Math.random();
+                if (r < 0.5)       this.color = 'rgba(0, 217, 255,';
+                else if (r < 0.82) this.color = 'rgba(127, 90, 240,';
+                else               this.color = 'rgba(200, 230, 255,';
             }
             update() {
-                this.x += this.vx; this.y += this.vy; this.life++;
+                // Gentle mouse repulsion
+                const dx = this.x - mouseX;
+                const dy = this.y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 90 && dist > 0) {
+                    const force = (90 - dist) / 90 * 0.4;
+                    this.vx += (dx / dist) * force;
+                    this.vy += (dy / dist) * force;
+                }
+
+                // Speed damping
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life++;
+
                 const p = this.life / this.maxLife;
                 if (p < 0.1)      this.alpha = this.maxAlpha * (p / 0.1);
-                else if (p > 0.8) this.alpha = this.maxAlpha * (1 - (p - 0.8) / 0.2);
-                if (this.life >= this.maxLife) this.reset(false);
+                else if (p > 0.75) this.alpha = this.maxAlpha * (1 - (p - 0.75) / 0.25);
+
+                if (this.life >= this.maxLife || this.x < -10 || this.x > canvas.width + 10)
+                    this.reset(false);
             }
             draw() {
+                // Glow effect
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 2.5, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + ' ' + (this.alpha * 0.12) + ')';
+                ctx.fill();
+                ctx.restore();
+
+                // Core dot
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fillStyle = this.color + ' ' + this.alpha + ')';
@@ -53,12 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const d  = Math.sqrt(dx*dx + dy*dy);
-                    if (d < 100) {
+                    if (d < 120) {
+                        const lineAlpha = (1 - d / 120) * 0.18;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = 'rgba(0,217,255,' + ((1 - d/100) * 0.1) + ')';
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = 'rgba(0,217,255,' + lineAlpha + ')';
+                        ctx.lineWidth = 0.6;
                         ctx.stroke();
                     }
                 }
@@ -67,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function initParticles() {
             particles = [];
-            const count = Math.min(70, Math.floor((canvas.width * canvas.height) / 12000));
+            const count = Math.min(110, Math.floor((canvas.width * canvas.height) / 8000));
             for (let i = 0; i < count; i++) particles.push(new Particle());
         }
 
