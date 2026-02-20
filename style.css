@@ -985,6 +985,8 @@ section { padding: 100px 0; }
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+    border-radius: 16px 16px 0 0;
 }
 
 .pricing-card:hover::after { transform: scaleX(1); }
@@ -1018,6 +1020,7 @@ section { padding: 100px 0; }
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
+    z-index: 2;
 }
 
 .discount-badge {
@@ -1034,6 +1037,7 @@ section { padding: 100px 0; }
     letter-spacing: 1px;
     box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
     animation: discountBounce 2s ease-in-out infinite;
+    z-index: 2;
 }
 
 @keyframes discountBounce {
