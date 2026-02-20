@@ -50,7 +50,8 @@ html {
     pointer-events: none;
     z-index: 99998;
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
 }
 
 .cursor-ring.hovering {
@@ -74,6 +75,12 @@ html {
     justify-content: center;
     flex-direction: column;
     gap: 20px;
+    animation: autoHideLoader 0s ease 1.2s forwards;
+    pointer-events: none;
+}
+
+@keyframes autoHideLoader {
+    to { opacity: 0; visibility: hidden; display: none; }
 }
 
 .loader-logo {
