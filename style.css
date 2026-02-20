@@ -128,11 +128,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    opacity: 0;
-    transition: opacity 0.4s ease;
 }
-
-body.loaded { opacity: 1; }
 
 h1, h2, h3, h4 {
     font-family: 'Space Grotesk', sans-serif;
