@@ -12,17 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 loadingScreen.style.display = 'none';
             }, 500);
         }
-        document.body.classList.add('loaded');
     }, 1000);
 
 
     // ==========================================
     // CUSTOM CURSOR
     // ==========================================
-    const cursorDot  = document.querySelector('.cursor-dot');
     const cursorRing = document.querySelector('.cursor-ring');
 
-    if (cursorDot && cursorRing && window.innerWidth > 968) {
+    if (cursorRing && window.innerWidth > 968) {
         let mouseX = 0, mouseY = 0;
         let ringX  = 0, ringY  = 0;
         let rafId;
@@ -30,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top  = mouseY + 'px';
         });
 
         // Ring follows with smooth lag
@@ -57,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        document.addEventListener('mousedown', () => cursorDot.classList.add('clicking'));
-        document.addEventListener('mouseup',   () => cursorDot.classList.remove('clicking'));
+        document.addEventListener('mousedown', () => cursorRing.classList.add('hovering'));
+        document.addEventListener('mouseup',   () => cursorRing.classList.remove('hovering'));
     }
 
 
