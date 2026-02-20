@@ -36,30 +36,7 @@ html {
     border-radius: 3px;
 }
 
-/* ==========================================
-   CUSTOM CURSOR
-   ========================================== */
-*, *::before, *::after { cursor: none; }
-
-.cursor-ring {
-    position: fixed;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid rgba(0, 217, 255, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-}
-
-.cursor-ring.hovering {
-    width: 56px;
-    height: 56px;
-    border-color: var(--accent-primary);
-    background: rgba(0, 217, 255, 0.05);
-}
+/* Custom cursor removed */
 
 
 /* ==========================================
@@ -151,32 +128,33 @@ h1, h2, h3, h4 {
 /* ==========================================
    SCROLL REVEAL SYSTEM
    ========================================== */
-[data-reveal] {
+/* Scroll reveal — JS adds .js-ready to body before activating */
+.js-ready [data-reveal] {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-reveal="left"] {
+.js-ready [data-reveal="left"] {
     transform: translateX(-40px);
 }
 
-[data-reveal="right"] {
+.js-ready [data-reveal="right"] {
     transform: translateX(40px);
 }
 
-[data-reveal="scale"] {
+.js-ready [data-reveal="scale"] {
     transform: scale(0.92);
 }
 
 [data-reveal].revealed {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Stagger children */
-[data-reveal-group] > * {
+.js-ready [data-reveal-group] > * {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -226,7 +204,7 @@ h1, h2, h3, h4 {
     background: transparent;
     color: var(--text-secondary);
     font-weight: 600;
-    cursor: none;
+    
     border-radius: 20px;
     transition: all 0.3s ease;
     font-size: 0.85rem;
@@ -355,7 +333,7 @@ h1, h2, h3, h4 {
     gap: 5px;
     background: none;
     border: none;
-    cursor: none;
+    
 }
 
 .menu-toggle span {
@@ -594,7 +572,7 @@ h1, h2, h3, h4 {
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     border: none;
-    cursor: none;
+    
     position: relative;
     overflow: hidden;
 }
@@ -670,7 +648,7 @@ h1, h2, h3, h4 {
     gap: 8px;
     position: relative;
     overflow: hidden;
-    cursor: none;
+    
 }
 
 .btn-view::after {
@@ -1324,7 +1302,7 @@ section { padding: 100px 0; }
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
-    cursor: none;
+    
 }
 
 .form-group select option { background: var(--bg-card); }
@@ -1416,7 +1394,7 @@ section { padding: 100px 0; }
     color: var(--text-primary);
     font-size: 1.3rem;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: none;
+    
     position: relative;
     overflow: hidden;
 }
@@ -1490,7 +1468,7 @@ section { padding: 100px 0; }
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
-    cursor: none;
+    
     position: relative;
 }
 
@@ -1532,12 +1510,7 @@ section { padding: 100px 0; }
         gap: 30px;
         text-align: center;
     }
-    .cursor-dot,
-    .cursor-ring { display: none; }
-    *, *::before, *::after { cursor: auto; }
-    .btn, .lang-btn, .menu-toggle, .btn-view,
-    .social-links a, .footer-links a, .nav-menu a,
-    .form-group input, .form-group select, .form-group textarea { cursor: auto; }
+
 }
 
 @media (max-width: 768px) {
