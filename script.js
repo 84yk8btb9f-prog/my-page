@@ -88,116 +88,176 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // HERO CANVAS PARTICLES  (denser)
+    // HERO CANVAS PARTICLES
+    // Two layers: network nodes + ambient floaters
     // ==========================================
     const canvas = document.getElementById('hero-canvas');
     if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let particles = [];
+        const ctx  = canvas.getContext('2d');
+        const hero = document.querySelector('.hero');
+        let networkParticles = [];
+        let ambientParticles = [];
         let mouseX = -999, mouseY = -999;
 
+        // SIZE FROM HERO SECTION — fixes the upper-left cluster bug
+        // canvas.offsetWidth returns 0 when the canvas has no CSS size defined;
+        // pulling from the hero section always returns the correct viewport fill.
         function resizeCanvas() {
-            canvas.width  = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
+            canvas.width  = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
         }
         resizeCanvas();
-        window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initNetwork();
+            initAmbient();
+        });
 
-        document.querySelector('.hero').addEventListener('mousemove', e => {
+        hero.addEventListener('mousemove', e => {
             const rect = canvas.getBoundingClientRect();
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
         });
-        document.querySelector('.hero').addEventListener('mouseleave', () => {
-            mouseX = -999; mouseY = -999;
-        });
+        hero.addEventListener('mouseleave', () => { mouseX = -999; mouseY = -999; });
 
-        class Particle {
+        // ------------------------------------------
+        // LAYER 1: Network nodes (connected by lines)
+        // ------------------------------------------
+        class NetworkParticle {
             constructor() { this.reset(true); }
             reset(initial) {
-                this.x       = Math.random() * canvas.width;
-                this.y       = initial ? Math.random() * canvas.height : canvas.height + 10;
-                this.vx      = (Math.random() - 0.5) * 0.5;
-                this.vy      = -(Math.random() * 0.6 + 0.15);
-                this.radius  = Math.random() * 2.8 + 1.0;
-                this.maxAlpha = Math.random() * 0.75 + 0.3;
-                this.alpha   = 0;
-                this.life    = 0;
-                this.maxLife = Math.random() * 260 + 160;
+                this.x        = Math.random() * canvas.width;
+                this.y        = initial ? Math.random() * canvas.height : canvas.height + 10;
+                this.vx       = (Math.random() - 0.5) * 0.45;
+                this.vy       = -(Math.random() * 0.5 + 0.12);
+                this.radius   = Math.random() * 2.2 + 0.8;
+                this.maxAlpha = Math.random() * 0.7 + 0.25;
+                this.alpha    = 0;
+                this.life     = 0;
+                this.maxLife  = Math.random() * 280 + 160;
                 const r = Math.random();
-                if      (r < 0.45) this.color = '0, 217, 255';
-                else if (r < 0.78) this.color = '127, 90, 240';
-                else               this.color = '180, 220, 255';
+                this.color = r < 0.45 ? '0, 217, 255' : r < 0.78 ? '127, 90, 240' : '180, 220, 255';
             }
             update() {
-                const dx   = this.x - mouseX;
-                const dy   = this.y - mouseY;
+                const dx = this.x - mouseX, dy = this.y - mouseY;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < 100 && dist > 0) {
-                    const force = (100 - dist) / 100 * 0.5;
-                    this.vx += (dx / dist) * force;
-                    this.vy += (dy / dist) * force;
+                    const f = (100 - dist) / 100 * 0.5;
+                    this.vx += (dx / dist) * f;
+                    this.vy += (dy / dist) * f;
                 }
-                this.vx *= 0.985;
-                this.vy *= 0.985;
-                this.x  += this.vx;
-                this.y  += this.vy;
+                this.vx *= 0.985; this.vy *= 0.985;
+                this.x  += this.vx; this.y  += this.vy;
                 this.life++;
                 const p = this.life / this.maxLife;
-                if      (p < 0.12) this.alpha = this.maxAlpha * (p / 0.12);
-                else if (p > 0.72) this.alpha = this.maxAlpha * (1 - (p - 0.72) / 0.28);
-                else               this.alpha = this.maxAlpha;
+                this.alpha = p < 0.12 ? this.maxAlpha * (p / 0.12)
+                           : p > 0.72 ? this.maxAlpha * (1 - (p - 0.72) / 0.28)
+                           : this.maxAlpha;
                 if (this.life >= this.maxLife || this.x < -20 || this.x > canvas.width + 20)
                     this.reset(false);
             }
             draw() {
-                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 4);
-                grad.addColorStop(0,   `rgba(${this.color}, ${this.alpha * 0.35})`);
-                grad.addColorStop(1,   `rgba(${this.color}, 0)`);
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2);
-                ctx.fillStyle = grad;
-                ctx.fill();
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
-                ctx.fill();
+                const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 4);
+                g.addColorStop(0, `rgba(${this.color},${this.alpha * 0.35})`);
+                g.addColorStop(1, `rgba(${this.color},0)`);
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2);
+                ctx.fillStyle = g; ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color},${this.alpha})`; ctx.fill();
             }
         }
 
         function drawConnections() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
+            for (let i = 0; i < networkParticles.length; i++) {
+                for (let j = i + 1; j < networkParticles.length; j++) {
+                    const dx = networkParticles[i].x - networkParticles[j].x;
+                    const dy = networkParticles[i].y - networkParticles[j].y;
                     const d  = Math.sqrt(dx * dx + dy * dy);
-                    if (d < 130) {
+                    if (d < 120) {
                         ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0,217,255,${(1 - d / 130) * 0.2})`;
-                        ctx.lineWidth = 0.7;
+                        ctx.moveTo(networkParticles[i].x, networkParticles[i].y);
+                        ctx.lineTo(networkParticles[j].x, networkParticles[j].y);
+                        ctx.strokeStyle = `rgba(0,217,255,${(1 - d / 120) * 0.18})`;
+                        ctx.lineWidth = 0.6;
                         ctx.stroke();
                     }
                 }
             }
         }
 
-        function initParticles() {
-            particles = [];
-            // ↑ increased cap 160→280, divisor 5500→2800 for ~2× density
-            const count = Math.min(280, Math.floor((canvas.width * canvas.height) / 2800));
-            for (let i = 0; i < count; i++) particles.push(new Particle());
+        function initNetwork() {
+            networkParticles = [];
+            const count = Math.min(120, Math.floor((canvas.width * canvas.height) / 6000));
+            for (let i = 0; i < count; i++) networkParticles.push(new NetworkParticle());
+        }
+
+        // ------------------------------------------
+        // LAYER 2: Ambient floaters (no connections)
+        // Larger, slower, gentle sine drift, spread
+        // across the full canvas at all times
+        // ------------------------------------------
+        class AmbientParticle {
+            constructor() { this.init(true); }
+            init(scatter) {
+                this.x      = Math.random() * canvas.width;
+                this.y      = scatter ? Math.random() * canvas.height : canvas.height + 20;
+                this.baseVx = (Math.random() - 0.5) * 0.3;
+                this.baseVy = -(Math.random() * 0.25 + 0.06);
+                this.radius = Math.random() * 3.5 + 1.5;
+                this.alpha  = 0;
+                this.targetAlpha = Math.random() * 0.55 + 0.2;
+                this.life   = scatter ? Math.random() * 400 : 0;
+                this.maxLife = Math.random() * 500 + 300;
+                // sine wobble
+                this.wobbleAmp   = Math.random() * 0.6 + 0.2;
+                this.wobbleSpeed = Math.random() * 0.015 + 0.005;
+                this.wobbleOff   = Math.random() * Math.PI * 2;
+                const r = Math.random();
+                this.color = r < 0.5 ? '0, 217, 255' : r < 0.82 ? '127, 90, 240' : '200, 230, 255';
+            }
+            update() {
+                this.life++;
+                const p = this.life / this.maxLife;
+                // fade in / sustain / fade out
+                this.alpha = p < 0.1  ? this.targetAlpha * (p / 0.1)
+                           : p > 0.8  ? this.targetAlpha * (1 - (p - 0.8) / 0.2)
+                           : this.targetAlpha;
+                // gentle sine drift on x axis
+                this.x += this.baseVx + Math.sin(this.life * this.wobbleSpeed + this.wobbleOff) * this.wobbleAmp;
+                this.y += this.baseVy;
+                if (this.life >= this.maxLife || this.y < -20) this.init(false);
+            }
+            draw() {
+                // soft glow
+                const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 5);
+                g.addColorStop(0, `rgba(${this.color},${this.alpha * 0.4})`);
+                g.addColorStop(1, `rgba(${this.color},0)`);
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius * 5, 0, Math.PI * 2);
+                ctx.fillStyle = g; ctx.fill();
+                // core dot
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color},${this.alpha})`; ctx.fill();
+            }
+        }
+
+        function initAmbient() {
+            ambientParticles = [];
+            // ~2× more ambient floaters than network nodes, spread everywhere
+            const count = Math.min(220, Math.floor((canvas.width * canvas.height) / 3500));
+            for (let i = 0; i < count; i++) ambientParticles.push(new AmbientParticle());
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // ambient behind network
+            ambientParticles.forEach(p => { p.update(); p.draw(); });
             drawConnections();
-            particles.forEach(p => { p.update(); p.draw(); });
+            networkParticles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animate);
         }
 
-        initParticles();
+        initNetwork();
+        initAmbient();
         animate();
     }
 
