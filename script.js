@@ -1,19 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Mark body as JS-ready so scroll reveal CSS activates
     document.body.classList.add('js-ready');
 
     // ==========================================
-    // HERO CANVAS PARTICLES
-    // ==========================================
-// ==========================================
     // HERO CANVAS PARTICLES
     // ==========================================
     const canvas = document.getElementById('hero-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let mouseX = 0, mouseY = 0;
+        let mouseX = -999, mouseY = -999;
 
         function resizeCanvas() {
             canvas.width  = canvas.offsetWidth;
@@ -22,70 +18,66 @@ document.addEventListener('DOMContentLoaded', function () {
         resizeCanvas();
         window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
 
-        // Subtle mouse repulsion
-        canvas.parentElement.addEventListener('mousemove', e => {
+        document.querySelector('.hero').addEventListener('mousemove', e => {
             const rect = canvas.getBoundingClientRect();
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
+        });
+        document.querySelector('.hero').addEventListener('mouseleave', () => {
+            mouseX = -999; mouseY = -999;
         });
 
         class Particle {
             constructor() { this.reset(true); }
             reset(initial) {
-                this.x      = Math.random() * canvas.width;
-                this.y      = initial ? Math.random() * canvas.height : canvas.height + 10;
-                this.vx     = (Math.random() - 0.5) * 0.45;
-                this.vy     = -(Math.random() * 0.55 + 0.12);
-                this.radius = Math.random() * 2.2 + 0.8;
-                this.maxAlpha = Math.random() * 0.65 + 0.2;
-                this.alpha  = this.maxAlpha;
-                this.life   = 0;
-                this.maxLife = Math.random() * 280 + 180;
-                // 3 color types: cyan, purple, white-ish
+                this.x       = Math.random() * canvas.width;
+                this.y       = initial ? Math.random() * canvas.height : canvas.height + 10;
+                this.vx      = (Math.random() - 0.5) * 0.5;
+                this.vy      = -(Math.random() * 0.6 + 0.15);
+                this.radius  = Math.random() * 2.8 + 1.0;
+                this.maxAlpha = Math.random() * 0.75 + 0.3;
+                this.alpha   = 0;
+                this.life    = 0;
+                this.maxLife = Math.random() * 260 + 160;
                 const r = Math.random();
-                if (r < 0.5)       this.color = 'rgba(0, 217, 255,';
-                else if (r < 0.82) this.color = 'rgba(127, 90, 240,';
-                else               this.color = 'rgba(200, 230, 255,';
+                if      (r < 0.45) this.color = '0, 217, 255';
+                else if (r < 0.78) this.color = '127, 90, 240';
+                else               this.color = '180, 220, 255';
             }
             update() {
-                // Gentle mouse repulsion
-                const dx = this.x - mouseX;
-                const dy = this.y - mouseY;
+                const dx   = this.x - mouseX;
+                const dy   = this.y - mouseY;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 90 && dist > 0) {
-                    const force = (90 - dist) / 90 * 0.4;
+                if (dist < 100 && dist > 0) {
+                    const force = (100 - dist) / 100 * 0.5;
                     this.vx += (dx / dist) * force;
                     this.vy += (dy / dist) * force;
                 }
-
-                // Speed damping
-                this.vx *= 0.99;
-                this.vy *= 0.99;
-
-                this.x += this.vx;
-                this.y += this.vy;
+                this.vx *= 0.985;
+                this.vy *= 0.985;
+                this.x  += this.vx;
+                this.y  += this.vy;
                 this.life++;
-
                 const p = this.life / this.maxLife;
-                if (p < 0.1)      this.alpha = this.maxAlpha * (p / 0.1);
-                else if (p > 0.75) this.alpha = this.maxAlpha * (1 - (p - 0.75) / 0.25);
-
-                if (this.life >= this.maxLife || this.x < -10 || this.x > canvas.width + 10)
+                if      (p < 0.12) this.alpha = this.maxAlpha * (p / 0.12);
+                else if (p > 0.72) this.alpha = this.maxAlpha * (1 - (p - 0.72) / 0.28);
+                else               this.alpha = this.maxAlpha;
+                if (this.life >= this.maxLife || this.x < -20 || this.x > canvas.width + 20)
                     this.reset(false);
             }
             draw() {
-                // Glow effect
-                ctx.save();
+                // outer glow
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 4);
+                grad.addColorStop(0,   `rgba(${this.color}, ${this.alpha * 0.35})`);
+                grad.addColorStop(1,   `rgba(${this.color}, 0)`);
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius * 2.5, 0, Math.PI * 2);
-                ctx.fillStyle = this.color + ' ' + (this.alpha * 0.12) + ')';
+                ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2);
+                ctx.fillStyle = grad;
                 ctx.fill();
-                ctx.restore();
-
-                // Core dot
+                // core
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color + ' ' + this.alpha + ')';
+                ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
                 ctx.fill();
             }
         }
@@ -95,14 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
-                    const d  = Math.sqrt(dx*dx + dy*dy);
-                    if (d < 120) {
-                        const lineAlpha = (1 - d / 120) * 0.18;
+                    const d  = Math.sqrt(dx * dx + dy * dy);
+                    if (d < 130) {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = 'rgba(0,217,255,' + lineAlpha + ')';
-                        ctx.lineWidth = 0.6;
+                        ctx.strokeStyle = `rgba(0,217,255,${(1 - d / 130) * 0.2})`;
+                        ctx.lineWidth = 0.7;
                         ctx.stroke();
                     }
                 }
@@ -111,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function initParticles() {
             particles = [];
-            const count = Math.min(110, Math.floor((canvas.width * canvas.height) / 8000));
+            const count = Math.min(160, Math.floor((canvas.width * canvas.height) / 5500));
             for (let i = 0; i < count; i++) particles.push(new Particle());
         }
 
@@ -145,23 +136,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const text = el.getAttribute('data-' + lang) || 'In Just 5 Days';
 
-        // Clear and hide cursor during wipe
         el.textContent = '';
         if (cursor) cursor.classList.add('typing');
 
         let i = 0;
         function type() {
             if (i < text.length) {
-                // Build full string so background-clip renders correctly each time
                 el.textContent = text.substring(0, i + 1);
                 i++;
-                const delay = 85 + Math.random() * 55;
+                const delay = 80 + Math.random() * 50;
                 typingTimeouts.push(setTimeout(type, delay));
             } else {
                 if (cursor) cursor.classList.remove('typing');
             }
         }
-        typingTimeouts.push(setTimeout(type, 400));
+        // Small delay so gradient CSS is applied before first char renders
+        typingTimeouts.push(setTimeout(type, 80));
     }
 
     // ==========================================
@@ -199,8 +189,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // STAT COUNTERS
     // ==========================================
     const statTargets = [
-        { value: 9, suffix: '' }, { value: 100, suffix: '%' },
-        { value: 5, suffix: '' }, { value: 2, suffix: '' }
+        { value: 9,   suffix: '' },
+        { value: 100, suffix: '%' },
+        { value: 5,   suffix: '' },
+        { value: 2,   suffix: '' }
     ];
 
     const statsObserver = new IntersectionObserver((entries) => {
@@ -285,10 +277,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // INIT
+    // INIT — wait for loader to finish (1.2s) then start typing
     // ==========================================
     applyTranslations('en');
-    startTyping('en');
+    // Delay typing until loader animation is done so the user actually sees it
+    setTimeout(() => { startTyping('en'); }, 1350);
 
     // ==========================================
     // TRANSLATIONS
@@ -336,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'contact-label':'Get Started','contact-title':'Ready to Go Live?','contact-desc':"Tell me about your project. I'll reply within 24 hours with next steps.",
             'form-name':'Your Name','form-email':'Email','form-package-label':'Package','form-package-select':'Select a package...',
             'form-package-1':'Landing Page - €100','form-package-2':'Basic Website - €200','form-package-3':'Business Website - €350','form-package-4':'E-commerce Ready - €500','form-package-5':'Custom Quote',
-            'form-message':'Project Details','form-message-placeholder':'Tell me about your project...','form-btn':'Send Project Brief',
+            'form-message':'Project Details','form-btn':'Send Project Brief',
             'contact-email-label':'Email','contact-location-label':'Location','contact-location':'Athens, Greece','contact-response-label':'Response Time','contact-response-time':'Within 24 hours',
             'footer-text':'Helping Greek businesses go from invisible to unforgettable. One fast website at a time.','footer-location':'Athens, Greece',
         },
@@ -369,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'contact-label':'Ξεκινήστε','contact-title':'Έτοιμοι να Πάτε Live;','contact-desc':'Πείτε μου για το έργο σας. Θα απαντήσω εντός 24 ωρών.',
             'form-name':'Το Όνομά σας','form-email':'Email','form-package-label':'Πακέτο','form-package-select':'Επιλέξτε πακέτο...',
             'form-package-1':'Landing Page - €100','form-package-2':'Βασική Ιστοσελίδα - €200','form-package-3':'Επιχειρηματική - €350','form-package-4':'E-commerce - €500','form-package-5':'Προσαρμοσμένη Προσφορά',
-            'form-message':'Λεπτομέρειες Έργου','form-message-placeholder':'Πες μου για το έργο σου...','form-btn':'Αποστολή Περιγραφής Έργου',
+            'form-message':'Λεπτομέρειες Έργου','form-btn':'Αποστολή Περιγραφής Έργου',
             'contact-email-label':'Email','contact-location-label':'Τοποθεσία','contact-location':'Αθήνα, Ελλάδα','contact-response-label':'Χρόνος Απόκρισης','contact-response-time':'Εντός 24 ωρών',
             'footer-text':'Βοηθώντας ελληνικές επιχειρήσεις να πάνε από αόρατες σε αξέχαστες.','footer-location':'Αθήνα, Ελλάδα',
         }
