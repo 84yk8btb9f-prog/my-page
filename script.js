@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function initNetwork() {
             networkParticles = [];
-            const count = Math.min(60, Math.floor((canvas.width * canvas.height) / 14000));
+            const count = Math.min(30, Math.floor((canvas.width * canvas.height) / 28000));
             for (let i = 0; i < count; i++) networkParticles.push(new NetworkParticle());
         }
 
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function initAmbient() {
             ambientParticles = [];
-            const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 10000));
+            const count = Math.min(35, Math.floor((canvas.width * canvas.height) / 22000));
             for (let i = 0; i < count; i++) ambientParticles.push(new AmbientParticle());
         }
 
