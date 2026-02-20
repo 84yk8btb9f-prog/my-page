@@ -41,19 +41,6 @@ html {
    ========================================== */
 *, *::before, *::after { cursor: none; }
 
-.cursor-dot {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999;
-    transform: translate(-50%, -50%);
-    transition: width 0.15s, height 0.15s, background 0.15s;
-    mix-blend-mode: difference;
-}
-
 .cursor-ring {
     position: fixed;
     width: 36px;
@@ -73,11 +60,6 @@ html {
     background: rgba(0, 217, 255, 0.05);
 }
 
-.cursor-dot.clicking {
-    width: 4px;
-    height: 4px;
-    background: var(--accent-secondary);
-}
 
 /* ==========================================
    LOADING SCREEN
@@ -997,6 +979,8 @@ section { padding: 100px 0; }
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     margin-bottom: 60px;
+    margin-top: 20px;
+    overflow: visible;
 }
 
 .pricing-card {
@@ -1004,9 +988,10 @@ section { padding: 100px 0; }
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 40px 30px;
+    padding-top: 50px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .pricing-card::after {
