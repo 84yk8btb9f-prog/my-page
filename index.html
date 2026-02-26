@@ -1,740 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelpMarq — Real Feedback from Real People</title>
+<meta name="description" content="Submit any project and get structured, honest feedback from matched reviewers. Free during beta.">
+<link rel="canonical" href="https://helpmarq.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#0c0c0c;color:#c2c2c2;font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-    <!-- ==========================================
-         TITLE — primary keyword front-loaded
-         ========================================== -->
-    <title>Web Developer Athens Greece | Nikolas Sapalidis — Bilingual Websites from €100</title>
+:root{
+  --bg:#0c0c0c;
+  --s1:#111111;
+  --s2:#181818;
+  --line:#222222;
+  --line2:#2c2c2c;
+  --white:#efefef;
+  --dim:#888888;
+  --dimmer:#555555;
+  --accent:#4265f0;
+  --acc-h:#3458e8;
+}
 
-    <!-- ==========================================
-         META DESCRIPTION — benefit + keyword + CTA
-         ========================================== -->
-    <meta name="description" content="Web developer in Athens, Greece. Nikolas Sapalidis builds professional bilingual (EN/GR) websites for Greek businesses in 5 days, starting from €100. No agencies. No delays. Fast, mobile-first, SEO-ready.">
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2)}
 
-    <meta name="keywords" content="web developer Athens, web development Greece, Nikolas Sapalidis, Greek web designer, website design Athens, bilingual website EN GR, affordable website Greece, fast website developer Athens, young web developer Greece, website for Greek business, κατασκευή ιστοσελίδων Αθήνα, web dev Athens">
-    <meta name="author" content="Nikolas Sapalidis">
-    <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="GR-I">
-    <meta name="geo.placename" content="Athens, Greece">
-    <meta name="geo.position" content="37.9838;23.7275">
-    <meta name="ICBM" content="37.9838, 23.7275">
+/* TYPE */
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;color:var(--white);line-height:1.05;letter-spacing:-0.01em}
+h4,h5,h6{font-family:'DM Sans',sans-serif;color:var(--white);letter-spacing:0}
+h1{font-size:clamp(46px,7vw,86px);font-weight:400}
+h2{font-size:clamp(32px,4.5vw,54px);font-weight:400}
+h3{font-size:clamp(20px,2.5vw,26px);font-weight:400}
+h4{font-size:14px;font-weight:600}
+p{color:var(--dim);line-height:1.78}
+a{color:inherit;text-decoration:none}
+em{font-style:italic}
+strong{font-weight:600;color:var(--white)}
 
-    <!-- ==========================================
-         HREFLANG — tells Google about EN/GR versions
-         ========================================== -->
-    <link rel="alternate" hreflang="en" href="https://nikolassapa.vercel.app/">
-    <link rel="alternate" hreflang="el" href="https://nikolassapa.vercel.app/?lang=gr">
-    <link rel="alternate" hreflang="x-default" href="https://nikolassapa.vercel.app/">
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+section{padding:96px 0}
+section+section{border-top:1px solid var(--line)}
 
-    <link rel="canonical" href="https://nikolassapa.vercel.app/">
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 20px;border:1px solid transparent;cursor:pointer;transition:all .15s;white-space:nowrap;letter-spacing:.01em}
+.btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn-white{background:var(--white);color:#0c0c0c;border-color:var(--white)}
+.btn-white:hover{background:#d8d8d8;border-color:#d8d8d8}
+.btn-ghost{background:transparent;color:var(--dim);border-color:var(--line2)}
+.btn-ghost:hover{border-color:#555;color:var(--white)}
 
-    <!-- ==========================================
-         OPEN GRAPH
-         ========================================== -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nikolassapa.vercel.app/">
-    <meta property="og:title" content="Web Developer Athens | Nikolas Sapalidis — Bilingual Websites from €100">
-    <meta property="og:description" content="Professional bilingual (EN/GR) websites for Greek businesses in 5 days. Starting at €100. No agencies, no delays — just fast, honest web development in Athens.">
-    <meta property="og:image" content="https://nikolassapa.vercel.app/preview-image.jpg">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="el_GR">
-    <meta property="og:site_name" content="Nikolas Sapalidis — Web Developer Athens">
+/* EYEBROW */
+.ey{display:block;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer);margin-bottom:16px}
 
-    <!-- ==========================================
-         TWITTER CARD
-         ========================================== -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Web Developer Athens | Nikolas Sapalidis — Websites from €100">
-    <meta property="twitter:description" content="Professional bilingual websites for Greek businesses in 5 days. Starting at €100.">
-    <meta property="twitter:image" content="https://nikolassapa.vercel.app/preview-image.jpg">
-    <meta name="twitter:creator" content="@NikolasSapa">
-    <meta name="twitter:site" content="@NikolasSapa">
+/* ──────────────────────
+   NAV
+────────────────────── */
+nav{position:sticky;top:0;z-index:500;background:rgba(12,12,12,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-i{display:flex;align-items:center;height:56px}
+.nav-logo{display:flex;align-items:center;margin-right:auto;overflow:hidden;text-decoration:none}
+.nav-logo img{height:76px;width:auto;object-fit:contain;margin:-12px -8px;flex-shrink:0}
+.nav-logo-t{font-family:'Instrument Serif',serif;font-size:18px;color:var(--white);letter-spacing:-.02em;margin-left:-2px}
+.nav-l{display:flex}
+.nav-l a{font-size:13px;font-weight:400;color:var(--dimmer);padding:8px 13px;transition:color .14s}
+.nav-l a:hover{color:var(--white)}
+.nav-r{display:flex;align-items:center;gap:6px;margin-left:18px}
+.nav-r a{font-size:13px;color:var(--dimmer);padding:8px 12px;transition:color .14s}
+.nav-r a:hover{color:var(--white)}
+.nav-cta{background:var(--white)!important;color:#0c0c0c!important;font-size:13px!important;font-weight:600!important;padding:7px 16px!important;transition:background .14s!important}
+.nav-cta:hover{background:#d8d8d8!important}
+.tgl{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;margin-left:14px}
+.tgl span{display:block;width:20px;height:1.5px;background:var(--dimmer);transition:all .2s}
+.mob{display:none;position:fixed;top:56px;left:0;right:0;z-index:499;background:var(--s1);border-bottom:1px solid var(--line);flex-direction:column;padding:10px 28px 22px}
+.mob.on{display:flex}
+.mob a{display:block;padding:11px 0;font-size:15px;color:var(--dim);border-bottom:1px solid var(--line)}
+.mob a:last-child{border:none}
+.mob a:hover{color:var(--white)}
 
-    <!-- ==========================================
-         STRUCTURED DATA — LocalBusiness + Service + WebSite + FAQ
-         ========================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://nikolassapa.vercel.app/#business",
-          "name": "Nikolas Sapalidis — Web Developer Athens",
-          "url": "https://nikolassapa.vercel.app/",
-          "logo": "https://nikolassapa.vercel.app/preview-image.jpg",
-          "image": "https://nikolassapa.vercel.app/preview-image.jpg",
-          "description": "Professional web developer in Athens, Greece. Builds bilingual (EN/GR) websites for Greek businesses in 5 days, starting from €100.",
-          "telephone": "",
-          "email": "nikolas@helpmarq.com",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Athens",
-            "addressRegion": "Attica",
-            "addressCountry": "GR"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.9838,
-            "longitude": 23.7275
-          },
-          "openingHours": "Mo-Su 09:00-21:00",
-          "priceRange": "€€",
-          "currenciesAccepted": "EUR",
-          "paymentAccepted": "Bank Transfer",
-          "areaServed": [
-            { "@type": "Country", "name": "Greece" },
-            { "@type": "City", "name": "Athens" }
-          ],
-          "sameAs": [
-            "https://www.instagram.com/nikolas.sapa/",
-            "https://github.com/84yk8btb9f-prog",
-            "https://www.linkedin.com/in/nik-sapa-0b8346353/",
-            "https://x.com/NikolasSapa"
-          ],
-          "founder": {
-            "@type": "Person",
-            "name": "Nikolas Sapalidis",
-            "jobTitle": "Web Developer",
-            "url": "https://nikolassapa.vercel.app/",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Athens",
-              "addressCountry": "GR"
-            }
-          }
-        },
-        {
-          "@type": "Service",
-          "@id": "https://nikolassapa.vercel.app/#services",
-          "provider": { "@id": "https://nikolassapa.vercel.app/#business" },
-          "name": "Web Development Athens",
-          "description": "Professional bilingual (EN/GR) website design and development for Greek businesses. Delivered in 5 days.",
-          "areaServed": { "@type": "Country", "name": "Greece" },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Website Packages",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "Landing Page",
-                "description": "1-page professional landing site, mobile responsive, contact form, 1 revision round.",
-                "price": "100",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-                "deliveryLeadTime": { "@type": "QuantitativeValue", "value": 5, "unitCode": "DAY" }
-              },
-              {
-                "@type": "Offer",
-                "name": "Basic Website",
-                "description": "3-5 page website, mobile responsive, contact form, basic SEO, 2 revision rounds.",
-                "price": "200",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-                "deliveryLeadTime": { "@type": "QuantitativeValue", "value": 5, "unitCode": "DAY" }
-              },
-              {
-                "@type": "Offer",
-                "name": "Business Website",
-                "description": "5-8 page website, gallery, Google Maps, social media links, email setup, 3 revision rounds.",
-                "price": "350",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-                "deliveryLeadTime": { "@type": "QuantitativeValue", "value": 5, "unitCode": "DAY" }
-              },
-              {
-                "@type": "Offer",
-                "name": "E-commerce Ready",
-                "description": "Full business site with product catalog, WhatsApp order system, payment integration, admin training.",
-                "price": "500",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock",
-                "deliveryLeadTime": { "@type": "QuantitativeValue", "minValue": 7, "maxValue": 10, "unitCode": "DAY" }
-              }
-            ]
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://nikolassapa.vercel.app/#website",
-          "url": "https://nikolassapa.vercel.app/",
-          "name": "Nikolas Sapalidis — Web Developer Athens",
-          "description": "Portfolio and service website of Nikolas Sapalidis, web developer based in Athens, Greece.",
-          "publisher": { "@id": "https://nikolassapa.vercel.app/#business" },
-          "inLanguage": ["en", "el"]
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://nikolassapa.vercel.app/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How much does a website cost in Athens, Greece?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Professional websites in Athens start from €100 for a landing page. A basic 3-5 page business website costs €200, a full business site costs €350, and an e-commerce website starts at €500. All packages include mobile-responsive design and are delivered in 5 days."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How long does it take to build a website?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Most websites are delivered in 5 business days. E-commerce projects take 7-10 days. This is significantly faster than typical web agencies which can take 4-8 weeks."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do you build bilingual websites in Greek and English?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Bilingual (EN/GR) websites are available as an add-on for +€75. As a native Greek speaker fluent in English, the translations are accurate and natural — not machine-translated."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is included in web development packages?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "All packages include mobile-responsive design, a contact form, and a set number of revision rounds. Higher-tier packages include SEO optimization, Google Maps integration, gallery/portfolio sections, social media links, and email setup assistance."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do you work with Greek businesses outside Athens?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. All work is done remotely, so I work with businesses anywhere in Greece and internationally. Communication is available in both Greek and English."
-              }
-            }
-          ]
-        }
-      ]
-    }
-    </script>
+/* ──────────────────────
+   HERO
+────────────────────── */
+#hero{padding:88px 0 80px;border-top:none}
+.hero-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--dimmer);margin-bottom:26px}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:#3ecf8e;animation:bk 2.5s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-title{margin-bottom:22px}
+.hero-title em{color:var(--dim);font-style:italic}
+.hero-sub{font-size:17px;color:var(--dim);line-height:1.72;max-width:400px;margin-bottom:34px}
+.hero-sub strong{color:var(--white);font-weight:500}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--line)}
+.hm{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--dimmer)}
+.hm svg{width:13px;height:13px;stroke:var(--dimmer);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="style.css">
-    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-    <script defer src="/_vercel/insights/script.js"></script>
+/* MOCKUP */
+.mockup{border:1px solid var(--line2)}
+.mk-bar{background:var(--s1);border-bottom:1px solid var(--line);padding:9px 14px;display:flex;align-items:center;gap:8px}
+.mk-dots{display:flex;gap:5px}
+.mk-dot{width:8px;height:8px;border-radius:50%;background:var(--line2)}
+.mk-url{font-size:11px;color:var(--dimmer);margin-left:6px}
+.mk-body{padding:18px}
+.mk-sec{font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--dimmer);margin-bottom:12px}
+.pr{display:flex;align-items:center;gap:11px;padding:11px 13px;border:1px solid var(--line2);margin-bottom:6px;background:var(--bg);transition:border-color .15s}
+.pr:hover{border-color:var(--line2)}
+.pr-ic{width:30px;height:30px;background:var(--s2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pr-ic svg{width:13px;height:13px;stroke:var(--dimmer);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pr-n{font-size:12px;font-weight:600;color:var(--white);font-family:'DM Sans',sans-serif}
+.pr-t{font-size:11px;color:var(--dimmer)}
+.pr-s{font-size:10px;font-weight:500;padding:2px 7px;border:1px solid var(--line2);color:var(--dimmer);white-space:nowrap;margin-left:auto}
+.pr-s.live{border-color:rgba(62,207,142,.3);color:#3ecf8e}
+.mk-div{height:1px;background:var(--line);margin:14px 0}
+.mk-match{font-size:11px;color:var(--dimmer);margin-bottom:10px}
+.rv{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line2);background:var(--bg);margin-bottom:5px}
+.rv:last-child{margin-bottom:0}
+.rv-av{width:26px;height:26px;border-radius:50%;background:var(--s2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--dim);flex-shrink:0}
+.rv-n{font-size:12px;font-weight:500;color:var(--white)}
+.rv-sp{font-size:10.5px;color:var(--dimmer)}
+.rv-sc{font-size:11px;color:var(--dim);margin-left:auto;white-space:nowrap}
+.rv-t{font-size:9px;font-weight:500;padding:2px 6px;border:1px solid var(--line2);color:var(--dimmer);margin-left:6px}
+.rv-t.g{border-color:rgba(212,170,70,.3);color:#d4aa46}
+
+/* ──────────────────────
+   PROBLEM
+────────────────────── */
+#problem{padding:80px 0}
+.prob-h{margin-bottom:52px}
+.prob-h h2{margin-bottom:12px;max-width:520px}
+.prob-h p{font-size:16px;max-width:440px}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2)}
+.pc{padding:36px 30px;border-right:1px solid var(--line2)}
+.pc:last-child{border-right:none}
+.pc-n{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dimmer);display:block;margin-bottom:20px}
+.pc h3{font-size:19px;margin-bottom:12px}
+.pc p{font-size:14px;line-height:1.76}
+
+/* ──────────────────────
+   HOW IT WORKS
+────────────────────── */
+#how{padding:88px 0}
+.how-hd{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.how-hd h2{margin-bottom:0}
+.how-hd p{font-size:15px;line-height:1.72}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2)}
+.st{padding:34px 26px;border-right:1px solid var(--line2);position:relative;overflow:visible;cursor:default}
+.st:last-child{border-right:none}
+.st-n{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dimmer);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.st-n::after{content:'';flex:1;height:1px;background:var(--line2)}
+.st-ic{width:38px;height:38px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.st-ic svg{width:16px;height:16px;stroke:var(--dim);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.st h4{font-size:14px;margin-bottom:8px;color:var(--white)}
+.st p{font-size:13.5px;color:var(--dim);line-height:1.7}
+
+/* ──────────────────────
+   FOR OWNERS
+────────────────────── */
+#owners{padding:88px 0}
+.spl{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.spl-l h2{margin-bottom:14px}
+.spl-l>p{font-size:16px;margin-bottom:36px;max-width:400px}
+.fl{border-top:1px solid var(--line)}
+.fi{display:flex;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
+.fi-ic{width:32px;height:32px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px}
+.fi-ic svg{width:14px;height:14px;stroke:var(--dim);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.fi h4{font-size:14px;margin-bottom:4px}
+.fi p{font-size:13.5px;color:var(--dim);line-height:1.65}
+.types-l{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dimmer);margin-bottom:16px}
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2)}
+.ty{background:var(--s1);padding:20px 18px;transition:background .14s}
+.ty:hover{background:var(--s2)}
+.ty-ic{width:28px;height:28px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.ty-ic svg{width:12px;height:12px;stroke:var(--dimmer);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ty h4{font-size:13px;margin-bottom:3px}
+.ty p{font-size:12px;color:var(--dimmer);line-height:1.5}
+
+/* ──────────────────────
+   REVIEWERS
+────────────────────── */
+#revs{padding:88px 0}
+.rv-hd{max-width:540px;margin-bottom:52px}
+.rv-hd h2{margin-bottom:12px}
+.rv-hd p{font-size:16px}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line2)}
+.tr{padding:28px 22px;border-right:1px solid var(--line2)}
+.tr:last-child{border-right:none}
+.tr-n{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:14px}
+.t-br{color:#b87333}.t-si{color:#888}.t-go{color:#d4aa46}.t-pl{color:#6ab4d4}
+.tr h3{font-size:17px;margin-bottom:8px}
+.tr p{font-size:13px;color:var(--dim);line-height:1.65}
+.tr-xp{font-size:12px;color:var(--dimmer);margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.tr-xp strong{color:var(--dim)}
+.rv-feats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2);border-top:none}
+.rf{padding:26px 22px;border-right:1px solid var(--line2)}
+.rf:last-child{border-right:none}
+.rf h4{margin-bottom:7px}
+.rf p{font-size:13.5px;color:var(--dim);line-height:1.65}
+
+/* ──────────────────────
+   TRUST
+────────────────────── */
+#trust{padding:88px 0}
+.tr-hd{max-width:480px;margin-bottom:48px}
+.tr-hd h2{margin-bottom:12px}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2)}
+.tc{padding:30px 26px;border-right:1px solid var(--line2)}
+.tc:last-child{border-right:none}
+.tc-n{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dimmer);display:block;margin-bottom:14px}
+.tc h4{font-size:14px;margin-bottom:8px}
+.tc p{font-size:13.5px;color:var(--dim);line-height:1.7}
+.tg2{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2);border-top:none}
+
+/* ──────────────────────
+   TESTIMONIALS
+────────────────────── */
+#testi{padding:88px 0}
+.te-hd{max-width:440px;margin-bottom:48px}
+.te-hd h2{margin-bottom:8px}
+.te-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2)}
+.te-c{background:var(--s1);padding:32px 28px}
+.te-s{display:flex;gap:3px;margin-bottom:18px}
+.te-s span{color:#d4aa46;font-size:13px}
+.te-q{font-size:14.5px;color:var(--dim);line-height:1.76;margin-bottom:22px;font-style:italic}
+.te-who{display:flex;align-items:center;gap:10px;padding-top:18px;border-top:1px solid var(--line)}
+.te-av{width:30px;height:30px;border-radius:50%;background:var(--s2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--dim)}
+.te-nm{font-size:13px;font-weight:600;color:var(--white)}
+.te-ro{font-size:12px;color:var(--dimmer)}
+
+/* ──────────────────────
+   FOUNDING
+────────────────────── */
+#found{padding:72px 0;border-top:1px solid var(--line)}
+.fo-w{border:1px solid var(--line2);display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;padding:48px}
+.fo-w h2{margin-bottom:12px;font-size:clamp(22px,3vw,36px)}
+.fo-w>div>p{font-size:15px;max-width:460px}
+.perks{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px}
+.pk{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--dim)}
+.pk svg{width:12px;height:12px;stroke:var(--dim);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.fo-cta{text-align:center;flex-shrink:0}
+.fo-cta p{font-size:12px;color:var(--dimmer);margin-top:10px}
+
+/* ──────────────────────
+   FAQ
+────────────────────── */
+#faq{padding:88px 0}
+.faq-hd{max-width:420px;margin-bottom:48px}
+.faq-hd h2{margin-bottom:8px}
+.faq-w{max-width:700px}
+.fq{border-bottom:1px solid var(--line)}
+.fq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.fq-qt{font-family:'Instrument Serif',serif;font-size:17px;color:var(--dim);transition:color .14s}
+.fq-q:hover .fq-qt{color:var(--white)}
+.fq-ic{width:18px;height:18px;flex-shrink:0;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center}
+.fq-ic svg{width:9px;height:9px;stroke:var(--dimmer);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s}
+.fq.on .fq-ic svg{transform:rotate(45deg);stroke:var(--dim)}
+.fq.on .fq-qt{color:var(--white)}
+.fq-a{display:none;padding:0 60px 18px 0;font-size:14.5px;color:var(--dim);line-height:1.8}
+.fq.on .fq-a{display:block}
+
+/* ──────────────────────
+   CTA
+────────────────────── */
+#cta{padding:96px 0;text-align:center}
+.ct-in{max-width:520px;margin:0 auto}
+.ct-in h2{margin-bottom:14px}
+.ct-in p{font-size:16px;margin-bottom:32px}
+.ct-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.ct-fine{font-size:12px;color:var(--dimmer);margin-top:14px}
+
+/* ──────────────────────
+   FOOTER
+────────────────────── */
+footer{background:var(--s1);border-top:1px solid var(--line);padding:52px 0 28px}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.ft-brand{max-width:230px}
+.ft-logo{display:flex;align-items:center;margin-bottom:12px;overflow:hidden}
+.ft-logo img{height:60px;width:auto;object-fit:contain;margin:-10px -6px}
+.ft-logo-t{font-family:'Instrument Serif',serif;font-size:16px;color:var(--white);letter-spacing:-.02em;margin-left:-2px}
+.ft-desc{font-size:13.5px;color:var(--dimmer);line-height:1.74;margin-bottom:12px}
+.ft-mail{font-size:13px;color:var(--dimmer);transition:color .14s}
+.ft-mail:hover{color:var(--white)}
+.ft-col h5{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dimmer);margin-bottom:14px}
+.ft-col a{display:block;font-size:13.5px;color:var(--dimmer);margin-bottom:9px;transition:color .14s}
+.ft-col a:hover{color:var(--white)}
+.ft-bot{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ft-copy{font-size:12px;color:var(--dimmer)}
+.ft-leg{display:flex;gap:18px}
+.ft-leg a{font-size:12px;color:var(--dimmer);transition:color .14s}
+.ft-leg a:hover{color:var(--white)}
+
+/* ──────────────────────
+   RESPONSIVE
+────────────────────── */
+@media(max-width:960px){
+  .hero-g,.spl{grid-template-columns:1fr;gap:40px}
+  .hero-r{display:none}
+  .how-hd{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .tiers,.tg,.tg2,.te-g{grid-template-columns:1fr}
+  .tr,.tc,.te-c{border-right:none;border-bottom:1px solid var(--line2)}
+  .tr:last-child,.tc:nth-child(3n),.te-c:last-child{border-bottom:none}
+  .rv-feats{grid-template-columns:1fr}
+  .rf{border-right:none;border-bottom:1px solid var(--line2)}
+  .rf:last-child{border-bottom:none}
+  .ft-g{grid-template-columns:1fr 1fr}
+  .fo-w{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  h1{font-size:40px}h2{font-size:28px}
+  section{padding:64px 0}
+  .nav-l,.nav-r a:not(.nav-cta){display:none}
+  .tgl{display:flex}
+  .prob-grid{grid-template-columns:1fr}
+  .pc{border-right:none;border-bottom:1px solid var(--line2)}
+  .pc:last-child{border-bottom:none}
+  .steps{grid-template-columns:1fr}
+  .st{border-right:none;border-bottom:1px solid var(--line2)}
+  .st:last-child{border-bottom:none}
+  .tiers{grid-template-columns:1fr 1fr}
+  .tr:nth-child(odd){border-right:1px solid var(--line2)}
+  .types{grid-template-columns:1fr 1fr}
+  .fo-w{padding:28px 24px}
+  .ft-g{grid-template-columns:1fr}
+}
+
+
+/* SABER HOVER */
+.st::before,.st::after{content:'';position:absolute;border-radius:0;pointer-events:none;opacity:0;transition:opacity .3s}
+.st::before{inset:0;background:transparent;border:1.5px solid transparent}
+.st:hover::before{opacity:1}
+.st .saber{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;z-index:2}
+.st:hover .saber{opacity:1}
+.st .saber svg{position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible}
+.st .saber svg rect{
+  fill:none;stroke:rgba(180,180,255,0.55);stroke-width:1.5;
+  stroke-dasharray:900;stroke-dashoffset:900;
+  filter:drop-shadow(0 0 4px rgba(100,140,255,0.7)) drop-shadow(0 0 10px rgba(100,140,255,0.3));
+  animation:none;
+}
+.st:hover .saber svg rect{
+  animation:saber-draw 1.2s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes saber-draw{
+  0%{stroke-dashoffset:900;opacity:0}
+  8%{opacity:1}
+  60%{stroke-dashoffset:0;opacity:1}
+  85%{stroke-dashoffset:0;opacity:.6}
+  100%{stroke-dashoffset:0;opacity:.4}
+}
+
+/* REVEAL */
+.up{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.up.in{opacity:1;transform:translateY(0)}
+</style>
 </head>
 <body>
 
-    <div id="loading-screen">
-        <div class="loader-logo">NS</div>
-        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <div class="nav-i">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="HelpMarq logo">
+        <span class="nav-logo-t">HelpMarq</span>
+      </a>
+      <div class="nav-l">
+        <a href="#how">How it works</a>
+        <a href="#owners">For projects</a>
+        <a href="#revs">For reviewers</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-r">
+        <a href="https://app.helpmarq.com/login">Log in</a>
+        <a href="https://app.helpmarq.com/signup" class="nav-cta">Get started free</a>
+      </div>
+      <button class="tgl" onclick="document.getElementById('mob').classList.toggle('on')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+  <div class="mob" id="mob">
+    <a href="#how" onclick="this.closest('.mob').classList.remove('on')">How it works</a>
+    <a href="#owners" onclick="this.closest('.mob').classList.remove('on')">For projects</a>
+    <a href="#revs" onclick="this.closest('.mob').classList.remove('on')">For reviewers</a>
+    <a href="#faq" onclick="this.closest('.mob').classList.remove('on')">FAQ</a>
+    <a href="https://app.helpmarq.com/login">Log in</a>
+    <a href="https://app.helpmarq.com/signup" style="color:var(--white);font-weight:600">Get started free →</a>
+  </div>
+</nav>
 
-    <div class="language-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="gr">EL</button>
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-g">
+      <div>
+        <div class="hero-badge">
+          <span class="hero-dot"></span>
+          Free during beta &mdash; Founding reviewer spots open
+        </div>
+        <h1 class="hero-title">Real feedback.<br><em>No more guessing.</em></h1>
+        <p class="hero-sub">Submit any project and get structured, honest feedback from matched reviewers. Not polite opinions. Not forum noise. <strong>Feedback that tells you exactly what to fix.</strong></p>
+        <div class="hero-btns">
+          <a href="https://app.helpmarq.com/signup" class="btn btn-white">Submit your project <svg viewBox="0 0 13 13"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg></a>
+          <a href="#revs" class="btn btn-ghost">Become a reviewer</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hm"><svg viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="5.5"/><path d="M6.5 4v3l1.5 1.5"/></svg> Feedback in 24–48h</div>
+          <div class="hm"><svg viewBox="0 0 13 13"><path d="M6.5 1.5l1.2 3.5H11L8.3 7.2l1 3.3-2.8-1.8-2.8 1.8 1-3.3L2 5h3.3z"/></svg> Verified reviewers</div>
+          <div class="hm"><svg viewBox="0 0 13 13"><path d="M1.5 9s2-2 5-2 5 2 5 2"/><circle cx="6.5" cy="5" r="2.5"/></svg> Free to start</div>
+        </div>
+      </div>
+      <div class="hero-r">
+        <div class="mockup">
+          <div class="mk-bar">
+            <div class="mk-dots"><div class="mk-dot"></div><div class="mk-dot"></div><div class="mk-dot"></div></div>
+            <span class="mk-url">app.helpmarq.com — dashboard</span>
+          </div>
+          <div class="mk-body">
+            <div class="mk-sec">Your submissions</div>
+            <div class="pr">
+              <div class="pr-ic"><svg viewBox="0 0 13 13"><rect x="1" y="2" width="11" height="9" rx="1"/><path d="M3.5 6h6M3.5 8.5h4"/></svg></div>
+              <div><div class="pr-n">App landing page</div><div class="pr-t">Website · Design feedback</div></div>
+              <div class="pr-s live">Matching</div>
+            </div>
+            <div class="pr">
+              <div class="pr-ic"><svg viewBox="0 0 13 13"><rect x="3" y="1" width="7" height="11" rx="1"/><path d="M5.5 9.5h2"/></svg></div>
+              <div><div class="pr-n">Pitch deck v3</div><div class="pr-t">Presentation · Investor clarity</div></div>
+              <div class="pr-s">3 reviews</div>
+            </div>
+            <div class="mk-div"></div>
+            <div class="mk-match">4 reviewers matched — select up to 3</div>
+            <div class="rv">
+              <div class="rv-av">AK</div>
+              <div><div class="rv-n">Alex K.</div><div class="rv-sp">UX Design · 127 reviews</div></div>
+              <div class="rv-sc">★ 4.9</div><div class="rv-t g">Gold</div>
+            </div>
+            <div class="rv">
+              <div class="rv-av">SM</div>
+              <div><div class="rv-n">Sarah M.</div><div class="rv-sp">SaaS Product · 84 reviews</div></div>
+              <div class="rv-sc">★ 4.8</div><div class="rv-t">Silver</div>
+            </div>
+            <div class="rv">
+              <div class="rv-av">TN</div>
+              <div><div class="rv-n">Tom N.</div><div class="rv-sp">Startup Founder · 41 reviews</div></div>
+              <div class="rv-sc">★ 4.7</div><div class="rv-t">Bronze</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="#home" class="logo" aria-label="Nikolas Sapalidis — Web Developer Athens">NS</a>
-            <ul class="nav-menu">
-                <li><a href="#home" data-translate="nav-home">Home</a></li>
-                <li><a href="#work" data-translate="nav-work">Work</a></li>
-                <li><a href="#pricing" data-translate="nav-pricing">Pricing</a></li>
-                <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
-            </ul>
-            <a href="#pricing" class="btn-nav" data-translate="nav-btn">See Pricing</a>
-            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-                <span></span><span></span><span></span>
-            </button>
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="prob-h up">
+      <span class="ey">The problem</span>
+      <h2>Every builder hits the same wall</h2>
+      <p>You finish something. You need honest feedback. Every option available to you fails.</p>
+    </div>
+    <div class="prob-grid up">
+      <div class="pc"><span class="pc-n">01</span><h3>Friends are too kind</h3><p>The people who care about you don't want to hurt your feelings. They say "looks great" instead of telling you what's broken. Polite feedback is useless feedback.</p></div>
+      <div class="pc"><span class="pc-n">02</span><h3>Forums give nothing</h3><p>You post your project online and get ignored, get a one-word reply, or advice from someone who has never built anything like yours. No accountability, no skin in the game.</p></div>
+      <div class="pc"><span class="pc-n">03</span><h3>Real feedback costs too much</h3><p>Hiring a consultant isn't realistic early on. Most founders are left guessing what's wrong until they've already shipped the wrong thing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="how-hd up">
+      <div><span class="ey">How it works</span><h2>Four steps from submission to insight</h2></div>
+      <p>No complicated setup. Submit your project and the platform handles the rest.</p>
+    </div>
+    <div class="steps up">
+      <div class="st"><div class="saber"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="1" y="1" width="98" height="98" rx="0"/></svg></div>
+        <div class="st-n">01</div>
+        <div class="st-ic"><svg viewBox="0 0 16 16"><path d="M8 3v8M4 7l4-4 4 4"/><path d="M2 13h12"/></svg></div>
+        <h4>Submit your project</h4>
+        <p>Upload your project URL, file, or description. Set your focus areas and the kind of feedback you need most.</p>
+      </div>
+      <div class="st"><div class="saber"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="1" y="1" width="98" height="98" rx="0"/></svg></div>
+        <div class="st-n">02</div>
+        <div class="st-ic"><svg viewBox="0 0 16 16"><circle cx="6" cy="6" r="3"/><path d="M2 14v-1a3.5 3.5 0 013.5-3.5h1A3.5 3.5 0 0110 13v1"/><circle cx="12" cy="6" r="2"/><path d="M14 14v-.5a2.5 2.5 0 00-1.5-2.3"/></svg></div>
+        <h4>Get matched</h4>
+        <p>The platform matches your project with relevant reviewers — experts, practitioners, and everyday users who mirror your real audience.</p>
+      </div>
+      <div class="st"><div class="saber"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="1" y="1" width="98" height="98" rx="0"/></svg></div>
+        <div class="st-n">03</div>
+        <div class="st-ic"><svg viewBox="0 0 16 16"><path d="M12 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V3a1 1 0 00-1-1z"/><path d="M5.5 8l2 2 3-3.5"/></svg></div>
+        <h4>Receive feedback</h4>
+        <p>Reviewers deliver structured, multi-perspective feedback through the platform. Rated and reviewed for quality on every submission.</p>
+      </div>
+      <div class="st"><div class="saber"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="1" y="1" width="98" height="98" rx="0"/></svg></div>
+        <div class="st-n">04</div>
+        <div class="st-ic"><svg viewBox="0 0 16 16"><path d="M2 12l4-4 3 3 5-6"/><path d="M12 4h3v3"/></svg></div>
+        <h4>Improve</h4>
+        <p>Rate your reviewers. Apply the feedback. Track your iterations. Build with real direction instead of assumptions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR OWNERS -->
+<section id="owners">
+  <div class="wrap">
+    <div class="spl">
+      <div class="spl-l up">
+        <span class="ey">For project owners</span>
+        <h2>Stop guessing.<br>Start improving.</h2>
+        <p>Whether you're a student, a founder pre-launch, or a creator — HelpMarq gives you feedback that's structured, specific, and actually actionable.</p>
+        <div class="fl">
+          <div class="fi"><div class="fi-ic"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M7 4.5V7l1.5 1.5"/></svg></div><div><h4>Fast turnaround</h4><p>Detailed feedback within 24–48 hours. Not days waiting for forum replies that never come.</p></div></div>
+          <div class="fi"><div class="fi-ic"><svg viewBox="0 0 14 14"><circle cx="4.5" cy="4.5" r="2.5"/><circle cx="9.5" cy="9.5" r="2.5"/><path d="M6.5 6l1 2"/></svg></div><div><h4>Multiple perspectives</h4><p>Get feedback from three reviewer types simultaneously — expert, practitioner, and end-user.</p></div></div>
+          <div class="fi"><div class="fi-ic"><svg viewBox="0 0 14 14"><path d="M2 3h10v9H2z"/><path d="M4 3V2a1 1 0 011-1h4a1 1 0 011 1v1"/></svg></div><div><h4>Structured format</h4><p>Reviewers use structured templates. No vague opinions — every piece of feedback is categorized and specific.</p></div></div>
+          <div class="fi"><div class="fi-ic"><svg viewBox="0 0 14 14"><path d="M7 1a6 6 0 100 12A6 6 0 007 1z"/><path d="M7 4v3l2 2"/></svg></div><div><h4>Reviewer profiles</h4><p>See the rating, review history, and expertise of every reviewer before selecting them.</p></div></div>
         </div>
-    </nav>
-
-    <section id="home" class="hero" aria-label="Hero">
-        <canvas id="hero-canvas" aria-hidden="true"></canvas>
-        <div class="hero-bg-gradient" aria-hidden="true"></div>
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-float-1" aria-hidden="true"></div>
-        <div class="hero-float-2" aria-hidden="true"></div>
-        <div class="hero-float-3" aria-hidden="true"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge" data-translate="hero-badge">16-Year-Old Web Developer — Athens, Greece</div>
-
-                <!-- ==========================================
-                     H1 — keyword-rich but still readable
-                     Primary: "web developer Athens"
-                     Secondary: "websites for Greek businesses"
-                     The visual animated text is below in a styled <p>,
-                     keeping the H1 static and crawlable.
-                     ========================================== -->
-                <h1>
-                    <span data-translate="hero-title-1">Web Developer Athens — Websites for Greek Businesses</span><br>
-                    <span class="typing-wrapper">
-                        <span class="gradient-text typing-text" data-en="Delivered in Just 5 Days" data-gr="Σε Μόλις 5 Ημέρες"></span><span class="typing-cursor"></span>
-                    </span>
-                </h1>
-
-                <p class="hero-description" data-translate="hero-desc">Your competitors are launching. Your customers are searching. Don't wait weeks for an agency — get a professional, mobile-responsive website built in 5 days. Bilingual (EN/GR), fast, and honest. No bureaucracy. Just results.</p>
-                <div class="hero-buttons">
-                    <a href="#pricing" class="btn btn-primary">
-                        <span data-translate="hero-btn-1">Lock In Launch Price</span>
-                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                    <a href="#work" class="btn btn-secondary" data-translate="hero-btn-2">View Live Examples</a>
-                </div>
-            </div>
+      </div>
+      <div class="up">
+        <div class="types-l">Submit any type of project</div>
+        <div class="types">
+          <div class="ty"><div class="ty-ic"><svg viewBox="0 0 12 12"><rect x="1" y="2" width="10" height="8" rx="1"/><path d="M3 6h6M3 8h4"/></svg></div><h4>Websites</h4><p>Landing pages, portfolios, product sites</p></div>
+          <div class="ty"><div class="ty-ic"><svg viewBox="0 0 12 12"><rect x="3" y="1" width="6" height="10" rx="1"/><path d="M5 9h2"/></svg></div><h4>Mobile Apps</h4><p>UX flows, onboarding, features</p></div>
+          <div class="ty"><div class="ty-ic"><svg viewBox="0 0 12 12"><path d="M1 1h10v10H1z"/><path d="M3.5 5h5M3.5 7.5h3"/></svg></div><h4>Presentations</h4><p>Pitch decks, proposals, slides</p></div>
+          <div class="ty"><div class="ty-ic"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5"/><path d="M6 4v2.5l1.5 1.5"/></svg></div><h4>Ideas</h4><p>Business concepts, positioning</p></div>
+          <div class="ty"><div class="ty-ic"><svg viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="1"/><path d="M3.5 5h5M3.5 7.5h3"/></svg></div><h4>Designs</h4><p>UI mockups, brand, visual identity</p></div>
+          <div class="ty"><div class="ty-ic"><svg viewBox="0 0 12 12"><path d="M3 1h6l2 3v7H1V4z"/><path d="M3 5.5h6M3 7.5h4"/></svg></div><h4>Documents</h4><p>Reports, proposals, written work</p></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="stats-bar" aria-label="Statistics">
-        <div class="container">
-            <div class="stats-grid" data-reveal-group>
-                <div class="stat-item">
-                    <div class="stat-number">9</div>
-                    <div class="stat-label" data-translate="stat-1-label">Live Sites Built</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label" data-translate="stat-2-label">Mobile-Perfect</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label" data-translate="stat-3-label">Day Turnaround</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label" data-translate="stat-4-label">Languages</div>
-                </div>
-            </div>
+<!-- FOR REVIEWERS -->
+<section id="revs">
+  <div class="wrap">
+    <div class="rv-hd up">
+      <span class="ey">For reviewers</span>
+      <h2>Build a reputation<br>that compounds.</h2>
+      <p>Give feedback, earn XP, unlock tiers. HelpMarq rewards quality reviewers with visibility, access to better projects, and a profile that demonstrates your expertise over time. No special qualifications required.</p>
+    </div>
+    <div class="tiers up">
+      <div class="tr"><span class="tr-n t-br">Bronze</span><h3>Getting started</h3><p>New reviewers. Begin building your review history and establishing your profile on the platform.</p><div class="tr-xp">Starts at <strong>0 XP</strong></div></div>
+      <div class="tr"><span class="tr-n t-si">Silver</span><h3>Established</h3><p>Consistent quality. Access to a wider range of projects and more complex submissions.</p><div class="tr-xp">Unlocks at <strong>500 XP</strong></div></div>
+      <div class="tr"><span class="tr-n t-go">Gold</span><h3>Trusted expert</h3><p>High-rated reviews. Priority matching to valuable and complex projects from active builders.</p><div class="tr-xp">Unlocks at <strong>1,500 XP</strong></div></div>
+      <div class="tr"><span class="tr-n t-pl">Platinum</span><h3>Elite reviewer</h3><p>Top tier status. First access to new features and highest-priority project matching on the platform.</p><div class="tr-xp">Unlocks at <strong>5,000 XP</strong></div></div>
+    </div>
+    <div class="rv-feats up">
+      <div class="rf"><h4>XP on every review</h4><p>Every review earns XP. Amount depends on project complexity and the quality rating given by the owner.</p></div>
+      <div class="rf"><h4>Public profile</h4><p>Your score, history, and badges are visible on your public profile. Reputation compounds with every review.</p></div>
+      <div class="rf"><h4>Access grows with rank</h4><p>Higher-tier reviewers get priority access to more projects and higher-value submissions as the platform scales.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="wrap">
+    <div class="tr-hd up">
+      <span class="ey">Built on trust</span>
+      <h2>Quality by design</h2>
+      <p>Every part of the platform is designed to keep feedback honest, structured, and fair for both sides.</p>
+    </div>
+    <div class="tg up">
+      <div class="tc"><span class="tc-n">01</span><h4>Reviewer ratings</h4><p>Every review is rated after delivery. Public ratings ensure accountability — quality reviewers rise, low-effort ones stop getting matched.</p></div>
+      <div class="tc"><span class="tc-n">02</span><h4>Structured feedback</h4><p>Reviewers work through structured templates. No vague "looks nice" — every piece addresses specific, defined areas of your project.</p></div>
+      <div class="tc" style="border-right:none"><span class="tc-n">03</span><h4>Dispute protection</h4><p>Clear dispute resolution for both project owners and reviewers. Platform mediation available for any contested feedback.</p></div>
+    </div>
+    <div class="tg2">
+      <div class="tc"><span class="tc-n">04</span><h4>Anti-abuse filtering</h4><p>Advanced filtering prevents fake reviews and rating manipulation. Identity patterns keep the platform clean for everyone.</p></div>
+      <div class="tc"><span class="tc-n">05</span><h4>Transparent profiles</h4><p>Project owners see reviewer history before matching. Reviewers see clear project briefs before accepting. Every step visible.</p></div>
+      <div class="tc" style="border-right:none;border-bottom:none"><span class="tc-n">06</span><h4>Quality incentives</h4><p>Top-rated reviewers get priority access to new projects. The system rewards consistency and penalizes low-effort work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <div class="wrap">
+    <div class="te-hd up">
+      <span class="ey">Beta feedback</span>
+      <h2>What beta testers said</h2>
+    </div>
+    <div class="te-g up">
+      <div class="te-c">
+        <div class="te-s"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="te-q">"I submitted my landing page and got three completely different perspectives within 24 hours. The structure made it easy to see exactly what to fix first."</p>
+        <div class="te-who"><div class="te-av">MK</div><div><div class="te-nm">Marcus K.</div><div class="te-ro">Indie Founder, Beta Tester</div></div></div>
+      </div>
+      <div class="te-c">
+        <div class="te-s"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="te-q">"The reviewer matching was surprisingly good. I needed UX feedback and got matched with someone who actually works in product design. That never happens on forums."</p>
+        <div class="te-who"><div class="te-av">SR</div><div><div class="te-nm">Sofia R.</div><div class="te-ro">Product Designer, Beta Tester</div></div></div>
+      </div>
+      <div class="te-c">
+        <div class="te-s"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="te-q">"The XP system keeps me motivated. You can see your profile growing with every review. It feels like the reviews actually mean something, which makes me write better ones."</p>
+        <div class="te-who"><div class="te-av">JL</div><div><div class="te-nm">James L.</div><div class="te-ro">Reviewer, Beta Tester</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDING -->
+<section id="found">
+  <div class="wrap">
+    <div class="fo-w up">
+      <div>
+        <span class="ey">Launch special</span>
+        <h2>Become a Founding Reviewer</h2>
+        <p>Sign up as a reviewer before launch and get a permanent Founding Reviewer badge on your profile. Be one of the first names on the platform.</p>
+        <div class="perks">
+          <div class="pk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-6"/></svg>Permanent Founding Reviewer badge</div>
+          <div class="pk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-6"/></svg>Early access to the platform</div>
+          <div class="pk"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-6"/></svg>Launch day shoutout</div>
         </div>
-    </section>
+      </div>
+      <div class="fo-cta">
+        <a href="https://app.helpmarq.com/signup?role=reviewer" class="btn btn-white" style="font-size:15px;padding:13px 26px">Claim your spot <svg viewBox="0 0 13 13"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg></a>
+        <p>Spots are limited. Free to join.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="work" class="work-section" aria-label="Portfolio">
-        <div class="container">
-            <div class="section-header" data-reveal>
-                <span class="section-label" data-translate="work-label">Portfolio</span>
-                <h2 data-translate="work-title">Real Sites. Live. Functional.</h2>
-                <p data-translate="work-desc">These aren't mockups. They're websites businesses actually use to get customers.</p>
-            </div>
-            <div class="projects-grid" data-reveal-group>
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="faq-hd up">
+      <span class="ey">FAQ</span>
+      <h2>Common questions</h2>
+      <p style="margin-top:8px;font-size:15px">Everything you need to know before you start.</p>
+    </div>
+    <div class="faq-w">
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">Is HelpMarq really free?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">Yes. HelpMarq is completely free during beta for both project owners and reviewers. No credit card required. This lets you test the platform, give and receive real feedback, and build your reviewer profile before any paid features are introduced.</div></div>
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">What kind of projects can I submit?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">Anything you've built or are building. Websites, landing pages, mobile apps, SaaS products, pitch decks, business ideas, design mockups, brand identities, written documents, or any project where you need real feedback. If you're unsure, just submit it.</div></div>
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">Who are the reviewers?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">Reviewers are a mix of professionals, practitioners, and everyday users. The platform matches your project with reviewers relevant to your category. All reviewers are rated after each review. You can see a reviewer's rating, history, and expertise before selecting them.</div></div>
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">How does the XP and tier system work?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">Every review you submit earns XP. The amount depends on the complexity of the project and the quality rating given by the project owner. Accumulate XP to progress from Bronze → Silver → Gold → Platinum. Higher tiers give you priority access to more projects and better profile visibility.</div></div>
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">What is a Founding Reviewer badge?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">A permanent badge on your reviewer profile given exclusively to people who sign up before the official launch date. Once the launch window closes, this badge will no longer be available to new reviewers.</div></div>
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">How is HelpMarq different from Reddit or forums?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">On forums, feedback is random, unstructured, and unreliable. Reviewers have no accountability. On HelpMarq, reviewers are rated, matched to your specific project type, and use structured feedback templates. Every review is tied to their public profile. The incentive for quality is built in.</div></div>
+      <div class="fq"><button class="fq-q" onclick="toggleFq(this)"><span class="fq-qt">What if I'm not satisfied with the feedback?</span><span class="fq-ic"><svg viewBox="0 0 9 9"><path d="M1.5 4.5h6M4.5 1.5v6"/></svg></span></button><div class="fq-a">You can rate the reviewer after delivery. Low ratings directly affect their profile and matching priority. If you receive feedback that is clearly low-effort, contact us at info@helpmarq.com and we'll resolve it directly.</div></div>
+    </div>
+  </div>
+</section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
-                             alt="Mediterranean restaurant website design by web developer Athens — Olive and Thyme demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://demo-1-bice.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag" data-translate="project-1-tag">Restaurant</div>
-                        <h3 data-translate="project-1-title">Olive &amp; Thyme</h3>
-                        <p data-translate="project-1-desc">Mediterranean restaurant with instant online reservations and menu showcase. Built to convert browsers into bookings.</p>
-                    </div>
-                </div>
+<!-- CTA -->
+<section id="cta">
+  <div class="wrap">
+    <div class="ct-in up">
+      <span class="ey" style="text-align:center">Get started</span>
+      <h2>Your next project deserves honest feedback</h2>
+      <p>Stop shipping blind. Get structured, multi-perspective feedback from people who actually have something to say.</p>
+      <div class="ct-btns">
+        <a href="https://app.helpmarq.com/signup" class="btn btn-white" style="font-size:15px;padding:13px 26px">Submit your first project <svg viewBox="0 0 13 13"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg></a>
+        <a href="https://app.helpmarq.com/signup?role=reviewer" class="btn btn-ghost" style="font-size:15px;padding:13px 26px">Become a reviewer</a>
+      </div>
+      <p class="ct-fine">No credit card. No setup. Takes 2 minutes.</p>
+    </div>
+  </div>
+</section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800"
-                             alt="Business consulting website design Athens — Apex Consulting demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://demo-2-coral.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag" data-translate="project-2-tag">Business</div>
-                        <h3 data-translate="project-2-title">Apex Consulting</h3>
-                        <p data-translate="project-2-desc">Consulting firm that needed credibility fast. Professional design that positions them as industry leaders.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800"
-                             alt="NFT marketplace website development — CryptoVerse Web3 demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://demo-3-three.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag" data-translate="project-3-tag">Web3/NFT</div>
-                        <h3 data-translate="project-3-title">CryptoVerse</h3>
-                        <p data-translate="project-3-desc">NFT marketplace with cutting-edge design. Built to stand out in a crowded crypto space.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800"
-                             alt="Gym fitness website built by Athens web developer — FitZone demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://demo-4-mu.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag" data-translate="project-4-tag">Fitness</div>
-                        <h3 data-translate="project-4-title">FitZone Gym</h3>
-                        <p data-translate="project-4-desc">High-energy gym site that drives sign-ups. Schedules, trainers, and pricing designed for conversions.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800"
-                             alt="Fashion e-commerce website design Greece — LuxeWear online store demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://e-commerce-plum-eight-76.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag">E-commerce</div>
-                        <h3>LuxeWear</h3>
-                        <p>Premium fashion store with full shopping cart, product filtering, and seamless checkout experience.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800"
-                             alt="SaaS landing page website development Athens — FlowSpace project management demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://saas-three-pi-67.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag">SaaS</div>
-                        <h3>FlowSpace</h3>
-                        <p>Modern project management platform with subscription pricing, feature pages, and conversion-focused design.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800"
-                             alt="Barbershop website design Athens Greece — BarberHaus booking site demo"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://barbershop-demo-eosin.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag">Barbershop</div>
-                        <h3>BarberHaus</h3>
-                        <p>Premium barbershop site with online booking, team showcase, gallery, and a dark gold aesthetic that commands respect.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800"
-                             alt="Car rental website Athens Greece — vehicle rental platform with WhatsApp booking"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://athens-car-rental.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag">Car Rental</div>
-                        <h3>Athens Car Rental</h3>
-                        <p>Vehicle rental platform with real-time fleet availability, transparent pricing, and WhatsApp booking integration.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800"
-                             alt="Review marketplace website development — Helpmarq feedback platform for entrepreneurs"
-                             loading="lazy" width="800" height="533">
-                        <div class="project-overlay">
-                            <a href="https://helpmarq.vercel.app" class="btn-view" target="_blank" rel="noopener noreferrer"><span data-translate="btn-view">View Live Site</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tag">Marketplace</div>
-                        <h3>Helpmarq</h3>
-                        <p>Review marketplace delivering multi-perspective expert feedback to students, entrepreneurs, and creators at accessible prices.</p>
-                    </div>
-                </div>
-
-            </div>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-g">
+      <div class="ft-brand">
+        <div class="ft-logo">
+          <img src="/logo.png" alt="HelpMarq logo">
+          <span class="ft-logo-t">HelpMarq</span>
         </div>
-    </section>
+        <p class="ft-desc">A global review marketplace where project owners get structured, honest feedback from matched reviewers.</p>
+        <a href="mailto:info@helpmarq.com" class="ft-mail">info@helpmarq.com</a>
+      </div>
+      <div class="ft-col">
+        <h5>Platform</h5>
+        <a href="https://app.helpmarq.com/signup">Get started</a>
+        <a href="https://app.helpmarq.com/login">Log in</a>
+        <a href="#how">How it works</a>
+        <a href="#owners">For projects</a>
+        <a href="#revs">For reviewers</a>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <a href="mailto:info@helpmarq.com">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#found">Founding reviewers</a>
+      </div>
+      <div class="ft-col">
+        <h5>Legal</h5>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span class="ft-copy">&copy; 2026 HelpMarq. All rights reserved.</span>
+      <div class="ft-leg">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:info@helpmarq.com">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <section id="pricing" class="pricing-section" aria-label="Pricing">
-        <div class="container">
-            <div class="launch-banner" data-reveal>
-                <div class="launch-banner-content">
-                    <i class="fas fa-rocket" aria-hidden="true"></i>
-                    <div>
-                        <strong data-translate="launch-banner-title">Early-Bird Pricing Ends Soon</strong>
-                        <p data-translate="launch-banner-desc">I'm locking in 30% off for my first 5 clients. After that, prices go up permanently. 3 slots left.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-header centered" data-reveal>
-                <span class="section-label" data-translate="pricing-label">Pricing</span>
-                <h2 data-translate="pricing-title">One Price. No Surprises. No Haggling.</h2>
-                <p data-translate="pricing-desc">Pick a package. Pay once. Get your site in 5 days. Simple.</p>
-            </div>
-
-            <div class="pricing-grid" data-reveal-group>
-
-                <div class="pricing-card">
-                    <div class="discount-badge">33% OFF</div>
-                    <div class="price-header">
-                        <h3 data-translate="pricing-1-name">Landing Page</h3>
-                        <div class="price"><span class="old-price">€150</span><span class="amount">€100</span></div>
-                        <p class="delivery"><span data-translate="pricing-delivery">5 days delivery</span></p>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-1-1">1 page, 3-5 sections</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-1-2">Mobile responsive</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-1-3">Contact form</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-1-4">1 revision round</span></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline" data-translate="btn-get-started">Claim This Price</a>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="discount-badge">33% OFF</div>
-                    <div class="price-header">
-                        <h3 data-translate="pricing-2-name">Basic Website</h3>
-                        <div class="price"><span class="old-price">€300</span><span class="amount">€200</span></div>
-                        <p class="delivery"><span data-translate="pricing-delivery">5 days delivery</span></p>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-2-1">3-5 pages</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-2-2">Mobile responsive</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-2-3">Contact form</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-2-4">Basic SEO</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-2-5">2 revision rounds</span></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline" data-translate="btn-get-started">Claim This Price</a>
-                </div>
-
-                <div class="pricing-card featured">
-                    <div class="popular-badge" data-translate="popular-badge">Best Value</div>
-                    <div class="price-header">
-                        <h3 data-translate="pricing-3-name">Business Website</h3>
-                        <div class="price"><span class="old-price">€500</span><span class="amount">€350</span></div>
-                        <p class="delivery"><span data-translate="pricing-delivery">5 days delivery</span></p>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-3-1">5-8 pages</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-3-2">Gallery/Portfolio</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-3-3">Google Maps integration</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-3-4">Social media links</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-3-5">Email setup help</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-3-6">3 revision rounds</span></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" data-translate="btn-get-started">Claim This Price</a>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="discount-badge">29% OFF</div>
-                    <div class="price-header">
-                        <h3 data-translate="pricing-4-name">E-commerce Ready</h3>
-                        <div class="price"><span class="old-price">€700</span><span class="amount">€500</span></div>
-                        <p class="delivery"><span data-translate="pricing-4-delivery">7-10 days delivery</span></p>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-4-1">Full business site +</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-4-2">Product catalog</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-4-3">WhatsApp order system</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-4-4">Payment integration</span></li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="feature-4-5">Admin training included</span></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline" data-translate="btn-get-started">Claim This Price</a>
-                </div>
-
-            </div>
-
-            <!-- ==========================================
-                 FAQ SECTION — targets exact search queries
-                 Schema above mirrors this content
-                 ========================================== -->
-            <section id="faq" class="faq-section" aria-label="Frequently Asked Questions">
-                <div class="section-header centered" data-reveal>
-                    <span class="section-label">FAQ</span>
-                    <h2>Common Questions</h2>
-                </div>
-                <div class="faq-grid" data-reveal-group>
-                    <details class="faq-item">
-                        <summary><h3>How much does a website cost in Athens, Greece?</h3></summary>
-                        <p>Websites start from <strong>€100 for a landing page</strong>. A 3-5 page business website is €200, a full business site is €350, and e-commerce starts at €500. All prices include mobile-responsive design and are delivered within 5 days.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary><h3>How long does it take to build a website?</h3></summary>
-                        <p>Most websites are delivered in <strong>5 business days</strong>. E-commerce projects take 7-10 days. Agencies typically take 4-8 weeks for the same work.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary><h3>Do you build bilingual Greek and English websites?</h3></summary>
-                        <p>Yes. Bilingual (EN/GR) is available as an add-on for <strong>+€75</strong>. As a native Greek speaker, translations are natural and accurate — not machine-translated.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary><h3>Do you work with businesses outside Athens?</h3></summary>
-                        <p>Yes. All work is done remotely. I work with businesses anywhere in Greece and internationally, in both Greek and English.</p>
-                    </details>
-                </div>
-            </section>
-
-            <div class="addons-section" data-reveal>
-                <h3 data-translate="addons-title">Add-Ons</h3>
-                <div class="addons-grid" data-reveal-group>
-                    <div class="addon-item">
-                        <i class="fas fa-language" aria-hidden="true"></i>
-                        <div><strong data-translate="addon-1-name">Bilingual (EN/GR)</strong><span data-translate="addon-1-price">+€75</span></div>
-                    </div>
-                    <div class="addon-item">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <div><strong data-translate="addon-2-name">Advanced SEO</strong><span data-translate="addon-2-price">+€60</span></div>
-                    </div>
-                    <div class="addon-item">
-                        <i class="fas fa-edit" aria-hidden="true"></i>
-                        <div><strong data-translate="addon-3-name">Extra Revisions</strong><span data-translate="addon-3-price">+€30</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="benefits-section" aria-label="Why choose Nikolas Sapalidis as your web developer">
-        <div class="container">
-            <div class="section-header centered" data-reveal>
-                <span class="section-label" data-translate="benefits-label">Why Choose Me</span>
-                <h2 data-translate="benefits-title">No Agency Red Tape. Just Speed &amp; Honesty.</h2>
-            </div>
-            <div class="benefits-grid" data-reveal-group>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div>
-                    <h3 data-translate="benefit-1-title">Launch Before Your Competitor</h3>
-                    <p data-translate="benefit-1-desc">5-day delivery means you're live while agencies are still scheduling discovery calls. Speed is your advantage.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
-                    <h3 data-translate="benefit-2-title">Speak to Greek &amp; Global Markets</h3>
-                    <p data-translate="benefit-2-desc">Native Greek, fluent English. Your site works for local customers and international clients — no translation guesswork.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
-                    <h3 data-translate="benefit-3-title">Mobile = 70% of Your Traffic</h3>
-                    <p data-translate="benefit-3-desc">Every site I build is mobile-first. Your customers browse on phones — your site needs to work flawlessly there.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i></div>
-                    <h3 data-translate="benefit-4-title">No Middlemen = Fair Pricing</h3>
-                    <p data-translate="benefit-4-desc">You work directly with me. No project managers, no account reps. Just one person who builds your site and answers your questions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section" aria-label="Contact">
-        <div class="container">
-            <div class="section-header centered" data-reveal>
-                <span class="section-label" data-translate="contact-label">Get Started</span>
-                <h2 data-translate="contact-title">Ready to Go Live?</h2>
-                <p data-translate="contact-desc">Tell me about your project. I'll reply within 24 hours with next steps.</p>
-            </div>
-            <div class="contact-content">
-                <form class="contact-form" action="https://formspree.io/f/xpqjzbkj" method="POST" data-reveal="left" aria-label="Project inquiry form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="name" id="name" required autocomplete="name">
-                            <label for="name" data-translate="form-name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" required autocomplete="email">
-                            <label for="email" data-translate="form-email">Email</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <select name="package" id="package" required>
-                            <option value="" data-translate="form-package-select">Select a package...</option>
-                            <option value="Landing Page - 100" data-translate="form-package-1">Landing Page - €100</option>
-                            <option value="Basic Website - 200" data-translate="form-package-2">Basic Website - €200</option>
-                            <option value="Business Website - 350" data-translate="form-package-3">Business Website - €350</option>
-                            <option value="E-commerce Ready - 500" data-translate="form-package-4">E-commerce Ready - €500</option>
-                            <option value="Custom Quote" data-translate="form-package-5">Custom Quote</option>
-                        </select>
-                        <label for="package" data-translate="form-package-label">Package</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" id="message" rows="5" required></textarea>
-                        <label for="message" data-translate="form-message">Project Details</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <span data-translate="form-btn">Send Project Brief</span>
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </form>
-                <div class="contact-info" data-reveal="right">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <div>
-                            <h4 data-translate="contact-email-label">Email</h4>
-                            <a href="mailto:nikolas@helpmarq.com">nikolas@helpmarq.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        <div>
-                            <h4 data-translate="contact-location-label">Location</h4>
-                            <p data-translate="contact-location">Athens, Greece</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock" aria-hidden="true"></i>
-                        <div>
-                            <h4 data-translate="contact-response-label">Response Time</h4>
-                            <p data-translate="contact-response-time">Within 24 hours</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/nikolas.sapa/" target="_blank" rel="noopener noreferrer" aria-label="Follow Nikolas Sapalidis on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://github.com/84yk8btb9f-prog" target="_blank" rel="noopener noreferrer" aria-label="Nikolas Sapalidis GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        <a href="https://www.linkedin.com/in/nik-sapa-0b8346353/" target="_blank" rel="noopener noreferrer" aria-label="Nikolas Sapalidis LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="https://x.com/NikolasSapa" target="_blank" rel="noopener noreferrer" aria-label="Follow Nikolas Sapalidis on X Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-logo">NS</div>
-                    <p data-translate="footer-text">Helping Greek businesses go from invisible to unforgettable. One fast website at a time.</p>
-                </div>
-                <div class="footer-right">
-                    <nav class="footer-links" aria-label="Footer navigation">
-                        <a href="#home" data-translate="nav-home">Home</a>
-                        <a href="#work" data-translate="nav-work">Work</a>
-                        <a href="#pricing" data-translate="nav-pricing">Pricing</a>
-                        <a href="#contact" data-translate="nav-contact">Contact</a>
-                        <a href="#faq">FAQ</a>
-                        <a href="terms.html">Terms of Service</a>
-                    </nav>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Nikolas Sapalidis — Web Developer Athens, Greece</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script>
+function toggleFq(btn){
+  const item=btn.closest('.fq'),open=item.classList.contains('on');
+  document.querySelectorAll('.fq.on').forEach(i=>i.classList.remove('on'));
+  if(!open)item.classList.add('on');
+}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.06,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.up').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
