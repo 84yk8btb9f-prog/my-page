@@ -99,9 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let ambientParticles = [];
         let mouseX = -999, mouseY = -999;
 
-        // SIZE FROM HERO SECTION — fixes the upper-left cluster bug
-        // canvas.offsetWidth returns 0 when the canvas has no CSS size defined;
-        // pulling from the hero section always returns the correct viewport fill.
         function resizeCanvas() {
             canvas.width  = hero.offsetWidth;
             canvas.height = hero.offsetHeight;
@@ -120,9 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         hero.addEventListener('mouseleave', () => { mouseX = -999; mouseY = -999; });
 
-        // ------------------------------------------
-        // LAYER 1: Network nodes (connected by lines)
-        // ------------------------------------------
         class NetworkParticle {
             constructor() { this.reset(true); }
             reset(initial) {
@@ -191,11 +185,6 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let i = 0; i < count; i++) networkParticles.push(new NetworkParticle());
         }
 
-        // ------------------------------------------
-        // LAYER 2: Ambient floaters (no connections)
-        // Larger, slower, gentle sine drift, spread
-        // across the full canvas at all times
-        // ------------------------------------------
         class AmbientParticle {
             constructor() { this.init(true); }
             init(scatter) {
@@ -208,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.targetAlpha = Math.random() * 0.55 + 0.2;
                 this.life   = scatter ? Math.random() * 400 : 0;
                 this.maxLife = Math.random() * 500 + 300;
-                // sine wobble
                 this.wobbleAmp   = Math.random() * 0.6 + 0.2;
                 this.wobbleSpeed = Math.random() * 0.015 + 0.005;
                 this.wobbleOff   = Math.random() * Math.PI * 2;
@@ -218,23 +206,19 @@ document.addEventListener('DOMContentLoaded', function () {
             update() {
                 this.life++;
                 const p = this.life / this.maxLife;
-                // fade in / sustain / fade out
                 this.alpha = p < 0.1  ? this.targetAlpha * (p / 0.1)
                            : p > 0.8  ? this.targetAlpha * (1 - (p - 0.8) / 0.2)
                            : this.targetAlpha;
-                // gentle sine drift on x axis
                 this.x += this.baseVx + Math.sin(this.life * this.wobbleSpeed + this.wobbleOff) * this.wobbleAmp;
                 this.y += this.baseVy;
                 if (this.life >= this.maxLife || this.y < -20) this.init(false);
             }
             draw() {
-                // soft glow
                 const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 5);
                 g.addColorStop(0, `rgba(${this.color},${this.alpha * 0.4})`);
                 g.addColorStop(1, `rgba(${this.color},0)`);
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.radius * 5, 0, Math.PI * 2);
                 ctx.fillStyle = g; ctx.fill();
-                // core dot
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(${this.color},${this.alpha})`; ctx.fill();
             }
@@ -248,7 +232,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // ambient behind network
             ambientParticles.forEach(p => { p.update(); p.draw(); });
             drawConnections();
             networkParticles.forEach(p => { p.update(); p.draw(); });
@@ -276,19 +259,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const el     = document.querySelector('.typing-text');
         const cursor = document.querySelector('.typing-cursor');
         if (!el) return;
-
         const text = el.getAttribute('data-' + lang) || 'In Just 5 Days';
-
         el.textContent = '';
         if (cursor) cursor.classList.add('typing');
-
         let i = 0;
         function type() {
             if (i < text.length) {
                 el.textContent = text.substring(0, i + 1);
                 i++;
-                const delay = 80 + Math.random() * 50;
-                typingTimeouts.push(setTimeout(type, delay));
+                typingTimeouts.push(setTimeout(type, 80 + Math.random() * 50));
             } else {
                 if (cursor) cursor.classList.remove('typing');
             }
@@ -329,12 +308,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ==========================================
     // STAT COUNTERS
+    // Auto-counts .project-card elements so "Live Sites Built"
+    // never needs manual updates when you add new projects.
     // ==========================================
+    const liveCount = document.querySelectorAll('.project-card').length;
+
     const statTargets = [
-const liveCount = document.querySelectorAll('.project-card').length;
-{ value: liveCount, suffix: '' }        { value: 100, suffix: '%' },
-        { value: 5,   suffix: '' },
-        { value: 2,   suffix: '' }
+        { value: liveCount, suffix: '' },
+        { value: 100,       suffix: '%' },
+        { value: 5,         suffix: '' },
+        { value: 2,         suffix: '' }
     ];
 
     const statsObserver = new IntersectionObserver((entries) => {
