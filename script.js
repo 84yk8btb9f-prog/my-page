@@ -331,8 +331,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // STAT COUNTERS
     // ==========================================
     const statTargets = [
-        { value: 9,   suffix: '' },
-        { value: 100, suffix: '%' },
+const liveCount = document.querySelectorAll('.project-card').length;
+{ value: liveCount, suffix: '' }        { value: 100, suffix: '%' },
         { value: 5,   suffix: '' },
         { value: 2,   suffix: '' }
     ];
