@@ -735,5 +735,13 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Auto-count project cards and update "Live Sites Built" stat
+        (function() {
+            const count = document.querySelectorAll('.project-card').length;
+            const statEl = document.querySelector('.stat-item .stat-number');
+            if (statEl) statEl.textContent = count;
+        })();
+    </script>
 </body>
 </html>
