@@ -452,10 +452,10 @@ void main(){
             if (active) raf = requestAnimationFrame(animate);
         }
 
-        document.querySelectorAll('.project-card[data-preview-img]').forEach(card => {
-            const imgSrc = card.getAttribute('data-preview-img');
+        document.querySelectorAll('.project-row[data-preview-img]').forEach(row => {
+            const imgSrc = row.getAttribute('data-preview-img');
 
-            card.addEventListener('mouseenter', () => {
+            row.addEventListener('mouseenter', () => {
                 previewImg.src = imgSrc;
                 preview.classList.add('is-visible');
                 active = true;
@@ -463,15 +463,14 @@ void main(){
                 raf = requestAnimationFrame(animate);
             });
 
-            card.addEventListener('mouseleave', () => {
+            row.addEventListener('mouseleave', () => {
                 preview.classList.remove('is-visible');
                 active = false;
             });
 
-            card.addEventListener('mousemove', e => {
-                // offset so preview doesn't cover cursor
-                targetX = e.clientX + 20;
-                targetY = e.clientY - 90;
+            row.addEventListener('mousemove', e => {
+                targetX = e.clientX + 24;
+                targetY = e.clientY - 100;
             });
         });
     })();

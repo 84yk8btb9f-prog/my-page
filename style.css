@@ -756,106 +756,108 @@ section { padding: 96px 0; }
 
 #work { border-top: 1px solid var(--border); }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  border: 1px solid var(--border);
-  background: var(--border);
+/* ── Project list (showcase style) ── */
+.project-list {
+  margin-top: 8px;
 }
 
-.project-card {
-  background: var(--bg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: background 0.2s;
-}
-
-.project-card:hover { background: var(--bg2); }
-
-.project-image {
-  position: relative;
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  background: var(--bg2);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.45s ease, filter 0.45s ease;
-  filter: grayscale(25%) brightness(0.82);
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
-  filter: grayscale(0%) brightness(0.90);
-}
-
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(7,7,15,0.75);
+.project-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 16px;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  position: relative;
+  transition: background 0.2s;
+  cursor: pointer;
 }
 
-.project-card:hover .project-overlay { opacity: 1; }
+.project-row::before {
+  content: '';
+  position: absolute;
+  inset: 0 -8px;
+  border-radius: 3px;
+  background: var(--bg2);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 0;
+}
 
-.btn-view {
+.project-row:hover::before { opacity: 1; }
+
+.project-row-info {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.project-row-title {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--white);
-  border: 1px solid var(--border-b);
-  padding: 9px 18px;
-  background: var(--blue-dim);
-  text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.btn-view:hover { background: var(--blue); border-color: var(--blue); }
-.btn-view i { font-size: 11px; }
-
-.project-info { padding: 20px 24px; flex: 1; }
-
-.project-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
   gap: 6px;
-}
-
-.project-tag::before { content: '['; }
-.project-tag::after  { content: ']'; }
-
-.project-info h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--white);
-  margin-bottom: 6px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  position: relative;
 }
 
-.project-info p {
-  font-size: 12.5px;
-  color: var(--dim);
-  line-height: 1.65;
+/* animated underline */
+.project-row-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--white);
+  transition: width 0.3s ease;
 }
+
+.project-row:hover .project-row-title::after { width: 100%; }
+
+.project-arrow {
+  color: var(--dim);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+
+.project-row:hover .project-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+  color: var(--white);
+}
+
+.project-row-desc {
+  font-size: 13px;
+  color: var(--dim);
+  line-height: 1.55;
+  transition: color 0.2s;
+}
+
+.project-row:hover .project-row-desc { color: rgba(255,255,255,0.55); }
+
+.project-row-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dimmer);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.project-row:hover .project-row-tag { color: var(--dim); }
+
+.project-list-end { border-top: 1px solid var(--border); }
 
 /* ==========================================
    PROCESS / ORCHESTRATION BOARD
