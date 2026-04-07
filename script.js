@@ -296,11 +296,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
+                const el = entry.target;
+                if (el.hasAttribute('data-reveal-group')) {
+                    el.querySelectorAll(':scope > *').forEach(child => child.classList.add('revealed'));
+                } else {
+                    el.classList.add('revealed');
+                }
+                revealObserver.unobserve(el);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
     document.querySelectorAll('[data-reveal], [data-reveal-group]').forEach(el => {
         revealObserver.observe(el);

@@ -283,8 +283,11 @@ section { padding: 96px 0; }
   position: sticky;
   top: 0;
   z-index: 500;
-  background: var(--bg);
-  backdrop-filter: blur(20px);
+  background: var(--blue);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .nav-inner {
@@ -300,14 +303,14 @@ section { padding: 96px 0; }
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 700;
-  color: var(--white);
+  color: #fff;
   letter-spacing: 0.2em;
-  border: 1px solid var(--border-b);
+  border: 1px solid rgba(255,255,255,0.25);
   border-bottom: none;
   padding: 8px 13px 10px;
   border-radius: 6px 6px 0 0;
   margin-right: 8px;
-  background: var(--bg2);
+  background: rgba(255,255,255,0.1);
   text-decoration: none;
   margin-bottom: -1px;
 }
@@ -325,27 +328,27 @@ section { padding: 96px 0; }
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7070A8;
+  color: rgba(255,255,255,0.55);
   padding: 9px 18px 11px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
   border-bottom: none;
   border-radius: 6px 6px 0 0;
   text-decoration: none;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
   margin-bottom: -1px;
-  background: rgba(255,255,255,0.025);
+  background: rgba(255,255,255,0.06);
 }
 
 .nav-tab:hover {
-  color: var(--off);
-  border-color: rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
 }
 
 .nav-tab.active {
-  color: var(--white);
-  border-color: rgba(37,37,224,0.55);
-  background: var(--bg2);
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.18);
   font-weight: 700;
 }
 
@@ -364,31 +367,22 @@ section { padding: 96px 0; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 6px 14px;
-  background: var(--blue);
-  color: var(--white);
-  border: 1px solid var(--blue);
+  background: #fff;
+  color: var(--blue);
+  border: 1px solid rgba(255,255,255,0.8);
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.15s;
+  transition: background 0.15s, opacity 0.15s;
   border-radius: 4px;
 }
 
-.btn-nav:hover { background: var(--blue-b); border-color: var(--blue-b); }
+.btn-nav:hover { background: rgba(255,255,255,0.88); }
 
 /* The baseline rule tabs sit above */
 .nav-baseline {
   height: 1px;
-  background: var(--border-b);
-  max-width: 1100px;
-  margin: 0 auto;
-  /* full width */
+  background: rgba(255,255,255,0.2);
   width: 100%;
-}
-
-/* Actually make it full width */
-.navbar .nav-baseline {
-  max-width: 100%;
-  margin: 0;
 }
 
 .menu-toggle {
@@ -405,7 +399,7 @@ section { padding: 96px 0; }
   display: block;
   width: 20px;
   height: 1.5px;
-  background: var(--dim);
+  background: rgba(255,255,255,0.7);
   transition: all 0.2s;
 }
 
@@ -417,8 +411,8 @@ section { padding: 96px 0; }
 .nav-mobile {
   display: none;
   flex-direction: column;
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border-b);
+  background: var(--blue);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   padding: 12px 28px 20px;
 }
 
@@ -429,14 +423,14 @@ section { padding: 96px 0; }
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--dim);
+  color: rgba(255,255,255,0.6);
   padding: 11px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
   transition: color 0.15s;
 }
 
 .nav-mobile a:last-child { border-bottom: none; }
-.nav-mobile a:hover { color: var(--white); }
+.nav-mobile a:hover { color: #fff; }
 
 /* ==========================================
    HERO — STEPHANIE STYLE
@@ -471,6 +465,25 @@ section { padding: 96px 0; }
 
 .hero-corner--tl { top: 24px; left: 28px; }
 .hero-corner--tr { top: 24px; right: 28px; text-align: right; }
+
+.hero-socials-corner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: all;
+}
+
+.hero-socials-corner a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.hero-socials-corner a:hover { color: #fff; }
+.hero-socials-corner span { color: rgba(255,255,255,0.2); }
 .hero-corner--bl { bottom: 28px; left: 28px; }
 .hero-corner--bc {
   bottom: 28px;
