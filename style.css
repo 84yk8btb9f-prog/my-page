@@ -455,6 +455,15 @@ section { padding: 96px 0; }
   --my: 50%;
 }
 
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Mouse spotlight */
 #home::after {
   content: '';
@@ -541,14 +550,13 @@ section { padding: 96px 0; }
   50%       { transform: translateX(-50%) translateY(4px); }
 }
 
-/* Floating + crosses — Stephanie style */
+/* Floating pixel swords — Stephanie style */
 .hero-cross {
   position: absolute;
-  font-size: 24px;
-  font-weight: 700;
+  display: block;
   user-select: none;
   pointer-events: none;
-  line-height: 1;
+  line-height: 0;
   opacity: 0;
   animation: crossEntrance 0.5s ease forwards, crossFloat 7s ease-in-out infinite;
 }
@@ -601,6 +609,24 @@ section { padding: 96px 0; }
   margin: 0;
   animation: heroNameReveal 1s cubic-bezier(0.16,1,0.3,1) 0.55s both,
              namePulse 4s ease-in-out infinite 2s;
+}
+
+/* Pixel sword replacing the I in NIKOLAS */
+.sword-i {
+  display: inline-block;
+  height: 0.82em;
+  width: 0.22em;
+  vertical-align: -0.05em;
+  position: relative;
+  margin: 0 0.01em;
+}
+
+.sword-i svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
 }
 
 .hero-sub {
