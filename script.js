@@ -320,30 +320,23 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!gl) return;
 
         const vert = `attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0.,1.);}`;
+        // Chromatic sine-wave shader (wavy RGB lines)
         const frag = `
 precision highp float;
 uniform vec2 iResolution;
 uniform float iTime;
-uniform vec2 iMouse;
-
-float random(vec2 st){return fract(sin(dot(st.xy,vec2(12.9898,78.233)))*43758.5453123);}
 
 void main(){
-  vec2 uv=(gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
-  vec2 mouse=(iMouse-0.5*iResolution.xy)/iResolution.y;
-  float t=iTime*0.2;
-  float md=length(uv-mouse);
-  float warp=sin(md*20.-t*4.)*0.08*smoothstep(0.4,0.,md);
-  uv+=warp;
-  vec2 g=abs(fract(uv*10.)-0.5);
-  float line=pow(1.-min(g.x,g.y),50.);
-  vec3 col=vec3(0.1,0.5,1.)*line*(0.5+sin(t*2.)*0.2);
-  float e=sin(uv.x*20.+t*5.)*sin(uv.y*20.+t*3.);
-  e=smoothstep(0.8,1.,e);
-  col+=vec3(1.,0.2,0.8)*e*line;
-  col+=vec3(1.)*smoothstep(0.1,0.,md)*0.4;
-  col+=random(uv+t*0.1)*0.04;
-  gl_FragColor=vec4(col,1.);
+  vec2 p=(gl_FragCoord.xy*2.0-iResolution)/min(iResolution.x,iResolution.y);
+  float d=length(p)*0.05;
+  float rx=p.x*(1.0+d);
+  float bx=p.x*(1.0-d);
+  float xScale=1.0;
+  float yScale=0.5;
+  float r=0.05/abs(p.y+sin((rx+iTime)*xScale)*yScale);
+  float g=0.05/abs(p.y+sin((p.x+iTime)*xScale)*yScale);
+  float b=0.05/abs(p.y+sin((bx+iTime)*xScale)*yScale);
+  gl_FragColor=vec4(r,g,b,1.0);
 }`;
 
         function mkShader(type, src) {
@@ -367,10 +360,6 @@ void main(){
 
         const uRes  = gl.getUniformLocation(prog, 'iResolution');
         const uTime = gl.getUniformLocation(prog, 'iTime');
-        const uMouse= gl.getUniformLocation(prog, 'iMouse');
-
-        let mx = window.innerWidth/2, my = window.innerHeight/2;
-        window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
 
         function resize() {
             canvas.width  = window.innerWidth;
@@ -383,10 +372,8 @@ void main(){
         let startT = null;
         function frame(ts) {
             if (!startT) startT = ts;
-            const t = (ts - startT) / 1000;
             gl.uniform2f(uRes, canvas.width, canvas.height);
-            gl.uniform1f(uTime, t);
-            gl.uniform2f(uMouse, mx, canvas.height - my);
+            gl.uniform1f(uTime, (ts - startT) / 1000);
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
             requestAnimationFrame(frame);
         }
