@@ -243,7 +243,6 @@
     </nav>
 
     <section id="home" class="hero" aria-label="Hero">
-        <canvas id="hero-canvas" aria-hidden="true"></canvas>
         <!-- Corner labels -->
         <div class="hero-corner hero-corner--tl">PORTFOLIO 2026</div>
         <div class="hero-corner hero-corner--tr hero-socials-corner">
@@ -257,18 +256,18 @@
         <div class="hero-corner hero-corner--bc">&#8595; SCROLL</div>
         <div class="hero-corner hero-corner--br">&copy; 2026 NS</div>
 
-        <!-- Floating pixel swords -->
-        <span class="hero-cross" style="top:16%;left:10%" aria-hidden="true"><svg viewBox="0 0 5 8" width="16" height="26" fill="currentColor"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>
-        <span class="hero-cross" style="top:24%;right:14%" aria-hidden="true"><svg viewBox="0 0 5 8" width="20" height="32" fill="currentColor"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>
-        <span class="hero-cross" style="top:68%;left:5%" aria-hidden="true"><svg viewBox="0 0 5 8" width="14" height="22" fill="currentColor"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>
-        <span class="hero-cross" style="top:74%;right:7%" aria-hidden="true"><svg viewBox="0 0 5 8" width="18" height="29" fill="currentColor"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>
-        <span class="hero-cross" style="top:42%;left:82%" aria-hidden="true"><svg viewBox="0 0 5 8" width="15" height="24" fill="currentColor"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>
-        <span class="hero-cross" style="top:55%;left:18%" aria-hidden="true"><svg viewBox="0 0 5 8" width="13" height="21" fill="currentColor"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>
+        <!-- Floating Minecraft pixel swords (diagonal) -->
+        <span class="hero-cross" style="top:16%;left:10%;--rot:-45deg" aria-hidden="true"><svg viewBox="0 0 8 8" width="32" height="32" style="transform:rotate(var(--rot,0deg));image-rendering:pixelated"><rect x="6" y="0" width="2" height="2" fill="#C8D8E8"/><rect x="4" y="2" width="2" height="2" fill="#9BBAD0"/><rect x="2" y="4" width="2" height="2" fill="#7A9AB8"/><rect x="2" y="2" width="2" height="2" fill="#4A2810"/><rect x="0" y="2" width="2" height="2" fill="#7C4820"/><rect x="2" y="4" width="2" height="2" fill="#C88030"/><rect x="0" y="4" width="2" height="2" fill="#5A3010"/><rect x="0" y="6" width="2" height="2" fill="#A06820"/></svg></span>
+        <span class="hero-cross" style="top:24%;right:14%;--rot:45deg" aria-hidden="true"><svg viewBox="0 0 8 8" width="40" height="40" style="transform:rotate(var(--rot,0deg));image-rendering:pixelated"><rect x="6" y="0" width="2" height="2" fill="#C8D8E8"/><rect x="4" y="2" width="2" height="2" fill="#9BBAD0"/><rect x="2" y="4" width="2" height="2" fill="#7A9AB8"/><rect x="2" y="2" width="2" height="2" fill="#4A2810"/><rect x="0" y="2" width="2" height="2" fill="#7C4820"/><rect x="2" y="4" width="2" height="2" fill="#C88030"/><rect x="0" y="4" width="2" height="2" fill="#5A3010"/><rect x="0" y="6" width="2" height="2" fill="#A06820"/></svg></span>
+        <span class="hero-cross" style="top:68%;left:5%;--rot:-45deg" aria-hidden="true"><svg viewBox="0 0 8 8" width="28" height="28" style="transform:rotate(var(--rot,0deg));image-rendering:pixelated"><rect x="6" y="0" width="2" height="2" fill="#C8D8E8"/><rect x="4" y="2" width="2" height="2" fill="#9BBAD0"/><rect x="2" y="4" width="2" height="2" fill="#7A9AB8"/><rect x="2" y="2" width="2" height="2" fill="#4A2810"/><rect x="0" y="2" width="2" height="2" fill="#7C4820"/><rect x="2" y="4" width="2" height="2" fill="#C88030"/><rect x="0" y="4" width="2" height="2" fill="#5A3010"/><rect x="0" y="6" width="2" height="2" fill="#A06820"/></svg></span>
+        <span class="hero-cross" style="top:74%;right:7%;--rot:45deg" aria-hidden="true"><svg viewBox="0 0 8 8" width="36" height="36" style="transform:rotate(var(--rot,0deg));image-rendering:pixelated"><rect x="6" y="0" width="2" height="2" fill="#C8D8E8"/><rect x="4" y="2" width="2" height="2" fill="#9BBAD0"/><rect x="2" y="4" width="2" height="2" fill="#7A9AB8"/><rect x="2" y="2" width="2" height="2" fill="#4A2810"/><rect x="0" y="2" width="2" height="2" fill="#7C4820"/><rect x="2" y="4" width="2" height="2" fill="#C88030"/><rect x="0" y="4" width="2" height="2" fill="#5A3010"/><rect x="0" y="6" width="2" height="2" fill="#A06820"/></svg></span>
+        <span class="hero-cross" style="top:42%;left:82%;--rot:-30deg" aria-hidden="true"><svg viewBox="0 0 8 8" width="30" height="30" style="transform:rotate(var(--rot,0deg));image-rendering:pixelated"><rect x="6" y="0" width="2" height="2" fill="#C8D8E8"/><rect x="4" y="2" width="2" height="2" fill="#9BBAD0"/><rect x="2" y="4" width="2" height="2" fill="#7A9AB8"/><rect x="2" y="2" width="2" height="2" fill="#4A2810"/><rect x="0" y="2" width="2" height="2" fill="#7C4820"/><rect x="2" y="4" width="2" height="2" fill="#C88030"/><rect x="0" y="4" width="2" height="2" fill="#5A3010"/><rect x="0" y="6" width="2" height="2" fill="#A06820"/></svg></span>
+        <span class="hero-cross" style="top:55%;left:18%;--rot:60deg" aria-hidden="true"><svg viewBox="0 0 8 8" width="26" height="26" style="transform:rotate(var(--rot,0deg));image-rendering:pixelated"><rect x="6" y="0" width="2" height="2" fill="#C8D8E8"/><rect x="4" y="2" width="2" height="2" fill="#9BBAD0"/><rect x="2" y="4" width="2" height="2" fill="#7A9AB8"/><rect x="2" y="2" width="2" height="2" fill="#4A2810"/><rect x="0" y="2" width="2" height="2" fill="#7C4820"/><rect x="2" y="4" width="2" height="2" fill="#C88030"/><rect x="0" y="4" width="2" height="2" fill="#5A3010"/><rect x="0" y="6" width="2" height="2" fill="#A06820"/></svg></span>
 
         <!-- Center -->
         <div class="hero-center">
             <div class="hero-eyebrow">CREATIVE DEVELOPER</div>
-            <h1 class="hero-name">N<span class="sword-i" aria-hidden="true"><svg viewBox="0 0 5 8" fill="white" preserveAspectRatio="xMidYMid meet"><rect x="2" y="0" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="1" y="2" width="3" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="0" y="4" width="5" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="1" y="7" width="3" height="1"/></svg></span>KOLAS</h1>
+            <h1 class="hero-name">N<span class="sword-i" aria-hidden="true"><svg viewBox="0 0 4 10" preserveAspectRatio="xMidYMid meet" style="image-rendering:pixelated"><rect x="1" y="0" width="2" height="1" fill="#C8D8E8"/><rect x="1" y="1" width="2" height="1" fill="#9BBAD0"/><rect x="1" y="2" width="2" height="1" fill="#7A9AB8"/><rect x="1" y="3" width="2" height="1" fill="#6A8AA8"/><rect x="0" y="4" width="4" height="1" fill="#4A2810"/><rect x="0" y="5" width="4" height="1" fill="#7C4820"/><rect x="1" y="6" width="2" height="1" fill="#8B4513"/><rect x="1" y="7" width="2" height="1" fill="#7A3A10"/><rect x="0" y="8" width="4" height="1" fill="#C88030"/><rect x="1" y="9" width="2" height="1" fill="#A06820"/></svg></span>KOLAS</h1>
             <div class="hero-sub">SAPALIDIS</div>
             <div class="hero-ctas">
                 <a href="#pricing" class="btn btn-hero-primary">
@@ -508,91 +507,85 @@
                 <h2>One orchestrator.<br>Five agents.</h2>
                 <p>I own the entire build — from first call to live site. No handoffs, no agencies, no surprises.</p>
             </div>
-            <div class="process-board" data-reveal>
-                <div class="process-board-bar">
-                    <span class="pbb-left">// PROCESS.BOARD &mdash; NS.v1</span>
-                    <span class="pbb-right"><span class="pbb-dot"></span>SYS.STATUS // ONLINE</span>
+            <!-- Orchestrator banner -->
+            <div class="orc-banner" data-reveal>
+                <div class="orc-banner-left">
+                    <div class="orc-label">// MASTER.ORCHESTRATOR</div>
+                    <div class="orc-banner-id">NS</div>
                 </div>
-                <div class="process-layout">
+                <div class="orc-banner-center">
+                    <div class="orc-name">Nikolas Sapalidis</div>
+                    <div class="orc-desc">Full ownership of all 5 phases. One person you talk to. One person who builds it.</div>
+                </div>
+                <div class="orc-banner-right">
+                    <span class="orc-status"><span class="orc-dot"></span>ACTIVE</span>
+                    <span class="orc-count">5 / 5 AGENTS</span>
+                </div>
+            </div>
 
-                    <!-- ── ORCHESTRATOR ── -->
-                    <div class="orc-card">
-                        <div class="orc-label">// MASTER.ORCHESTRATOR</div>
-                        <div class="orc-id">NS</div>
-                        <div class="orc-name">Nikolas<br>Sapalidis</div>
-                        <div class="orc-desc">Full ownership of all 5 phases. One person you talk to. One person who builds it.</div>
-                        <div class="orc-meta">
-                            <span class="orc-status"><span class="orc-dot"></span>ACTIVE</span>
-                            <span class="orc-count">5 / 5 AGENTS</span>
-                        </div>
+        </div><!-- /container -->
+
+        <!-- Stacking agent cards — outside container for full-width sticky effect -->
+        <div class="agents-stack">
+
+            <div class="agent-outer">
+                <div class="agent-row">
+                    <div class="agent-num">01</div>
+                    <div class="agent-body">
+                        <div class="agent-head"><span class="agent-fn">// AGREE.agent</span><span class="agent-tag">SYNC</span></div>
+                        <h4>Discovery &amp; Agreement</h4>
+                        <p>We align on goals, timeline, and scope. You tell me what you need — I tell you exactly what's possible. Nothing is touched until we both agree.</p>
                     </div>
+                </div>
+            </div>
 
-                    <!-- ── AGENTS ── -->
-                    <div class="agents-list">
+            <div class="agent-outer">
+                <div class="agent-row">
+                    <div class="agent-num">02</div>
+                    <div class="agent-body">
+                        <div class="agent-head"><span class="agent-fn">// BRIEF.agent</span><span class="agent-tag">GATHER</span></div>
+                        <h4>Content &amp; Assets</h4>
+                        <p>You share text, images, branding, and references. I ask the right questions so nothing is missing when the build starts.</p>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="agent-row">
-                            <div class="agent-num">01</div>
-                            <div class="agent-body">
-                                <div class="agent-head">
-                                    <span class="agent-fn">// AGREE.agent</span>
-                                    <span class="agent-tag">SYNC</span>
-                                </div>
-                                <h4>Discovery &amp; Agreement</h4>
-                                <p>We align on goals, timeline, and scope. You tell me what you need — I tell you exactly what's possible. Nothing is touched until we both agree.</p>
-                            </div>
-                        </div>
+            <div class="agent-outer">
+                <div class="agent-row agent-row--active">
+                    <div class="agent-num">03</div>
+                    <div class="agent-body">
+                        <div class="agent-head"><span class="agent-fn">// BUILD.agent</span><span class="agent-tag agent-tag--exec">EXECUTE</span></div>
+                        <h4>Full Development</h4>
+                        <p>I build the site — design, code, mobile layout, SEO, performance. No middlemen, no handoffs. Delivered in 5 days.</p>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="agent-row">
-                            <div class="agent-num">02</div>
-                            <div class="agent-body">
-                                <div class="agent-head">
-                                    <span class="agent-fn">// BRIEF.agent</span>
-                                    <span class="agent-tag">GATHER</span>
-                                </div>
-                                <h4>Content &amp; Assets</h4>
-                                <p>You share text, images, branding, and references. I ask the right questions so nothing is missing when the build starts.</p>
-                            </div>
-                        </div>
+            <div class="agent-outer">
+                <div class="agent-row">
+                    <div class="agent-num">04</div>
+                    <div class="agent-body">
+                        <div class="agent-head"><span class="agent-fn">// REVIEW.agent</span><span class="agent-tag">ITERATE</span></div>
+                        <h4>Review &amp; Fix</h4>
+                        <p>You test the live preview. I fix, adjust, and refine. Revision rounds are included in every package — your approval is the exit condition.</p>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="agent-row agent-row--active">
-                            <div class="agent-num">03</div>
-                            <div class="agent-body">
-                                <div class="agent-head">
-                                    <span class="agent-fn">// BUILD.agent</span>
-                                    <span class="agent-tag agent-tag--exec">EXECUTE</span>
-                                </div>
-                                <h4>Full Development</h4>
-                                <p>I build the site — design, code, mobile layout, SEO, performance. No middlemen, no handoffs. Delivered in 5 days.</p>
-                            </div>
-                        </div>
+            <div class="agent-outer agent-outer--last">
+                <div class="agent-row">
+                    <div class="agent-num">05</div>
+                    <div class="agent-body">
+                        <div class="agent-head"><span class="agent-fn">// SHIP.agent</span><span class="agent-tag agent-tag--done">DEPLOY</span></div>
+                        <h4>Go Live</h4>
+                        <p>Deployed, indexed, working. Your site goes public and starts bringing in customers. Mission complete.</p>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="agent-row">
-                            <div class="agent-num">04</div>
-                            <div class="agent-body">
-                                <div class="agent-head">
-                                    <span class="agent-fn">// REVIEW.agent</span>
-                                    <span class="agent-tag">ITERATE</span>
-                                </div>
-                                <h4>Review &amp; Fix</h4>
-                                <p>You test the live preview. I fix, adjust, and refine. Revision rounds are included in every package — your approval is the exit condition.</p>
-                            </div>
-                        </div>
+        </div><!-- /agents-stack -->
 
-                        <div class="agent-row">
-                            <div class="agent-num">05</div>
-                            <div class="agent-body">
-                                <div class="agent-head">
-                                    <span class="agent-fn">// SHIP.agent</span>
-                                    <span class="agent-tag agent-tag--done">DEPLOY</span>
-                                </div>
-                                <h4>Go Live</h4>
-                                <p>Deployed, indexed, working. Your site goes public and starts bringing in customers. Mission complete.</p>
-                            </div>
-                        </div>
-
-                    </div><!-- /agents-list -->
-                </div><!-- /process-layout -->
-            </div><!-- /process-board -->
+        <div class="container"><!-- reopen container for section close -->
         </div>
     </section>
 
