@@ -650,6 +650,324 @@ section { padding: 96px 0; }
 }
 
 /* ==========================================
+   PROCESS / ORCHESTRATION BOARD
+   ========================================== */
+
+#process { border-top: 1px solid var(--border); }
+
+.process-board {
+  border: 1px solid var(--border-b);
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+/* Title bar */
+.process-board-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border-b);
+  background: rgba(37,37,224,0.06);
+}
+
+.pbb-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--blue);
+}
+
+.pbb-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pbb-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: blink 2.5s ease-in-out infinite;
+}
+
+/* Two-column layout */
+.process-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+
+/* ── Orchestrator card ── */
+.orc-card {
+  border-right: 1px solid var(--border-b);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(37,37,224,0.04);
+  position: relative;
+}
+
+/* Corner accent */
+.orc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 32px; height: 2px;
+  background: var(--blue);
+}
+
+.orc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.7;
+}
+
+.orc-id {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: var(--white);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.orc-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.orc-desc {
+  font-size: 12px;
+  color: var(--dim);
+  line-height: 1.72;
+  flex: 1;
+}
+
+.orc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.orc-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--ok);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.orc-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: blink 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.orc-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--dimmer);
+}
+
+/* ── Agents list ── */
+.agents-list {
+  position: relative;
+}
+
+/* Vertical connecting line */
+.agents-list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--border-b) 5%,
+    var(--border-b) 95%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.agent-row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+  position: relative;
+}
+
+.agent-row:last-child { border-bottom: none; }
+.agent-row:hover { background: rgba(37,37,224,0.04); }
+
+/* Horizontal tick from vertical line to number */
+.agent-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: var(--border-b);
+  z-index: 2;
+}
+
+/* Node dot on vertical line */
+.agent-row::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: calc(50% - 3px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border-b);
+  z-index: 3;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.agent-row:hover::after,
+.agent-row--active::after {
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 0 8px var(--blue-glow);
+}
+
+.agent-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dimmer);
+  border-right: 1px solid var(--border);
+  padding: 28px 0;
+  transition: color 0.2s;
+  letter-spacing: -0.02em;
+}
+
+.agent-row:hover .agent-num,
+.agent-row--active .agent-num {
+  color: var(--blue);
+}
+
+.agent-body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.agent-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.agent-fn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+  opacity: 0.75;
+}
+
+.agent-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  color: var(--dim);
+  background: transparent;
+}
+
+.agent-tag--exec {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-dim);
+  animation: tagPulse 2s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+.agent-tag--done {
+  border-color: var(--ok);
+  color: var(--ok);
+  background: rgba(0,229,160,0.06);
+}
+
+.agent-body h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.agent-body p {
+  font-size: 12.5px;
+  color: var(--dim);
+  line-height: 1.7;
+}
+
+/* Active row highlight */
+.agent-row--active {
+  background: rgba(37,37,224,0.04);
+}
+
+.agent-row--active .agent-num {
+  color: var(--blue);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .process-layout { grid-template-columns: 1fr; }
+  .orc-card { border-right: none; border-bottom: 1px solid var(--border-b); }
+  .orc-id { font-size: 56px; }
+  .agent-row { grid-template-columns: 44px 1fr; }
+  .agent-body { padding: 20px 18px; }
+  .agents-list::before { display: none; }
+  .agent-row::before, .agent-row::after { display: none; }
+}
+
+/* ==========================================
    PRICING
    ========================================== */
 
