@@ -530,6 +530,72 @@ section { padding: 96px 0; }
   --my: 50%;
 }
 
+/* ── Interactive magnetic orbs ── */
+.hero-orb {
+  position: absolute;
+  top: 0; left: 0;
+  border-radius: 50%;
+  pointer-events: all;
+  cursor: crosshair;
+  z-index: 3;
+  will-change: transform;
+  opacity: 0;
+  animation: orbAppear 0.7s ease forwards;
+}
+
+.hero-orb::after {
+  content: '';
+  position: absolute;
+  width: 34%; height: 34%;
+  background: radial-gradient(circle, rgba(255,255,255,0.72), transparent 70%);
+  border-radius: 50%;
+  top: 14%; left: 16%;
+  pointer-events: none;
+}
+
+.hero-orb--1 {
+  width: 88px; height: 88px;
+  background: radial-gradient(circle at 38% 32%, rgba(160,180,255,0.95), rgba(37,37,200,0.7), rgba(8,8,60,0.55));
+  box-shadow: 0 0 48px rgba(80,100,255,0.55), 0 14px 44px rgba(0,0,0,0.4), inset 0 -8px 20px rgba(0,0,40,0.35);
+  animation-delay: 0.9s;
+}
+
+.hero-orb--2 {
+  width: 66px; height: 66px;
+  background: radial-gradient(circle at 38% 32%, rgba(255,200,220,0.95), rgba(220,55,95,0.65), rgba(80,0,30,0.5));
+  box-shadow: 0 0 36px rgba(220,75,115,0.5), 0 10px 32px rgba(0,0,0,0.35), inset 0 -6px 16px rgba(60,0,20,0.3);
+  animation-delay: 1.1s;
+}
+
+.hero-orb--3 {
+  width: 76px; height: 76px;
+  background: radial-gradient(circle at 38% 32%, rgba(140,230,255,0.95), rgba(37,140,224,0.68), rgba(0,40,80,0.5));
+  box-shadow: 0 0 42px rgba(55,175,255,0.5), 0 12px 38px rgba(0,0,0,0.35), inset 0 -7px 18px rgba(0,30,60,0.3);
+  animation-delay: 1.0s;
+}
+
+.hero-orb--4 {
+  width: 58px; height: 58px;
+  background: radial-gradient(circle at 38% 32%, rgba(210,160,255,0.95), rgba(120,40,224,0.65), rgba(40,0,80,0.5));
+  box-shadow: 0 0 34px rgba(160,75,255,0.48), 0 10px 30px rgba(0,0,0,0.35), inset 0 -6px 14px rgba(30,0,60,0.3);
+  animation-delay: 1.2s;
+}
+
+.hero-orb.orb-tap {
+  animation: orbTap 0.5s ease-out forwards !important;
+}
+
+@keyframes orbAppear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes orbTap {
+  0%   { filter: brightness(1) saturate(1); }
+  35%  { filter: brightness(2.6) saturate(2); box-shadow: 0 0 80px currentColor, 0 0 120px currentColor; }
+  100% { filter: brightness(1) saturate(1); }
+}
+
 /* ── Atmospheric light beams (hero-section-1 style) ── */
 #home::before {
   content: '';
@@ -1315,16 +1381,89 @@ section { padding: 96px 0; }
 
 .agent-card-status--done { color: var(--ok); }
 
-/* Responsive */
+/* Mobile-only elements hidden on desktop */
+.agent-mobile-dots { display: none; }
+.agent-mobile-hint { display: none; }
+
+/* Responsive — agent carousel on mobile */
 @media (max-width: 900px) {
-  .process-split { padding: 0 20px 80px; }
+  .process-split { padding: 0 0 80px; }
   .process-split-inner { grid-template-columns: 1fr; }
-  .process-sticky-left { position: static; padding: 0 0 32px; }
+
+  /* Compact orchestrator header */
+  .process-sticky-left {
+    position: static;
+    padding: 0 20px 20px;
+  }
+  .orc-id-badge { padding: 18px 20px; }
+  .orc-initials { font-size: 52px; }
   .orc-step-list { display: none; }
-  .agent-dwell { height: auto; padding-bottom: 20px; }
-  .agent-dwell--last { padding-bottom: 60px; }
-  .agent-card { position: static; top: auto; }
+
+  /* Horizontal scroll-snap carousel */
+  .process-stacking-right {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding: 0 20px 12px;
+    scroll-padding-left: 20px;
+  }
+  .process-stacking-right::-webkit-scrollbar { display: none; }
+
+  .agent-dwell {
+    min-width: min(300px, calc(100vw - 56px));
+    flex-shrink: 0;
+    height: auto !important;
+    padding-bottom: 0 !important;
+    scroll-snap-align: start;
+  }
+  .agent-dwell--last { padding-bottom: 0 !important; }
+
+  .agent-card {
+    position: static;
+    top: auto !important;
+    min-height: 270px;
+    height: 100%;
+  }
   .agent-dwell:nth-child(n) .agent-card { top: auto; }
+
+  /* Swipe hint */
+  .agent-mobile-hint {
+    display: block;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--dimmer);
+    text-transform: uppercase;
+    padding: 10px 0 6px;
+  }
+
+  /* Dot indicators */
+  .agent-mobile-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 0 4px;
+  }
+
+  .agent-mobile-dot {
+    width: 22px; height: 3px;
+    border-radius: 2px;
+    background: var(--dimmer);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease, width 0.25s ease;
+  }
+
+  .agent-mobile-dot.active {
+    background: var(--blue);
+    width: 40px;
+  }
 }
 
 /* ==========================================

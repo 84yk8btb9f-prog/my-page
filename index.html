@@ -246,6 +246,12 @@
     </nav>
 
     <section id="home" class="hero" aria-label="Hero">
+        <!-- Interactive magnetic orbs -->
+        <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb--4" aria-hidden="true"></div>
+
         <!-- Floating background ovals (ElegantShape) -->
         <div class="hero-shape hero-shape-1" aria-hidden="true"></div>
         <div class="hero-shape hero-shape-2" aria-hidden="true"></div>
@@ -596,6 +602,17 @@
                     </div>
 
                 </div><!-- /process-stacking-right -->
+
+                <!-- Mobile-only swipe hint + dots -->
+                <div class="agent-mobile-hint" aria-hidden="true">← swipe cards →</div>
+                <div class="agent-mobile-dots" id="agent-mobile-dots" aria-hidden="true">
+                    <button class="agent-mobile-dot active" data-idx="0" aria-label="Step 1"></button>
+                    <button class="agent-mobile-dot" data-idx="1" aria-label="Step 2"></button>
+                    <button class="agent-mobile-dot" data-idx="2" aria-label="Step 3"></button>
+                    <button class="agent-mobile-dot" data-idx="3" aria-label="Step 4"></button>
+                    <button class="agent-mobile-dot" data-idx="4" aria-label="Step 5"></button>
+                </div>
+
             </div><!-- /process-split-inner -->
         </div><!-- /process-split -->
     </section>

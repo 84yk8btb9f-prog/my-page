@@ -546,6 +546,128 @@ void main(){
     })();
 
     // ==========================================
+    // HERO ORBS — spring physics + cursor repel
+    // ==========================================
+    (function initHeroOrbs() {
+        const hero   = document.getElementById('home');
+        const orbEls = document.querySelectorAll('.hero-orb');
+        if (!hero || !orbEls.length) return;
+
+        let heroRect = hero.getBoundingClientRect();
+
+        // Home positions as fractions of hero size [left%, top%]
+        const homesFrac = [
+            { fx: 0.13, fy: 0.22 },
+            { fx: 0.84, fy: 0.28 },
+            { fx: 0.07, fy: 0.72 },
+            { fx: 0.87, fy: 0.70 },
+        ];
+
+        const orbs = [...orbEls].map((el, i) => {
+            const hf = homesFrac[i] || { fx: 0.5, fy: 0.5 };
+            const homeX = hf.fx * heroRect.width;
+            const homeY = hf.fy * heroRect.height;
+            return { el, homeX, homeY, x: homeX, y: homeY, vx: 0, vy: 0, phase: i * 1.9 };
+        });
+
+        let cursorX = -9999, cursorY = -9999;
+
+        window.addEventListener('resize', () => {
+            heroRect = hero.getBoundingClientRect();
+            orbs.forEach((o, i) => {
+                const hf = homesFrac[i] || { fx: 0.5, fy: 0.5 };
+                o.homeX = hf.fx * heroRect.width;
+                o.homeY = hf.fy * heroRect.height;
+            });
+        }, { passive: true });
+
+        hero.addEventListener('mousemove', e => {
+            cursorX = e.clientX - heroRect.left;
+            cursorY = e.clientY - heroRect.top;
+        });
+        hero.addEventListener('mouseleave', () => { cursorX = -9999; cursorY = -9999; });
+        hero.addEventListener('touchmove', e => {
+            heroRect = hero.getBoundingClientRect();
+            cursorX = e.touches[0].clientX - heroRect.left;
+            cursorY = e.touches[0].clientY - heroRect.top;
+        }, { passive: true });
+        hero.addEventListener('touchend', () => { cursorX = -9999; cursorY = -9999; });
+
+        orbEls.forEach(orb => {
+            orb.addEventListener('click', () => {
+                orb.classList.remove('orb-tap');
+                void orb.offsetWidth; // reflow to restart
+                orb.classList.add('orb-tap');
+                setTimeout(() => orb.classList.remove('orb-tap'), 520);
+            });
+        });
+
+        function tick(time) {
+            const t = time * 0.001;
+            orbs.forEach(o => {
+                const hw = o.el.offsetWidth  / 2;
+                const hh = o.el.offsetHeight / 2;
+                // Natural sine drift around home
+                const natX = o.homeX + Math.sin(t * 0.35 + o.phase)       * 18;
+                const natY = o.homeY + Math.cos(t * 0.27 + o.phase * 1.3)  * 22;
+                // Spring toward natural position
+                o.vx += (natX - o.x) * 0.038;
+                o.vy += (natY - o.y) * 0.038;
+                // Repel from cursor/touch
+                if (cursorX > -999) {
+                    const rx = cursorX - o.x;
+                    const ry = cursorY - o.y;
+                    const dist = Math.sqrt(rx * rx + ry * ry);
+                    if (dist < 190 && dist > 1) {
+                        const force = 6000 / (dist * dist);
+                        o.vx -= (rx / dist) * force;
+                        o.vy -= (ry / dist) * force;
+                    }
+                }
+                // Damping + integrate
+                o.vx *= 0.86;
+                o.vy *= 0.86;
+                o.x += o.vx;
+                o.y += o.vy;
+                // Clamp within hero bounds
+                o.x = Math.max(hw, Math.min(heroRect.width  - hw, o.x));
+                o.y = Math.max(hh, Math.min(heroRect.height - hh, o.y));
+                // Position via transform (left:0 top:0 baseline)
+                o.el.style.transform = `translate(${o.x - hw}px,${o.y - hh}px)`;
+            });
+            requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    })();
+
+    // ==========================================
+    // AGENT MOBILE CAROUSEL — dot sync
+    // ==========================================
+    (function initAgentCarousel() {
+        const track = document.querySelector('.process-stacking-right');
+        const dots  = document.querySelectorAll('.agent-mobile-dot');
+        if (!track || !dots.length) return;
+
+        function getCardWidth() {
+            const dwell = track.querySelector('.agent-dwell');
+            return dwell ? dwell.offsetWidth + 12 : 312; // 12 = gap
+        }
+
+        function updateDots() {
+            const idx = Math.round(track.scrollLeft / getCardWidth());
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+
+        track.addEventListener('scroll', updateDots, { passive: true });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                track.scrollTo({ left: i * getCardWidth(), behavior: 'smooth' });
+            });
+        });
+    })();
+
+    // ==========================================
     // INIT
     // ==========================================
     applyTranslations('en');
