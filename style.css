@@ -325,27 +325,28 @@ section { padding: 96px 0; }
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--dim);
-  padding: 8px 16px 10px;
-  border: 1px solid transparent;
+  color: #7070A8;
+  padding: 9px 18px 11px;
+  border: 1px solid rgba(255,255,255,0.1);
   border-bottom: none;
   border-radius: 6px 6px 0 0;
   text-decoration: none;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
   margin-bottom: -1px;
-  background: transparent;
+  background: rgba(255,255,255,0.025);
 }
 
 .nav-tab:hover {
   color: var(--off);
-  border-color: var(--border);
-  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
 }
 
 .nav-tab.active {
   color: var(--white);
-  border-color: var(--border-b);
+  border-color: rgba(37,37,224,0.55);
   background: var(--bg2);
+  font-weight: 700;
 }
 
 .nav-right {
@@ -552,6 +553,27 @@ section { padding: 96px 0; }
   flex-wrap: wrap;
   justify-content: center;
 }
+
+/* Social links row in hero */
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.hero-socials a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.hero-socials a:hover { color: rgba(255,255,255,0.85); }
+
+.hero-socials span { color: rgba(255,255,255,0.18); }
 
 /* Buttons adapted for blue background */
 .btn-hero-primary {
