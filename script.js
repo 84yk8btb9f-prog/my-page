@@ -356,19 +356,38 @@ document.addEventListener('DOMContentLoaded', function () {
     // MOBILE MENU
     // ==========================================
     const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu    = document.querySelector('.nav-menu');
-    if (menuToggle && navMenu) {
+    const navMobile  = document.getElementById('nav-mobile');
+    if (menuToggle && navMobile) {
         menuToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
+            navMobile.classList.toggle('open');
             this.classList.toggle('open');
         });
-        navMenu.querySelectorAll('a').forEach(link => {
+        navMobile.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+                navMobile.classList.remove('open');
                 menuToggle.classList.remove('open');
             });
         });
     }
+
+    // ==========================================
+    // SCROLLSPY — active folder tab
+    // ==========================================
+    const sections  = document.querySelectorAll('#home, #work, #process, #pricing, #contact');
+    const navTabs   = document.querySelectorAll('.nav-tab');
+
+    const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navTabs.forEach(tab => {
+                    tab.classList.toggle('active', tab.getAttribute('data-section') === id);
+                });
+            }
+        });
+    }, { threshold: 0.35, rootMargin: '-10% 0px -55% 0px' });
+
+    sections.forEach(s => spyObserver.observe(s));
 
     // ==========================================
     // SMOOTH SCROLL
@@ -386,18 +405,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ==========================================
-    // PARALLAX
+    // HERO SCROLL FADE
     // ==========================================
     if (window.innerWidth > 768) {
-        const heroContent = document.querySelector('.hero-content');
-        const heroBg      = document.querySelector('.hero-bg-gradient');
+        const heroCenter = document.querySelector('.hero-center');
         window.addEventListener('scroll', () => {
-            const s = window.scrollY;
-            if (heroContent) {
-                heroContent.style.transform = `translateY(${s * 0.12}px)`;
-                heroContent.style.opacity   = Math.max(0, 1 - s / 600);
+            if (heroCenter) {
+                const s = window.scrollY;
+                heroCenter.style.opacity = Math.max(0, 1 - s / 500);
             }
-            if (heroBg) heroBg.style.transform = `translateY(${s * 0.05}px)`;
         }, { passive: true });
     }
 
