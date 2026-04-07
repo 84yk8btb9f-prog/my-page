@@ -507,86 +507,127 @@
                 <h2>One orchestrator.<br>Five agents.</h2>
                 <p>I own the entire build — from first call to live site. No handoffs, no agencies, no surprises.</p>
             </div>
-            <!-- Orchestrator banner -->
-            <div class="orc-banner" data-reveal>
-                <div class="orc-banner-left">
-                    <div class="orc-label">// MASTER.ORCHESTRATOR</div>
-                    <div class="orc-banner-id">NS</div>
-                </div>
-                <div class="orc-banner-center">
-                    <div class="orc-name">Nikolas Sapalidis</div>
-                    <div class="orc-desc">Full ownership of all 5 phases. One person you talk to. One person who builds it.</div>
-                </div>
-                <div class="orc-banner-right">
-                    <span class="orc-status"><span class="orc-dot"></span>ACTIVE</span>
-                    <span class="orc-count">5 / 5 AGENTS</span>
-                </div>
-            </div>
-
-        </div><!-- /container -->
-
-        <!-- Stacking agent cards — outside container for full-width sticky effect -->
-        <div class="agents-stack">
-
-            <div class="agent-outer">
-                <div class="agent-row">
-                    <div class="agent-num">01</div>
-                    <div class="agent-body">
-                        <div class="agent-head"><span class="agent-fn">// AGREE.agent</span><span class="agent-tag">SYNC</span></div>
-                        <h4>Discovery &amp; Agreement</h4>
-                        <p>We align on goals, timeline, and scope. You tell me what you need — I tell you exactly what's possible. Nothing is touched until we both agree.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="agent-outer">
-                <div class="agent-row">
-                    <div class="agent-num">02</div>
-                    <div class="agent-body">
-                        <div class="agent-head"><span class="agent-fn">// BRIEF.agent</span><span class="agent-tag">GATHER</span></div>
-                        <h4>Content &amp; Assets</h4>
-                        <p>You share text, images, branding, and references. I ask the right questions so nothing is missing when the build starts.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="agent-outer">
-                <div class="agent-row agent-row--active">
-                    <div class="agent-num">03</div>
-                    <div class="agent-body">
-                        <div class="agent-head"><span class="agent-fn">// BUILD.agent</span><span class="agent-tag agent-tag--exec">EXECUTE</span></div>
-                        <h4>Full Development</h4>
-                        <p>I build the site — design, code, mobile layout, SEO, performance. No middlemen, no handoffs. Delivered in 5 days.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="agent-outer">
-                <div class="agent-row">
-                    <div class="agent-num">04</div>
-                    <div class="agent-body">
-                        <div class="agent-head"><span class="agent-fn">// REVIEW.agent</span><span class="agent-tag">ITERATE</span></div>
-                        <h4>Review &amp; Fix</h4>
-                        <p>You test the live preview. I fix, adjust, and refine. Revision rounds are included in every package — your approval is the exit condition.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="agent-outer agent-outer--last">
-                <div class="agent-row">
-                    <div class="agent-num">05</div>
-                    <div class="agent-body">
-                        <div class="agent-head"><span class="agent-fn">// SHIP.agent</span><span class="agent-tag agent-tag--done">DEPLOY</span></div>
-                        <h4>Go Live</h4>
-                        <p>Deployed, indexed, working. Your site goes public and starts bringing in customers. Mission complete.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- /agents-stack -->
-
-        <div class="container"><!-- reopen container for section close -->
         </div>
+
+        <!-- Two-column sticky split -->
+        <div class="process-split">
+            <div class="process-split-inner">
+
+                <!-- LEFT: sticky orchestrator panel -->
+                <div class="process-sticky-left">
+                    <div class="orc-id-badge">
+                        <div class="orc-label-sm">// MASTER.ORCHESTRATOR</div>
+                        <div class="orc-initials">NS</div>
+                        <div class="orc-name-full">Nikolas Sapalidis</div>
+                        <div class="orc-tagline">One person. Full ownership.</div>
+                        <span class="orc-status-pill"><span class="orc-dot"></span>ACTIVE — 5 / 5 AGENTS</span>
+                    </div>
+                    <!-- Step progress list — JS adds .orc-step--active -->
+                    <div class="orc-step-list">
+                        <div class="orc-step" data-step="1">
+                            <span class="orc-step-num">01</span>
+                            <span class="orc-step-name">Discovery &amp; Agreement</span>
+                        </div>
+                        <div class="orc-step" data-step="2">
+                            <span class="orc-step-num">02</span>
+                            <span class="orc-step-name">Content &amp; Assets</span>
+                        </div>
+                        <div class="orc-step" data-step="3">
+                            <span class="orc-step-num">03</span>
+                            <span class="orc-step-name">Full Development</span>
+                        </div>
+                        <div class="orc-step" data-step="4">
+                            <span class="orc-step-num">04</span>
+                            <span class="orc-step-name">Review &amp; Fix</span>
+                        </div>
+                        <div class="orc-step" data-step="5">
+                            <span class="orc-step-num">05</span>
+                            <span class="orc-step-name">Go Live</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: stacking cards -->
+                <div class="process-stacking-right">
+
+                    <div class="agent-dwell">
+                        <div class="agent-card" data-step="1">
+                            <div class="agent-card-head">
+                                <span class="agent-fn">// AGREE.agent</span>
+                                <span class="agent-tag">SYNC</span>
+                            </div>
+                            <div class="agent-card-num">01</div>
+                            <h4 class="agent-card-title">Discovery &amp; Agreement</h4>
+                            <p class="agent-card-desc">We align on goals, timeline, and scope. You tell me what you need — I tell you exactly what's possible. Nothing is touched until we both agree.</p>
+                            <div class="agent-card-footer">
+                                <span class="agent-card-status">AWAITING INPUT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-dwell">
+                        <div class="agent-card" data-step="2">
+                            <div class="agent-card-head">
+                                <span class="agent-fn">// BRIEF.agent</span>
+                                <span class="agent-tag">GATHER</span>
+                            </div>
+                            <div class="agent-card-num">02</div>
+                            <h4 class="agent-card-title">Content &amp; Assets</h4>
+                            <p class="agent-card-desc">You share text, images, branding, and references. I ask the right questions so nothing is missing when the build starts.</p>
+                            <div class="agent-card-footer">
+                                <span class="agent-card-status">COLLECTING DATA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-dwell">
+                        <div class="agent-card agent-card--active" data-step="3">
+                            <div class="agent-card-head">
+                                <span class="agent-fn">// BUILD.agent</span>
+                                <span class="agent-tag agent-tag--exec">EXECUTE</span>
+                            </div>
+                            <div class="agent-card-num">03</div>
+                            <h4 class="agent-card-title">Full Development</h4>
+                            <p class="agent-card-desc">I build the site — design, code, mobile layout, SEO, performance. No middlemen, no handoffs. Delivered in 5 days.</p>
+                            <div class="agent-card-footer">
+                                <span class="agent-card-status agent-card-status--exec">BUILDING NOW</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-dwell">
+                        <div class="agent-card" data-step="4">
+                            <div class="agent-card-head">
+                                <span class="agent-fn">// REVIEW.agent</span>
+                                <span class="agent-tag">ITERATE</span>
+                            </div>
+                            <div class="agent-card-num">04</div>
+                            <h4 class="agent-card-title">Review &amp; Fix</h4>
+                            <p class="agent-card-desc">You test the live preview. I fix, adjust, and refine. Revision rounds are included — your approval is the exit condition.</p>
+                            <div class="agent-card-footer">
+                                <span class="agent-card-status">PENDING REVIEW</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agent-dwell agent-dwell--last">
+                        <div class="agent-card agent-card--done" data-step="5">
+                            <div class="agent-card-head">
+                                <span class="agent-fn">// SHIP.agent</span>
+                                <span class="agent-tag agent-tag--done">DEPLOY</span>
+                            </div>
+                            <div class="agent-card-num">05</div>
+                            <h4 class="agent-card-title">Go Live</h4>
+                            <p class="agent-card-desc">Deployed, indexed, working. Your site goes public and starts bringing in customers. Mission complete.</p>
+                            <div class="agent-card-footer">
+                                <span class="agent-card-status agent-card-status--done">SHIPPED ✓</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /process-stacking-right -->
+            </div><!-- /process-split-inner -->
+        </div><!-- /process-split -->
     </section>
 
     <section id="pricing" class="pricing-section" aria-label="Pricing">

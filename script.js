@@ -280,6 +280,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
+    // AGENT CARD SCROLLSPY — highlight left step
+    // ==========================================
+    const orcSteps = document.querySelectorAll('.orc-step');
+    const agentCards = document.querySelectorAll('.agent-card[data-step]');
+
+    if (orcSteps.length && agentCards.length) {
+        const setActiveStep = (stepNum) => {
+            orcSteps.forEach(s => {
+                s.classList.toggle('orc-step--active', s.getAttribute('data-step') === String(stepNum));
+            });
+        };
+
+        // Start with step 1 active
+        setActiveStep(1);
+
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const step = entry.target.getAttribute('data-step');
+                    setActiveStep(step);
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '-10% 0px -40% 0px'
+        });
+
+        agentCards.forEach(card => cardObserver.observe(card));
+    }
+
+    // ==========================================
     // INIT
     // ==========================================
     applyTranslations('en');
