@@ -204,6 +204,9 @@
 </head>
 <body>
 
+    <!-- WebGL background shader -->
+    <canvas id="bg-shader" aria-hidden="true"></canvas>
+
     <div id="loading-screen">
         <div class="loader-logo">NS</div>
         <div class="loader-bar"><div class="loader-bar-fill"></div></div>
@@ -315,7 +318,7 @@
 
                 <!-- ── CLIENT WORK ───────────────────────────────────── -->
 
-                <div class="project-card">
+                <div class="project-card" data-preview-img="https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80&auto=format&fit=crop">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=800&q=80&auto=format&fit=crop"
                              alt="NR40 Urban Arts tattoo studio website — Athens client project by web developer Nikolas Sapalidis"
@@ -336,7 +339,7 @@
 
                 <!-- ── DEMO WORK ──────────────────────────────────────── -->
 
-                <div class="project-card">
+                <div class="project-card" data-preview-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
                              alt="Mediterranean restaurant website design by web developer Athens — Olive and Thyme demo"
@@ -352,7 +355,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-preview-img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800"
                              alt="Business consulting website design Athens — Apex Consulting demo"
@@ -368,7 +371,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-preview-img="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800"
                              alt="NFT marketplace website development — CryptoVerse Web3 demo"
@@ -384,7 +387,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-preview-img="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800"
                              alt="Gym fitness website built by Athens web developer — FitZone demo"
@@ -500,6 +503,11 @@
         </div>
     </section>
 
+    <!-- Project hover floating preview (positioned by JS) -->
+    <div id="project-preview" class="project-preview" aria-hidden="true">
+        <img id="project-preview-img" src="" alt="" loading="lazy">
+    </div>
+
     <section id="process" class="process-section" aria-label="How it works">
         <div class="container">
             <div class="section-header" data-reveal>
@@ -508,6 +516,9 @@
                 <p>I own the entire build — from first call to live site. No handoffs, no agencies, no surprises.</p>
             </div>
         </div>
+
+        <!-- Animated dot wave background -->
+        <canvas class="dot-wave-canvas" id="dot-wave" aria-hidden="true"></canvas>
 
         <!-- Two-column sticky split -->
         <div class="process-split">
@@ -550,8 +561,8 @@
                 <!-- RIGHT: stacking cards -->
                 <div class="process-stacking-right">
 
-                    <div class="agent-dwell">
-                        <div class="agent-card" data-step="1">
+                    <div class="agent-dwell" style="height:80vh">
+                        <div class="agent-card" data-step="1" data-card-idx="1">
                             <div class="agent-card-head">
                                 <span class="agent-fn">// AGREE.agent</span>
                                 <span class="agent-tag">SYNC</span>
@@ -565,8 +576,8 @@
                         </div>
                     </div>
 
-                    <div class="agent-dwell">
-                        <div class="agent-card" data-step="2">
+                    <div class="agent-dwell" style="height:80vh">
+                        <div class="agent-card" data-step="2" data-card-idx="2">
                             <div class="agent-card-head">
                                 <span class="agent-fn">// BRIEF.agent</span>
                                 <span class="agent-tag">GATHER</span>
@@ -580,8 +591,8 @@
                         </div>
                     </div>
 
-                    <div class="agent-dwell">
-                        <div class="agent-card agent-card--active" data-step="3">
+                    <div class="agent-dwell" style="height:80vh">
+                        <div class="agent-card agent-card--active" data-step="3" data-card-idx="3">
                             <div class="agent-card-head">
                                 <span class="agent-fn">// BUILD.agent</span>
                                 <span class="agent-tag agent-tag--exec">EXECUTE</span>
@@ -595,8 +606,8 @@
                         </div>
                     </div>
 
-                    <div class="agent-dwell">
-                        <div class="agent-card" data-step="4">
+                    <div class="agent-dwell" style="height:80vh">
+                        <div class="agent-card" data-step="4" data-card-idx="4">
                             <div class="agent-card-head">
                                 <span class="agent-fn">// REVIEW.agent</span>
                                 <span class="agent-tag">ITERATE</span>
@@ -831,10 +842,21 @@
                         <textarea name="message" id="message" rows="5" required></textarea>
                         <label for="message" data-translate="form-message">Project Details</label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <span data-translate="form-btn">Send Project Brief</span>
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
+                    <!-- Slide-to-send button -->
+                    <div class="slide-btn-wrap" id="slide-btn-wrap" role="button" aria-label="Slide to send project brief" tabindex="0">
+                        <div class="slide-btn-track">
+                            <div class="slide-btn-fill" id="slide-btn-fill"></div>
+                            <div class="slide-btn-handle" id="slide-btn-handle" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            </div>
+                            <span class="slide-btn-label" data-translate="form-btn">Send Project Brief</span>
+                        </div>
+                        <div class="slide-btn-success" id="slide-btn-success" aria-live="polite">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Sent!</span>
+                        </div>
+                    </div>
+                    <button type="submit" id="form-submit-hidden" style="display:none" aria-hidden="true">Submit</button>
                 </form>
                 <div class="contact-info" data-reveal="right">
                     <div class="contact-item">

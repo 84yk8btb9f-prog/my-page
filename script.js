@@ -311,6 +311,255 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
+    // WEBGL BACKGROUND SHADER
+    // ==========================================
+    (function initBgShader() {
+        const canvas = document.getElementById('bg-shader');
+        if (!canvas) return;
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
+
+        const vert = `attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0.,1.);}`;
+        const frag = `
+precision highp float;
+uniform vec2 iResolution;
+uniform float iTime;
+uniform vec2 iMouse;
+
+float random(vec2 st){return fract(sin(dot(st.xy,vec2(12.9898,78.233)))*43758.5453123);}
+
+void main(){
+  vec2 uv=(gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+  vec2 mouse=(iMouse-0.5*iResolution.xy)/iResolution.y;
+  float t=iTime*0.2;
+  float md=length(uv-mouse);
+  float warp=sin(md*20.-t*4.)*0.08*smoothstep(0.4,0.,md);
+  uv+=warp;
+  vec2 g=abs(fract(uv*10.)-0.5);
+  float line=pow(1.-min(g.x,g.y),50.);
+  vec3 col=vec3(0.1,0.5,1.)*line*(0.5+sin(t*2.)*0.2);
+  float e=sin(uv.x*20.+t*5.)*sin(uv.y*20.+t*3.);
+  e=smoothstep(0.8,1.,e);
+  col+=vec3(1.,0.2,0.8)*e*line;
+  col+=vec3(1.)*smoothstep(0.1,0.,md)*0.4;
+  col+=random(uv+t*0.1)*0.04;
+  gl_FragColor=vec4(col,1.);
+}`;
+
+        function mkShader(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            return s;
+        }
+        const prog = gl.createProgram();
+        gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, vert));
+        gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, frag));
+        gl.linkProgram(prog);
+        gl.useProgram(prog);
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+        const loc = gl.getAttribLocation(prog, 'a_pos');
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+        const uRes  = gl.getUniformLocation(prog, 'iResolution');
+        const uTime = gl.getUniformLocation(prog, 'iTime');
+        const uMouse= gl.getUniformLocation(prog, 'iMouse');
+
+        let mx = window.innerWidth/2, my = window.innerHeight/2;
+        window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+        function resize() {
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', resize, { passive: true });
+        resize();
+
+        let startT = null;
+        function frame(ts) {
+            if (!startT) startT = ts;
+            const t = (ts - startT) / 1000;
+            gl.uniform2f(uRes, canvas.width, canvas.height);
+            gl.uniform1f(uTime, t);
+            gl.uniform2f(uMouse, mx, canvas.height - my);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    })();
+
+    // ==========================================
+    // DOT WAVE CANVAS (process section)
+    // ==========================================
+    (function initDotWave() {
+        const canvas = document.getElementById('dot-wave');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const DOT_SIZE = 2;
+        const GAP = 22;
+        let W, H, cols, rows;
+
+        function resize() {
+            W = canvas.offsetWidth;
+            H = canvas.offsetHeight;
+            canvas.width  = W;
+            canvas.height = H;
+            cols = Math.ceil(W / GAP) + 1;
+            rows = Math.ceil(H / GAP) + 1;
+        }
+
+        const ro = new ResizeObserver(resize);
+        ro.observe(canvas.parentElement);
+        resize();
+
+        let t = 0;
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            t += 0.025;
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const x = c * GAP;
+                    const baseY = r * GAP;
+                    // sine wave: offset by column, ripple over time
+                    const wave = Math.sin(c * 0.45 + r * 0.3 + t) * 6;
+                    const y = baseY + wave;
+                    // brightness based on wave amplitude
+                    const brightness = 0.3 + 0.7 * ((Math.sin(c * 0.45 + r * 0.3 + t) + 1) / 2);
+                    const alpha = 0.15 + brightness * 0.55;
+                    // Color: blue shifting to accent based on position
+                    const hue = 220 + Math.sin(c * 0.2 + t * 0.5) * 30;
+                    ctx.beginPath();
+                    ctx.arc(x, y, DOT_SIZE, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${hue}, 80%, 65%, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+
+    // ==========================================
+    // PROJECT SHOWCASE — floating hover preview
+    // ==========================================
+    (function initProjectShowcase() {
+        const preview   = document.getElementById('project-preview');
+        const previewImg= document.getElementById('project-preview-img');
+        if (!preview || !previewImg) return;
+
+        let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+        let raf = null;
+        let active = false;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function animate() {
+            currentX = lerp(currentX, targetX, 0.12);
+            currentY = lerp(currentY, targetY, 0.12);
+            preview.style.transform = `translate3d(${currentX}px,${currentY}px,0) scale(1)`;
+            if (active) raf = requestAnimationFrame(animate);
+        }
+
+        document.querySelectorAll('.project-card[data-preview-img]').forEach(card => {
+            const imgSrc = card.getAttribute('data-preview-img');
+
+            card.addEventListener('mouseenter', () => {
+                previewImg.src = imgSrc;
+                preview.classList.add('is-visible');
+                active = true;
+                cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(animate);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                preview.classList.remove('is-visible');
+                active = false;
+            });
+
+            card.addEventListener('mousemove', e => {
+                // offset so preview doesn't cover cursor
+                targetX = e.clientX + 20;
+                targetY = e.clientY - 90;
+            });
+        });
+    })();
+
+    // ==========================================
+    // SLIDE-TO-SEND BUTTON
+    // ==========================================
+    (function initSlideBtn() {
+        const wrap   = document.getElementById('slide-btn-wrap');
+        const handle = document.getElementById('slide-btn-handle');
+        const fill   = document.getElementById('slide-btn-fill');
+        const hidden = document.getElementById('form-submit-hidden');
+        if (!wrap || !handle) return;
+
+        const TRACK_W = () => wrap.offsetWidth - 54; // max drag distance
+        const THRESHOLD = 0.88; // 88% = trigger
+
+        let dragging = false, startX = 0, dragX = 0;
+
+        function setPos(x) {
+            const max = TRACK_W();
+            dragX = Math.max(0, Math.min(x, max));
+            handle.style.left = `${4 + dragX}px`;
+            fill.style.width  = `${dragX + 50}px`;
+        }
+
+        function onStart(e) {
+            if (wrap.classList.contains('is-sent')) return;
+            dragging = true;
+            startX = (e.touches ? e.touches[0].clientX : e.clientX) - dragX;
+            handle.classList.add('is-dragging');
+            wrap.classList.add('is-dragging');
+        }
+
+        function onMove(e) {
+            if (!dragging) return;
+            e.preventDefault();
+            const cx = e.touches ? e.touches[0].clientX : e.clientX;
+            setPos(cx - startX);
+        }
+
+        function onEnd() {
+            if (!dragging) return;
+            dragging = false;
+            handle.classList.remove('is-dragging');
+            wrap.classList.remove('is-dragging');
+
+            if (dragX / TRACK_W() >= THRESHOLD) {
+                // Fire submit
+                wrap.classList.add('is-sent');
+                // Give the form a moment to validate, then submit
+                setTimeout(() => {
+                    if (hidden) hidden.click();
+                }, 150);
+            } else {
+                // snap back
+                handle.style.transition = 'left 0.35s cubic-bezier(0.4,0,0.2,1)';
+                fill.style.transition   = 'width 0.35s cubic-bezier(0.4,0,0.2,1)';
+                setPos(0);
+                setTimeout(() => {
+                    handle.style.transition = '';
+                    fill.style.transition   = '';
+                }, 360);
+            }
+        }
+
+        handle.addEventListener('mousedown',  onStart);
+        handle.addEventListener('touchstart', onStart, { passive: true });
+        window.addEventListener('mousemove',  onMove);
+        window.addEventListener('touchmove',  onMove, { passive: false });
+        window.addEventListener('mouseup',    onEnd);
+        window.addEventListener('touchend',   onEnd);
+    })();
+
+    // ==========================================
     // INIT
     // ==========================================
     applyTranslations('en');
