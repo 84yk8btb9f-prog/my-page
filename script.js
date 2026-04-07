@@ -410,6 +410,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ==========================================
+    // HERO MOUSE SPOTLIGHT
+    // ==========================================
+    const heroEl = document.getElementById('home');
+    if (heroEl) {
+        heroEl.addEventListener('mousemove', (e) => {
+            const rect = heroEl.getBoundingClientRect();
+            heroEl.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            heroEl.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        });
+    }
+
+    // ==========================================
     // HERO SCROLL FADE
     // ==========================================
     if (window.innerWidth > 768) {
