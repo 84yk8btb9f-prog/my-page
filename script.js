@@ -38,6 +38,17 @@ document.addEventListener('DOMContentLoaded', function () {
             'form-message':'Project Details','form-btn':'Send Project Brief',
             'contact-email-label':'Email','contact-location-label':'Location','contact-location':'Athens, Greece','contact-response-label':'Response Time','contact-response-time':'Within 24 hours',
             'footer-text':'Helping Greek businesses go from invisible to unforgettable. One fast website at a time.','footer-location':'Athens, Greece',
+            'nav-about':'About',
+            'about-label':'About','about-title':'The Developer Behind the Work',
+            'about-p1':"I'm Nikolas — a 16-year-old self-taught web developer based in Athens, Greece. I build fast, clean websites for Greek businesses that want to compete online without the agency wait and cost.",
+            'about-p2':'I got into code because I wanted to build real things for real people. No classroom theory — just projects, clients, and results. Every site I deliver is something I\'m proud to put my name on.',
+            'about-p3':'I work directly with you, speak both Greek and English, and ship in 5 days. That\'s not a promise — it\'s just how I\'ve always worked.',
+            'about-journey-label':'// Journey',
+            'about-tl-1':'Wrote my first line of HTML. Fell into the rabbit hole of web development and never looked back.',
+            'about-tl-2':'Landed first real clients. Built live sites for restaurants, consultants, and retailers across Athens.',
+            'about-tl-3':'Growing a freelance practice helping Greek businesses go from invisible to unforgettable.',
+            'about-card-role':'Web Developer · Athens, Greece',
+            'about-stat-age':'Years Old','about-stat-days':'Day Delivery','about-stat-lang':'Languages',
             'funnel-skip':'Skip','funnel-step1-label':'Step 1 of 3','funnel-step2-label':'Step 2 of 3','funnel-step3-label':'Step 3 of 3','funnel-result-label':'Your Match',
             'funnel-q1':'What do you need?','funnel-q2':'What type of business?','funnel-q3':'What matters most?',
             'funnel-opt-new':'A brand new website','funnel-opt-redesign':'Redesign my current site','funnel-opt-store':'An online store','funnel-opt-notsure':'Not sure yet',
@@ -79,6 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
             'form-message':'Λεπτομέρειες Έργου','form-btn':'Αποστολή Περιγραφής Έργου',
             'contact-email-label':'Email','contact-location-label':'Τοποθεσία','contact-location':'Αθήνα, Ελλάδα','contact-response-label':'Χρόνος Απόκρισης','contact-response-time':'Εντός 24 ωρών',
             'footer-text':'Βοηθώντας ελληνικές επιχειρήσεις να πάνε από αόρατες σε αξέχαστες.','footer-location':'Αθήνα, Ελλάδα',
+            'nav-about':'Σχετικά',
+            'about-label':'Σχετικά','about-title':'Ο Developer Πίσω από τη Δουλειά',
+            'about-p1':'Είμαι ο Νικόλας — ένας 16χρονος αυτοδίδακτος web developer από την Αθήνα. Φτιάχνω γρήγορες, καθαρές ιστοσελίδες για ελληνικές επιχειρήσεις που θέλουν να ανταγωνιστούν online χωρίς αγχωτικές αναμονές.',
+            'about-p2':'Μπήκα στον κόσμο του κώδικα επειδή ήθελα να φτιάξω πραγματικά πράγματα για πραγματικούς ανθρώπους. Χωρίς θεωρία — μόνο projects, πελάτες και αποτελέσματα.',
+            'about-p3':'Συνεργάζομαι απευθείας μαζί σας, μιλώ Ελληνικά και Αγγλικά, και παραδίδω σε 5 ημέρες. Δεν είναι υπόσχεση — απλά έτσι δουλεύω πάντα.',
+            'about-journey-label':'// Πορεία',
+            'about-tl-1':'Έγραψα την πρώτη μου γραμμή HTML. Έπεσα στον κόσμο του web development και δεν κοίταξα πίσω.',
+            'about-tl-2':'Πήρα τους πρώτους πραγματικούς πελάτες. Έφτιαξα ζωντανές ιστοσελίδες για εστιατόρια, συμβούλους και εμπόρους στην Αθήνα.',
+            'about-tl-3':'Αναπτύσσω freelance πρακτική βοηθώντας ελληνικές επιχειρήσεις να πάνε από αόρατες σε αξέχαστες.',
+            'about-card-role':'Web Developer · Αθήνα, Ελλάδα',
+            'about-stat-age':'Ετών','about-stat-days':'Ημέρες Παράδ.','about-stat-lang':'Γλώσσες',
             'funnel-skip':'Παράλειψη','funnel-step1-label':'Βήμα 1 από 3','funnel-step2-label':'Βήμα 2 από 3','funnel-step3-label':'Βήμα 3 από 3','funnel-result-label':'Η Επιλογή σας',
             'funnel-q1':'Τι χρειάζεστε;','funnel-q2':'Τι είδος επιχείρηση έχετε;','funnel-q3':'Τι είναι πιο σημαντικό;',
             'funnel-opt-new':'Μια εντελώς νέα ιστοσελίδα','funnel-opt-redesign':'Ανανέωση υπάρχουσας ιστοσελίδας','funnel-opt-store':'Ένα online κατάστημα','funnel-opt-notsure':'Δεν είμαι σίγουρος/η ακόμα',
@@ -239,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
     // SCROLLSPY — active folder tab
     // ==========================================
-    const sections  = document.querySelectorAll('#home, #work, #process, #pricing, #contact');
+    const sections  = document.querySelectorAll('#home, #work, #process, #pricing, #about, #contact');
     const navTabs   = document.querySelectorAll('.nav-tab');
 
     const spyObserver = new IntersectionObserver((entries) => {

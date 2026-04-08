@@ -2318,6 +2318,197 @@ section { padding: 96px 0; }
 }
 
 /* ==========================================
+   ABOUT SECTION
+   ========================================== */
+
+.about-section {
+  border-top: 1px solid var(--border);
+  padding: 100px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 72px;
+  align-items: start;
+}
+
+.about-left .section-header { margin-bottom: 28px; }
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+
+.about-body p {
+  font-size: 0.96rem;
+  color: var(--off);
+  line-height: 1.78;
+}
+
+.about-journey-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.about-timeline { display: flex; flex-direction: column; }
+
+.about-tl-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-tl-item:first-child { border-top: 1px solid var(--border); }
+
+.about-tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--dim);
+  padding-top: 2px;
+}
+
+.about-tl-text {
+  font-size: 0.875rem;
+  color: var(--off);
+  line-height: 1.68;
+}
+
+/* Right column */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 88px;
+}
+
+.about-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.about-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--blue-dim);
+  border: 2px solid var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+}
+
+.about-card-name {
+  font-weight: 600;
+  color: var(--white);
+  font-size: 0.94rem;
+  margin-bottom: 3px;
+}
+
+.about-card-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  color: var(--dim);
+}
+
+/* Social links */
+.about-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.about-social {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 16px;
+  color: var(--off);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
+}
+
+.about-social:hover {
+  border-color: var(--blue-b);
+  color: var(--white);
+  background: var(--bg3);
+}
+
+.about-social i {
+  font-size: 0.95rem;
+  color: var(--blue);
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Stats row */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.about-stat {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.about-stat-num {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.about-stat-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-right { position: static; }
+}
+
+/* ==========================================
    QUESTION FUNNEL OVERLAY
    ========================================== */
 
