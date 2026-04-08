@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'funnel-opt-fast':'Launch as fast as possible','funnel-opt-credible':'Look credible & professional','funnel-opt-seo':'Get found on Google','funnel-opt-cost':'Keep costs low',
             'funnel-result-intro':'Based on what you told me, the best fit is:','funnel-recommended':'Recommended',
             'funnel-cta':'Get This Package','funnel-view-all':'View All Options','funnel-just-skip':'Just show me the site →',
+            'funnel-discount':'April only — 2 discounted spots left this month.',
         },
         gr: {
             'nav-home':'Αρχική','nav-work':'Έργα','nav-pricing':'Τιμές','nav-contact':'Επικοινωνία','nav-btn':'Δείτε Τιμές',
@@ -85,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'funnel-opt-fast':'Να ανεβώ online όσο πιο γρήγορα γίνεται','funnel-opt-credible':'Να φαίνομαι αξιόπιστος & επαγγελματίας','funnel-opt-seo':'Να με βρίσκουν στο Google','funnel-opt-cost':'Να κρατήσω το κόστος χαμηλά',
             'funnel-result-intro':'Βάσει όσων μου είπατε, η καλύτερη επιλογή είναι:','funnel-recommended':'Προτεινόμενο',
             'funnel-cta':'Επιλογή Πακέτου','funnel-view-all':'Δείτε Όλες τις Επιλογές','funnel-just-skip':'Απλά δείξτε μου την ιστοσελίδα →',
+            'funnel-discount':'Μόνο τον Απρίλιο — απομένουν 2 θέσεις με έκπτωση αυτόν τον μήνα.',
         }
     };
 
@@ -760,19 +762,13 @@ void main(){
             showFunnelStep(3);
         }
 
-        function closeFunnel(scrollToHero) {
+        function closeFunnel() {
             overlay.classList.remove('visible');
             sessionStorage.setItem('funnel-done', '1');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                if (scrollToHero !== false) {
-                    const hero = document.getElementById('home');
-                    if (hero) hero.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 420);
+            setTimeout(() => { overlay.style.display = 'none'; }, 420);
         }
 
-        setTimeout(() => { overlay.classList.add('visible'); }, 1400);
+        setTimeout(() => { overlay.classList.add('visible'); }, 2500);
 
         overlay.addEventListener('click', function (e) {
             const opt = e.target.closest('.funnel-opt[data-step]');

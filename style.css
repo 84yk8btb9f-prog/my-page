@@ -2321,20 +2321,18 @@ section { padding: 96px 0; }
    QUESTION FUNNEL OVERLAY
    ========================================== */
 
+/* Backdrop */
 #funnel-overlay {
   position: fixed;
   inset: 0;
   z-index: 99998;
-  background: var(--bg);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: rgba(7, 7, 15, 0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px 48px;
+  padding: 24px;
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -2346,14 +2344,28 @@ section { padding: 96px 0; }
   visibility: visible;
 }
 
+/* Modal card */
+.funnel-inner {
+  width: 100%;
+  max-width: 580px;
+  background: var(--bg2);
+  border: 1px solid var(--border-b);
+  border-radius: 14px;
+  padding: 36px 36px 28px;
+  position: relative;
+  max-height: calc(100svh - 48px);
+  overflow-y: auto;
+}
+
 .funnel-progress-wrap {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 2px;
   background: var(--dimmer);
-  z-index: 1;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
 }
 
 .funnel-progress-bar {
@@ -2363,8 +2375,8 @@ section { padding: 96px 0; }
 }
 
 .funnel-skip {
-  position: fixed;
-  top: 18px;
+  position: absolute;
+  top: 16px;
   right: 24px;
   z-index: 2;
   background: none;
@@ -2382,11 +2394,6 @@ section { padding: 96px 0; }
 
 .funnel-skip:hover { color: var(--off); border-color: var(--dimmer); }
 
-.funnel-inner {
-  width: 100%;
-  max-width: 600px;
-}
-
 .funnel-step {
   display: none;
   flex-direction: column;
@@ -2401,6 +2408,30 @@ section { padding: 96px 0; }
 @keyframes funnelStepIn {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+.funnel-discount-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 229, 160, 0.07);
+  border: 1px solid rgba(0, 229, 160, 0.22);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ok);
+  line-height: 1.45;
+}
+
+.funnel-discount-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+  flex-shrink: 0;
+  animation: pulse 1.2s ease-in-out infinite alternate;
 }
 
 .funnel-step-label {
