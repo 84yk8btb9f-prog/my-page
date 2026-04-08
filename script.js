@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'funnel-opt-restaurant':'Restaurant / Cafe / Bar','funnel-opt-shop':'Shop / Retail / Products','funnel-opt-services':'Professional Services','funnel-opt-other':'Other Business',
             'funnel-opt-fast':'Launch as fast as possible','funnel-opt-credible':'Look credible & professional','funnel-opt-seo':'Get found on Google','funnel-opt-cost':'Keep costs low',
             'funnel-result-intro':'Based on what you told me, the best fit is:','funnel-recommended':'Recommended',
-            'funnel-cta':'Get This Package','funnel-view-all':'View All Options',
+            'funnel-cta':'Get This Package','funnel-view-all':'View All Options','funnel-just-skip':'Just show me the site →',
         },
         gr: {
             'nav-home':'Αρχική','nav-work':'Έργα','nav-pricing':'Τιμές','nav-contact':'Επικοινωνία','nav-btn':'Δείτε Τιμές',
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'funnel-opt-restaurant':'Εστιατόριο / Καφέ / Bar','funnel-opt-shop':'Κατάστημα / Λιανική / Προϊόντα','funnel-opt-services':'Επαγγελματικές Υπηρεσίες','funnel-opt-other':'Άλλη Επιχείρηση',
             'funnel-opt-fast':'Να ανεβώ online όσο πιο γρήγορα γίνεται','funnel-opt-credible':'Να φαίνομαι αξιόπιστος & επαγγελματίας','funnel-opt-seo':'Να με βρίσκουν στο Google','funnel-opt-cost':'Να κρατήσω το κόστος χαμηλά',
             'funnel-result-intro':'Βάσει όσων μου είπατε, η καλύτερη επιλογή είναι:','funnel-recommended':'Προτεινόμενο',
-            'funnel-cta':'Επιλογή Πακέτου','funnel-view-all':'Δείτε Όλες τις Επιλογές',
+            'funnel-cta':'Επιλογή Πακέτου','funnel-view-all':'Δείτε Όλες τις Επιλογές','funnel-just-skip':'Απλά δείξτε μου την ιστοσελίδα →',
         }
     };
 
@@ -760,10 +760,16 @@ void main(){
             showFunnelStep(3);
         }
 
-        function closeFunnel() {
+        function closeFunnel(scrollToHero) {
             overlay.classList.remove('visible');
             sessionStorage.setItem('funnel-done', '1');
-            setTimeout(() => { overlay.style.display = 'none'; }, 420);
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                if (scrollToHero !== false) {
+                    const hero = document.getElementById('home');
+                    if (hero) hero.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 420);
         }
 
         setTimeout(() => { overlay.classList.add('visible'); }, 1400);
@@ -778,7 +784,10 @@ void main(){
                 else if (step === 3) { answers.q3 = val; renderResult(); }
                 return;
             }
-            if (e.target.closest('#funnel-skip') || e.target.closest('#funnel-view-all') || e.target.closest('#funnel-cta')) {
+            if (e.target.closest('#funnel-view-all') || e.target.closest('#funnel-cta') || e.target.closest('.funnel-just-skip')) {
+                closeFunnel();
+            }
+            if (e.target.closest('#funnel-skip')) {
                 closeFunnel();
             }
         });
