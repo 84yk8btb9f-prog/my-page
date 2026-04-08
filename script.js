@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Auto-counts .project-card elements so "Live Sites Built"
     // never needs manual updates when you add new projects.
     // ==========================================
-    const liveCount = document.querySelectorAll('.project-card').length;
+    const liveCount = document.querySelectorAll('.project-row').length;
 
     const statTargets = [
         { value: liveCount, suffix: '' },
