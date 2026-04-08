@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
             'form-message':'Project Details','form-btn':'Send Project Brief',
             'contact-email-label':'Email','contact-location-label':'Location','contact-location':'Athens, Greece','contact-response-label':'Response Time','contact-response-time':'Within 24 hours',
             'footer-text':'Helping Greek businesses go from invisible to unforgettable. One fast website at a time.','footer-location':'Athens, Greece',
+            'funnel-skip':'Skip','funnel-step1-label':'Step 1 of 3','funnel-step2-label':'Step 2 of 3','funnel-step3-label':'Step 3 of 3','funnel-result-label':'Your Match',
+            'funnel-q1':'What do you need?','funnel-q2':'What type of business?','funnel-q3':'What matters most?',
+            'funnel-opt-new':'A brand new website','funnel-opt-redesign':'Redesign my current site','funnel-opt-store':'An online store','funnel-opt-notsure':'Not sure yet',
+            'funnel-opt-restaurant':'Restaurant / Cafe / Bar','funnel-opt-shop':'Shop / Retail / Products','funnel-opt-services':'Professional Services','funnel-opt-other':'Other Business',
+            'funnel-opt-fast':'Launch as fast as possible','funnel-opt-credible':'Look credible & professional','funnel-opt-seo':'Get found on Google','funnel-opt-cost':'Keep costs low',
+            'funnel-result-intro':'Based on what you told me, the best fit is:','funnel-recommended':'Recommended',
+            'funnel-cta':'Get This Package','funnel-view-all':'View All Options',
         },
         gr: {
             'nav-home':'Αρχική','nav-work':'Έργα','nav-pricing':'Τιμές','nav-contact':'Επικοινωνία','nav-btn':'Δείτε Τιμές',
@@ -71,6 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
             'form-message':'Λεπτομέρειες Έργου','form-btn':'Αποστολή Περιγραφής Έργου',
             'contact-email-label':'Email','contact-location-label':'Τοποθεσία','contact-location':'Αθήνα, Ελλάδα','contact-response-label':'Χρόνος Απόκρισης','contact-response-time':'Εντός 24 ωρών',
             'footer-text':'Βοηθώντας ελληνικές επιχειρήσεις να πάνε από αόρατες σε αξέχαστες.','footer-location':'Αθήνα, Ελλάδα',
+            'funnel-skip':'Παράλειψη','funnel-step1-label':'Βήμα 1 από 3','funnel-step2-label':'Βήμα 2 από 3','funnel-step3-label':'Βήμα 3 από 3','funnel-result-label':'Η Επιλογή σας',
+            'funnel-q1':'Τι χρειάζεστε;','funnel-q2':'Τι είδος επιχείρηση έχετε;','funnel-q3':'Τι είναι πιο σημαντικό;',
+            'funnel-opt-new':'Μια εντελώς νέα ιστοσελίδα','funnel-opt-redesign':'Ανανέωση υπάρχουσας ιστοσελίδας','funnel-opt-store':'Ένα online κατάστημα','funnel-opt-notsure':'Δεν είμαι σίγουρος/η ακόμα',
+            'funnel-opt-restaurant':'Εστιατόριο / Καφέ / Bar','funnel-opt-shop':'Κατάστημα / Λιανική / Προϊόντα','funnel-opt-services':'Επαγγελματικές Υπηρεσίες','funnel-opt-other':'Άλλη Επιχείρηση',
+            'funnel-opt-fast':'Να ανεβώ online όσο πιο γρήγορα γίνεται','funnel-opt-credible':'Να φαίνομαι αξιόπιστος & επαγγελματίας','funnel-opt-seo':'Να με βρίσκουν στο Google','funnel-opt-cost':'Να κρατήσω το κόστος χαμηλά',
+            'funnel-result-intro':'Βάσει όσων μου είπατε, η καλύτερη επιλογή είναι:','funnel-recommended':'Προτεινόμενο',
+            'funnel-cta':'Επιλογή Πακέτου','funnel-view-all':'Δείτε Όλες τις Επιλογές',
         }
     };
 
@@ -664,6 +678,109 @@ void main(){
             dot.addEventListener('click', () => {
                 track.scrollTo({ left: i * getCardWidth(), behavior: 'smooth' });
             });
+        });
+    })();
+
+    // ==========================================
+    // QUESTION FUNNEL
+    // ==========================================
+    (function initFunnel() {
+        if (sessionStorage.getItem('funnel-done')) return;
+
+        const overlay     = document.getElementById('funnel-overlay');
+        const progressBar = document.getElementById('funnel-progress-bar');
+        if (!overlay) return;
+
+        const funnelSteps = [
+            document.getElementById('funnel-s1'),
+            document.getElementById('funnel-s2'),
+            document.getElementById('funnel-s3'),
+            document.getElementById('funnel-result'),
+        ];
+
+        const answers = { q1: null, q2: null, q3: null };
+
+        const pkgData = {
+            landing: {
+                name: { en: 'Landing Page', gr: 'Landing Page' },
+                price: '€149',
+                desc: { en: 'Perfect for getting online fast — 1 page, contact form, mobile-ready, delivered in 5 days.', gr: 'Ιδανικό για να πάτε online γρήγορα — 1 σελίδα, φόρμα επικοινωνίας, mobile-ready, σε 5 ημέρες.' },
+                features: { en: ['1 page, 3–5 sections', 'Mobile responsive', 'Contact form', '1 revision round'], gr: ['1 σελίδα, 3–5 τμήματα', 'Mobile responsive', 'Φόρμα επικοινωνίας', '1 γύρος αλλαγών'] },
+                delivery: { en: '✦ Delivered in 5 days', gr: '✦ Παράδοση σε 5 ημέρες' },
+            },
+            basic: {
+                name: { en: 'Basic Website', gr: 'Βασική Ιστοσελίδα' },
+                price: '€299',
+                desc: { en: 'Great for services & professionals — 3–5 pages, SEO-ready, clean and credible.', gr: 'Ιδανικό για υπηρεσίες & επαγγελματίες — 3–5 σελίδες, SEO-ready, καθαρό και αξιόπιστο.' },
+                features: { en: ['3–5 pages', 'Basic SEO', 'Contact form', '2 revision rounds'], gr: ['3–5 σελίδες', 'Βασικό SEO', 'Φόρμα επικοινωνίας', '2 γύροι αλλαγών'] },
+                delivery: { en: '✦ Delivered in 5 days', gr: '✦ Παράδοση σε 5 ημέρες' },
+            },
+            business: {
+                name: { en: 'Business Website', gr: 'Επιχειρηματική Ιστοσελίδα' },
+                price: '€499',
+                desc: { en: 'The full package — gallery, Google Maps, social links, email setup. Built to convert.', gr: 'Το πλήρες πακέτο — γκαλερί, Google Maps, social links, email setup. Φτιαγμένο να μετατρέπει.' },
+                features: { en: ['5–8 pages', 'Gallery / portfolio', 'Google Maps', '3 revision rounds'], gr: ['5–8 σελίδες', 'Γκαλερί / portfolio', 'Google Maps', '3 γύροι αλλαγών'] },
+                delivery: { en: '✦ Delivered in 5 days', gr: '✦ Παράδοση σε 5 ημέρες' },
+            },
+            ecommerce: {
+                name: { en: 'E-commerce Store', gr: 'E-commerce Κατάστημα' },
+                price: '€799',
+                desc: { en: 'Sell online with confidence — Stripe/Viva Wallet payments, product management, admin dashboard.', gr: 'Πουλήστε online με σιγουριά — πληρωμές Stripe/Viva Wallet, διαχείριση προϊόντων, admin dashboard.' },
+                features: { en: ['Full shopping cart', 'Online payments', 'Product management', 'Admin dashboard'], gr: ['Πλήρες καλάθι αγορών', 'Online πληρωμές', 'Διαχείριση προϊόντων', 'Admin dashboard'] },
+                delivery: { en: '✦ Delivered in 7–10 days', gr: '✦ Παράδοση σε 7–10 ημέρες' },
+            },
+        };
+
+        function recommend() {
+            const { q1, q2, q3 } = answers;
+            if (q1 === 'store' || q2 === 'shop') return 'ecommerce';
+            if (q1 === 'redesign' || q2 === 'restaurant' || q2 === 'other') return 'business';
+            if (q3 === 'fast' || q3 === 'cost' || q1 === 'notsure') return 'landing';
+            return 'basic';
+        }
+
+        function showFunnelStep(index) {
+            funnelSteps.forEach(s => { s.classList.remove('active'); });
+            const target = funnelSteps[index];
+            target.classList.add('active');
+            progressBar.style.width = (index === 3 ? 100 : (index / 3) * 100) + '%';
+        }
+
+        function renderResult() {
+            const key = recommend();
+            const pkg = pkgData[key];
+            const l = currentLang === 'gr' ? 'gr' : 'en';
+            document.getElementById('funnel-rc-name').textContent    = pkg.name[l];
+            document.getElementById('funnel-rc-price').textContent   = pkg.price;
+            document.getElementById('funnel-rc-desc').textContent    = pkg.desc[l];
+            document.getElementById('funnel-rc-delivery').textContent = pkg.delivery[l];
+            const ul = document.getElementById('funnel-rc-features');
+            ul.innerHTML = '';
+            pkg.features[l].forEach(f => { const li = document.createElement('li'); li.textContent = f; ul.appendChild(li); });
+            showFunnelStep(3);
+        }
+
+        function closeFunnel() {
+            overlay.classList.remove('visible');
+            sessionStorage.setItem('funnel-done', '1');
+            setTimeout(() => { overlay.style.display = 'none'; }, 420);
+        }
+
+        setTimeout(() => { overlay.classList.add('visible'); }, 1400);
+
+        overlay.addEventListener('click', function (e) {
+            const opt = e.target.closest('.funnel-opt[data-step]');
+            if (opt) {
+                const step = parseInt(opt.getAttribute('data-step'), 10);
+                const val  = opt.getAttribute('data-val');
+                if (step === 1) { answers.q1 = val; showFunnelStep(1); }
+                else if (step === 2) { answers.q2 = val; showFunnelStep(2); }
+                else if (step === 3) { answers.q3 = val; renderResult(); }
+                return;
+            }
+            if (e.target.closest('#funnel-skip') || e.target.closest('#funnel-view-all') || e.target.closest('#funnel-cta')) {
+                closeFunnel();
+            }
         });
     })();
 

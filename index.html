@@ -204,6 +204,112 @@
 </head>
 <body>
 
+    <!-- ======================================
+         QUESTION FUNNEL OVERLAY
+         ====================================== -->
+    <div id="funnel-overlay" role="dialog" aria-modal="true" aria-label="Find your perfect package">
+
+        <div class="funnel-progress-wrap">
+            <div class="funnel-progress-bar" id="funnel-progress-bar" style="width:0%"></div>
+        </div>
+
+        <button class="funnel-skip" id="funnel-skip" data-translate="funnel-skip">Skip</button>
+
+        <div class="funnel-inner">
+
+            <!-- Step 1 -->
+            <div class="funnel-step active" id="funnel-s1">
+                <p class="funnel-step-label" data-translate="funnel-step1-label">Step 1 of 3</p>
+                <h2 class="funnel-q" data-translate="funnel-q1">What do you need?</h2>
+                <div class="funnel-opts">
+                    <button class="funnel-opt" data-step="1" data-val="new">
+                        <span class="funnel-opt-icon">✦</span>
+                        <span data-translate="funnel-opt-new">A brand new website</span>
+                    </button>
+                    <button class="funnel-opt" data-step="1" data-val="redesign">
+                        <span class="funnel-opt-icon">↺</span>
+                        <span data-translate="funnel-opt-redesign">Redesign my current site</span>
+                    </button>
+                    <button class="funnel-opt" data-step="1" data-val="store">
+                        <span class="funnel-opt-icon">◈</span>
+                        <span data-translate="funnel-opt-store">An online store</span>
+                    </button>
+                    <button class="funnel-opt" data-step="1" data-val="notsure">
+                        <span class="funnel-opt-icon">?</span>
+                        <span data-translate="funnel-opt-notsure">Not sure yet</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="funnel-step" id="funnel-s2">
+                <p class="funnel-step-label" data-translate="funnel-step2-label">Step 2 of 3</p>
+                <h2 class="funnel-q" data-translate="funnel-q2">What type of business?</h2>
+                <div class="funnel-opts">
+                    <button class="funnel-opt" data-step="2" data-val="restaurant">
+                        <span class="funnel-opt-icon">◉</span>
+                        <span data-translate="funnel-opt-restaurant">Restaurant / Cafe / Bar</span>
+                    </button>
+                    <button class="funnel-opt" data-step="2" data-val="shop">
+                        <span class="funnel-opt-icon">◈</span>
+                        <span data-translate="funnel-opt-shop">Shop / Retail / Products</span>
+                    </button>
+                    <button class="funnel-opt" data-step="2" data-val="services">
+                        <span class="funnel-opt-icon">◆</span>
+                        <span data-translate="funnel-opt-services">Professional Services</span>
+                    </button>
+                    <button class="funnel-opt" data-step="2" data-val="other">
+                        <span class="funnel-opt-icon">◇</span>
+                        <span data-translate="funnel-opt-other">Other Business</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="funnel-step" id="funnel-s3">
+                <p class="funnel-step-label" data-translate="funnel-step3-label">Step 3 of 3</p>
+                <h2 class="funnel-q" data-translate="funnel-q3">What matters most?</h2>
+                <div class="funnel-opts">
+                    <button class="funnel-opt" data-step="3" data-val="fast">
+                        <span class="funnel-opt-icon">⚡</span>
+                        <span data-translate="funnel-opt-fast">Launch as fast as possible</span>
+                    </button>
+                    <button class="funnel-opt" data-step="3" data-val="credible">
+                        <span class="funnel-opt-icon">◈</span>
+                        <span data-translate="funnel-opt-credible">Look credible &amp; professional</span>
+                    </button>
+                    <button class="funnel-opt" data-step="3" data-val="seo">
+                        <span class="funnel-opt-icon">↗</span>
+                        <span data-translate="funnel-opt-seo">Get found on Google</span>
+                    </button>
+                    <button class="funnel-opt" data-step="3" data-val="cost">
+                        <span class="funnel-opt-icon">◇</span>
+                        <span data-translate="funnel-opt-cost">Keep costs low</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div class="funnel-step" id="funnel-result">
+                <p class="funnel-step-label" data-translate="funnel-result-label">Your Match</p>
+                <p class="funnel-result-intro" data-translate="funnel-result-intro">Based on what you told me, the best fit is:</p>
+                <div class="funnel-result-card">
+                    <div class="funnel-rc-badge" data-translate="funnel-recommended">Recommended</div>
+                    <div class="funnel-rc-price" id="funnel-rc-price"></div>
+                    <h3 class="funnel-rc-name" id="funnel-rc-name"></h3>
+                    <p class="funnel-rc-desc" id="funnel-rc-desc"></p>
+                    <ul class="funnel-rc-features" id="funnel-rc-features"></ul>
+                    <p class="funnel-rc-delivery" id="funnel-rc-delivery"></p>
+                </div>
+                <div class="funnel-result-actions">
+                    <a href="#pricing" class="funnel-cta" id="funnel-cta" data-translate="funnel-cta">Get This Package</a>
+                    <button class="funnel-view-all" id="funnel-view-all" data-translate="funnel-view-all">View All Options</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- WebGL background shader -->
     <canvas id="bg-shader" aria-hidden="true"></canvas>
 
