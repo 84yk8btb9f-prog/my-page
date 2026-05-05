@@ -112,6 +112,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    // Auto-update month in funnel discount text
+    const _month = new Date().toLocaleString('en-US', { month: 'long' });
+    const _monthGR = new Date().toLocaleString('el-GR', { month: 'long' });
+    translations.en['funnel-discount'] = `${_month} only — 2 discounted spots left this month.`;
+    translations.gr['funnel-discount'] = `Μόνο τον ${_monthGR} — απομένουν 2 θέσεις με έκπτωση αυτόν τον μήνα.`;
+
     function applyTranslations(lang) {
         const t = translations[lang];
         if (!t) return;
